@@ -1,11 +1,9 @@
 <?php
     
     require_once 'DAOs/OilDAO.php';
-    require_once 'DAOs/EffectDAO.php';
-    
+
     //OilDAOを使用してオイル一覧を取得
     $oils = OilDAO::get_all_oils_sort();
-    $effects = EffectDAO::get_all_effects();
     
     //var_dump($oils);
-    include_once 'views/index_view.php';
+    include_once 'views/essential_oil_top_view.php';

@@ -23,14 +23,14 @@
         <div class="essential_oils">
             <h2><?= $oil->name ?>詳細</h2>
             <ul>
-                <li><?= $oil->image ?></li>
+                <li><img src="<?= $oil->image ?>"></li>
                 <li><?= $oil->id ?></li>
                 <li>名前：<?= $oil->name ?></li>
                 <li>学名：<?= $oil->scientific_name ?></li>
                 <li>科名：<?= $oil->plant_name ?></li>
                 <li>抽出方法：<?= $oil->extraction ?></li>
                 <li>香り：<?= $oil->aroma ?></li>
-                <li>効果：<?= $oil->effect ?></li>
+                <li>効果：<?= $relation->effect()->id ?></li>
                 <li>注意事項：<?= $oil->caution ?></li>
             </ul>
             <p1><a href="index.php">Back to Top</a></p1>

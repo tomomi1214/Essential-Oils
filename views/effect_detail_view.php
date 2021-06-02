@@ -21,15 +21,16 @@
     <body>
         <h1>Effects</h1>
         <div class="effects">
-            <h2><?= $effect->name ?></h2>
+            <h2><?= $effect->effect ?></h2>
             <ul>
                 <li><?= $effect->id ?></li>
-                <li>効果：<?= $effect->name ?></li>
-                <li>エッセンシャルオイル：<?= $effect->essential_oils ?></li>
-                <li>使い方：<?= $effect->how_to_use ?></li>
+                <li>効果：<?= $effect->effect ?></li>
+                <li>エッセンシャルオイル：<?= $effect->oil()->name ?></li>
+                <li>詳細：<?= $effect->content ?></li>
                 <li>注意事項：<?= $effect->caution ?></li>
             </ul>
-            <p1><a href="index.php">Back to Top</a></p1>
+            <p1><a href="index.php">Back to Top</a></p1><br>
+            <p1><a href="effects_top.php">Back to Effects Top</a></p1>
         </div>
     </body>
 </html>

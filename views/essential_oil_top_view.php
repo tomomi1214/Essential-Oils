@@ -19,7 +19,6 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h1>Aroma Knowledge</h1>
         <div class="essential_oils">
             <h2>Essential Oils</h2>
             <?php foreach($oils as $oil): ?>
@@ -33,18 +32,11 @@
             <p>B</p>
             <p>C</p>
             <p>D</p>
-            
-            <p1><a href="essential_oil_top.php">>>See More</a></p1>
-        </div>
-        <div class="effects">
-            <h2>Effects</h2>
-            <?php foreach($effects as $effect): ?>
-            <ul>
-                <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->id ?></a></li>
-                <li><?= $effect->effect ?></li>
-            </ul>
-            <?php endforeach; ?>
 
+
+
+        <p1><a href="index.php">Back to Top</a></p1><br>
         </div>
+
     </body>
 </html>

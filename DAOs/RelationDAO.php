@@ -1,8 +1,8 @@
 <?php
     //外部ファイルの読み込み
-    require_once'models/Oil.php';
+    require_once'models/Relation.php';
     //DAO: DBを扱う専門家
-    class OilDAO {
+    class RelationDAO {
         //データベースと接続するめぞっド
         //private ここでしか使わないメソッド
         // static ::を示す
@@ -26,18 +26,18 @@
             $stmt = null;
         }
         
-        //DBから全オイル情報を取得し、並べ替える
-        public static function get_all_oils_sort(){
+        //DBから全オイル情報を取得する
+        public static function get_all_relations(){
         // 例外処理
             try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // SELECT文実行 statement object
-                $stmt = $pdo->query('SELECT * FROM essential_oils ORDER BY english_name ASC');
+                $stmt = $pdo->query('SELECT * FROM relations');
                 // Fetch ModeをOilクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
                 // SELECT文の結果を Oilクラスのインスタンス配列に格納
-                $oils = $stmt->fetchAll();
+                $relations = $stmt->fetchAll();
                 
             }catch(PDOException $e){
             }finally{
@@ -45,19 +45,70 @@
                 self::close_connection($pdo, $stmt);
             }
             // 完成したユーザー一覧、はいあげる
-            return $oils;    
+            return $relations;    
         }
-                //DBから全オイル情報を取得する
-        public static function get_all_oils(){
+        //DBからidを指定して情報を取得する
+        public static function get_relation($id){
+        // 例外処理
+           try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文実行準備 statement object
+                $stmt = $pdo->prepare('SELECT * FROM relations WHERE id=:id');
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                // INSERT文本番実行
+                $stmt->execute();
+                // Fetch ModeをRelationクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+                // SELECT文の結果を Relationクラスのインスタンス配列に格納
+                $relation = $stmt->fetchAll();
+                
+            }catch(PDOException $e){
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成した投稿一覧、はいあげる
+            return $relation;       
+        }
+        //DBからeffect_idに対するオイル情報取得する
+        public static function get_all_relations_by_effect_id($effect_id){
         // 例外処理
             try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
-                // SELECT文実行 statement object
-                $stmt = $pdo->query('SELECT * FROM essential_oils');
-                // Fetch ModeをOilクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
-                // SELECT文の結果を Oilクラスのインスタンス配列に格納
+                // SELECT文実行準備 statement object
+                $stmt = $pdo->prepare('SELECT * FROM relations WHERE effect_id=:effect_id');
+                $stmt->bindValue(':effect_id', $effect_id, PDO::PARAM_INT);
+                // INSERT文本番実行
+                $stmt->execute();
+                // Fetch ModeをRelationクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+                // SELECT文の結果を Relationクラスのインスタンス配列に格納
+                $relations = $stmt->fetchAll();
+                
+            }catch(PDOException $e){
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成した投稿一覧、はいあげる
+            return $relations;    
+        }
+        //DBからoil_idに対するeffect情報取得する
+        public static function get_all_relations_by_oil_id($oil_id){
+        // 例外処理
+            try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文実行準備 statement object
+                $stmt = $pdo->prepare('SELECT * FROM relations WHERE oil_id=:oil_id');
+                $stmt->bindValue(':oil_id', $oil_id, PDO::PARAM_INT);
+                // INSERT文本番実行
+                $stmt->execute();
+                // Fetch ModeをRelationクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+                // SELECT文の結果を Relationクラスのインスタンス配列に格納
                 $oils = $stmt->fetchAll();
                 
             }catch(PDOException $e){
@@ -65,65 +116,11 @@
                 // 後処理
                 self::close_connection($pdo, $stmt);
             }
-            // 完成したユーザー一覧、はいあげる
+            // 完成した投稿一覧、はいあげる
             return $oils;    
-        }
-
-        //$idを指定して1つのオイル情報を取得する
-        public static function get_oil($id){
-            //例外処理
-             try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // SELECT文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE id=:id');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-                // SELECT文本番実行
-                $stmt->execute();
-
-                // Fetch ModeをOilクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
-                // SELECT文の結果を Oilクラスのインスタンスに格納
-                $oil = $stmt->fetch();
-                
-            }catch(PDOException $e){
-                
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-            // 完成したユーザー、はいあげる
-            return $oil;  
-        }
-        
-        public static function find($id){
-            //例外処理
-             try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // SELECT文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE id=:id');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-                // SELECT文本番実行
-                $stmt->execute();
-
-                // Fetch ModeをPostクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
-                // SELECT文の結果を Postクラスのインスタンスに格納
-                $oil = $stmt->fetch();
-                
-            }catch(PDOException $e){
-                
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-            // 完成した、はい投稿あげる
-            return $oil;  
         }
         /*
+        
         //新規ユーザ登録をするメソッド
         public static function insert($user) {
             // 例外処理
@@ -176,7 +173,35 @@
             return $user;
         }
         */
-        
+        //$effect_idを指定して、該当するオイル情報を取得する
+        /*
+        public static function get_relation($effect_id){
+            //例外処理
+             try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文の実行準備(:idは適当、不明確)
+                $stmt = $pdo->prepare('SELECT * FROM relations WHERE effect_id=:effect_id');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                $stmt->bindValue(':effect_id', $effect_id, PDO::PARAM_INT);
+                // SELECT文本番実行
+                $stmt->execute();
+
+                // Fetch ModeをOilクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+                // SELECT文の結果を Oilクラスのインスタンスに格納
+                $oil = $stmt->fetch();
+                
+            }catch(PDOException $e){
+                
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成したユーザー、はいあげる
+            return $oil;  
+        }
+        */
         /*
         //$idを指定して入力された情報に更新
         public static function update($user, $id){
