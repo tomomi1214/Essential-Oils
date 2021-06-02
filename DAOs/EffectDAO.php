@@ -1,7 +1,8 @@
 <?php
     //外部ファイルの読み込み
-    require_once'models/Effect.php';
-    
+    require_once 'models/Effect.php';
+    require_once 'models/Relation.php';
+
     //DAO: DBを扱う専門家
     class EffectDAO {
         //データベースと接続するめぞっド
@@ -75,6 +76,44 @@
             // 完成したユーザー、はいあげる
             return $effect;  
         }
+        //$oil_idが与えられた時、それに与えられらeffect情報を取得する
+        public static function get_all_effects_by_oil_id($oil_id){
+            //例外処理
+             try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文の実行準備(:idは適当、不明確)
+                $stmt = $pdo->prepare('SELECT * FROM relations WHERE oil_id=:oil_id');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                $stmt->bindValue(':oil_id', $oil_id, PDO::PARAM_INT);
+                // SELECT文本番実行
+                $stmt->execute();
+
+                // Fetch ModeをRelationクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+                // SELECT文の結果を Oilクラスのインスタンスに格納
+                //すべてを格納するためにfetchAllにする。fechだと最初の一つだけ
+                $relations = $stmt->fetchAll();
+                //var_dump($relations);
+                
+                //$relationsから$effectsを求めたい
+                $effects = array();
+                foreach($relations as $relation){
+                    $effect = self::get_effect($relation->effect_id);
+                    $effects[] = $effect;  
+                }
+                //var_dump($effects);
+                
+            }catch(PDOException $e){
+                
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成した効能一覧、はいあげる
+            return $effects;  
+        }
+
         /*
         public static function get_oil($id){
             //例外処理

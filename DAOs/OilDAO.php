@@ -96,6 +96,42 @@
             // 完成したユーザー、はいあげる
             return $oil;  
         }
+        //効果IDが与えられた時、それに紐づいたオイル一覧を取得
+        public static function get_all_oils_by_effect_id($effect_id){
+            //例外処理
+             try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文の実行準備(:idは適当、不明確)
+                $stmt = $pdo->prepare('SELECT * FROM relations WHERE effect_id=:effect_id');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                $stmt->bindValue(':effect_id', $effect_id, PDO::PARAM_INT);
+                // SELECT文本番実行
+                $stmt->execute();
+
+                // Fetch ModeをOilクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+                // SELECT文の結果を relationクラスのインスタンスに格納
+                $relations = $stmt->fetchAll();
+                //var_dump($relations);
+                
+                //RelationsからOilsに詰め替え
+                $oils = array();
+                foreach($relations as $relation){
+                    $oil = self::get_oil($relation->oil_id);
+                    $oils[] = $oil;
+                }
+                //var_dump($oils);
+                
+            }catch(PDOException $e){
+                
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成したユーザー、はいあげる
+            return $oils;  
+        }
         
         public static function find($id){
             //例外処理

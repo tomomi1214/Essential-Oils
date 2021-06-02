@@ -24,7 +24,7 @@
             <h2>Essential Oils</h2>
             <?php foreach($oils as $oil): ?>
             <ul>
-                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->id ?></a></li>
+                <li><?= strtoupper(substr($oil->english_name, 0,1)) ?><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->id ?></a></li>
                 <li><?= $oil->name ?></li>
             </ul>
             <?php endforeach; ?>

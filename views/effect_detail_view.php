@@ -25,10 +25,15 @@
             <ul>
                 <li><?= $effect->id ?></li>
                 <li>効果：<?= $effect->effect ?></li>
-                <li>エッセンシャルオイル：<?= $effect->oil()->name ?></li>
                 <li>詳細：<?= $effect->content ?></li>
                 <li>注意事項：<?= $effect->caution ?></li>
             </ul>
+            <h2>オイル一覧</h2>
+            <?php foreach($oils as $oil): ?>
+            <ul>
+                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
+            </ul>
+            <?php endforeach; ?>
             <p1><a href="index.php">Back to Top</a></p1><br>
             <p1><a href="effects_top.php">Back to Effects Top</a></p1>
         </div>

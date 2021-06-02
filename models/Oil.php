@@ -11,7 +11,7 @@
         public $english_name;
         public $created_at;     //登録日時
         
-        public function __construct($name="", $scientific_name="", $plant_name="", $ectraction="", $component="", $aroma="", $english_name="", $caution=""){
+        public function __construct($name="", $scientific_name="", $plant_name="", $extraction="", $component="", $aroma="", $english_name="", $caution=""){
             $this->name = $name;
             $this->scientific_name = $scientific_name;
             $this->plant_name = $plant_name;

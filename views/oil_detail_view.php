@@ -30,9 +30,14 @@
                 <li>科名：<?= $oil->plant_name ?></li>
                 <li>抽出方法：<?= $oil->extraction ?></li>
                 <li>香り：<?= $oil->aroma ?></li>
-                <li>効果：<?= $relation->effect()->id ?></li>
                 <li>注意事項：<?= $oil->caution ?></li>
             </ul>
+            <h3>効果</h3>
+            <ul>
+            <?php foreach($effects as $effect): ?>
+                <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->effect ?></a></li>
+            <?php endforeach; ?>
+            </ul>            
             <p1><a href="index.php">Back to Top</a></p1>
         </div>
     </body>

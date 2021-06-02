@@ -12,6 +12,9 @@
     $effect = EffectDAO::get_effect($id);
     //var_dump($effect);
     
+    $oils = OilDAO::get_all_oils_by_effect_id($id);
+    //var_dump($oils);
+    
     //$relation = RelationDAO::get_all_relations_by_effect_id($id);
     //var_dump($relation);
     

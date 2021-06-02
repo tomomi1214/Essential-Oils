@@ -1,7 +1,7 @@
 <?php
     //C
     require_once 'DAOs/OilDAO.php';
-    require_once 'DAOs/RelationDAO.php';
+    require_once 'DAOs/EffectDAO.php';
     require_once 'models/Relation.php';
     session_start();
     
@@ -9,7 +9,10 @@
     
     $oil = OilDAO::find($id);
     
-    $relation = RelationDAO::get_all_relations_by_oil_id($id);
-    var_dump($relation);
+    //$relation = RelationDAO::get_all_relations_by_oil_id($id);
+    //var_dump($relation);
+    
+    $effects = EffectDAO::get_all_effects_by_oil_id($id);
+    //var_dump($effects);
     
     include_once 'views/oil_detail_view.php';

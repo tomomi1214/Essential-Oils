@@ -1,5 +1,6 @@
 <?php
-
+    require_once 'DAOs/RelationDAO.php';
+    
     class Effect {
         public $id;     //ID
         public $effect;   //名前
@@ -13,3 +14,4 @@
             $this->caution = $caution;
         }
     }
+    
