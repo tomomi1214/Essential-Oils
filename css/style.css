@@ -55,11 +55,15 @@
 h1 {
     padding-left: 30px;
 }
+
+p {
+    margin-left: 50px;
+}
 .essential_oils {
     margin: 50px 50px;
 }
-.essential_oils p, .effects p {
-    font-size: 30px;
+.essential_oils p, .effects p, .main p {
+    font-size: 17px;
     margin-left: 30px;
 }
 .essential_oils ul, .effects ul {

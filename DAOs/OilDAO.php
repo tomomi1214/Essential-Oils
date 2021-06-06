@@ -1,6 +1,6 @@
 <?php
     //外部ファイルの読み込み
-    require_once'models/Oil.php';
+    require_once 'models/Oil.php';
     //DAO: DBを扱う専門家
     class OilDAO {
         //データベースと接続するめぞっド
@@ -96,6 +96,35 @@
             // 完成したユーザー、はいあげる
             return $oil;  
         }
+                //新規oil登録をするメソッド
+        public static function insert($oil) {
+            // 例外処理
+            try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // 具体的な値はあいまいにしたまま INSERT文の実行準備
+                $stmt = $pdo->prepare('INSERT INTO essential_oils(name, scientific_name, plant_name, extraction, aroma, caution, english_name, image) VALUES(:name, :scientific_name, :plant_name, :extraction, :aroma, :caution, :english_name, :image)');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                //文字列　‗STR　　整数‗INT
+                $stmt->bindValue(':name', $oil->name, PDO::PARAM_STR);
+                $stmt->bindValue(':scientific_name', $oil->scientific_name, PDO::PARAM_STR);
+                $stmt->bindValue(':plant_name', $oil->plant_name, PDO::PARAM_STR);
+                $stmt->bindValue(':extraction', $oil->extraction, PDO::PARAM_STR);
+                $stmt->bindValue(':aroma', $oil->aroma, PDO::PARAM_STR);
+                $stmt->bindValue(':caution', $oil->caution, PDO::PARAM_STR);
+                $stmt->bindValue(':english_name', $oil->english_name, PDO::PARAM_STR);
+                $stmt->bindValue(':image', $oil->image, PDO::PARAM_STR);
+
+                // INSERT文本番実行
+                $stmt->execute();
+                
+            }catch(PDOException $e){
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+        }
+
         //効果IDが与えられた時、それに紐づいたオイル一覧を取得
         public static function get_all_oils_by_effect_id($effect_id){
             //例外処理
@@ -132,7 +161,6 @@
             // 完成したユーザー、はいあげる
             return $oils;  
         }
-        
         public static function find($id){
             //例外処理
              try{
@@ -160,29 +188,6 @@
             return $oil;  
         }
         /*
-        //新規ユーザ登録をするメソッド
-        public static function insert($user) {
-            // 例外処理
-            try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // 具体的な値はあいまいにしたまま INSERT文の実行準備
-                $stmt = $pdo->prepare('INSERT INTO users(name, email, password) VALUES(:name, :email, :password)');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                //文字列　‗STR　　整数‗INT
-                $stmt->bindValue(':name', $user->name, PDO::PARAM_STR);
-                $stmt->bindValue(':email', $user->email, PDO::PARAM_STR);
-                $stmt->bindValue(':password', $user->password, PDO::PARAM_STR);
-
-                // INSERT文本番実行
-                $stmt->execute();
-                
-            }catch(PDOException $e){
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-        }
         //入力されたメールアドレス、パスワードをもったユーザがいるかをチェック
         public static function login($email, $password){
             //例外処理

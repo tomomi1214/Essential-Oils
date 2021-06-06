@@ -37,8 +37,12 @@
             <?php foreach($effects as $effect): ?>
                 <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->effect ?></a></li>
             <?php endforeach; ?>
-            </ul>            
+            </ul>
+            <?php if($login_user !== false): ?>
+            <p1><a href="mypage_top.php">マイページトップへ</a></p1>
+            <?php else: ?>
             <p1><a href="index.php">Back to Top</a></p1>
+            <?php endif; ?>
         </div>
     </body>
 </html>

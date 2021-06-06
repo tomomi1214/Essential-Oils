@@ -4,6 +4,7 @@
     require_once 'DAOs/EffectDAO.php';
     require_once 'models/Relation.php';
     session_start();
+    $login_user = $_SESSION['login_user'];
     
     $id = $_GET['id'];
     

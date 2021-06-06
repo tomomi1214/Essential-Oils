@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -19,11 +20,6 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h1>Aroma Knowledge</h1>
-        <div class="main">
-            <p><a href="user_register.php">会員登録</a></p>
-            <p><a href="login.php">Login</a></p>
-        </div>
         <div class="essential_oils">
             <h2>Essential Oils</h2>
             <?php foreach($oils as $oil): ?>
@@ -32,18 +28,10 @@
                 <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>
+            <p1><a href="oil_register.php">エッセンシャルオイル登録</a></p1><br>
+            <p1><a href="mypage_top.php">トップページに戻る</a></p1><br>
             
-            <p><a href="essential_oil_top.php">>>See More</a></p>
         </div>
-        <div class="effects">
-            <h2>Effects</h2>
-            <?php foreach($effects as $effect): ?>
-            <ul>
-                <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->id ?></a></li>
-                <li><?= $effect->effect ?></li>
-            </ul>
-            <?php endforeach; ?>
-            <p><a href="effect_top.php">>>See More</a></p>
-        </div>
+
     </body>
 </html>

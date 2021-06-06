@@ -23,19 +23,11 @@
             <h2>Essential Oils</h2>
             <?php foreach($oils as $oil): ?>
             <ul>
-                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->id ?></a></li>
-                <li><?= $oil->name ?></li>
+                <h3><?= strtoupper(substr($oil->english_name, 0,1)) ?></h3>
+                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>
-
-            <p>A</p>
-            <p>B</p>
-            <p>C</p>
-            <p>D</p>
-
-
-
-        <p1><a href="index.php">Back to Top</a></p1><br>
+            <p1><a href="index.php">トップページに戻る</a></p1><br>
         </div>
 
     </body>

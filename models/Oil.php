@@ -9,15 +9,17 @@
         public $aroma;          //香り
         public $caution;         //注意事項
         public $english_name;
+        public $image;
         public $created_at;     //登録日時
         
-        public function __construct($name="", $scientific_name="", $plant_name="", $extraction="", $component="", $aroma="", $english_name="", $caution=""){
+        public function __construct($name="", $scientific_name="", $plant_name="", $extraction="", $aroma="", $caution="", $english_name="", $image=""){
             $this->name = $name;
             $this->scientific_name = $scientific_name;
             $this->plant_name = $plant_name;
             $this->extraction = $extraction;
             $this->aroma = $aroma;
-            $this->english_name = $english_name;
             $this->caution = $caution;
+            $this->english_name = $english_name;
+            $this->image = $image;
         }
     }
