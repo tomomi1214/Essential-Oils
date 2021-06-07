@@ -23,8 +23,7 @@
         <div class="essential_oils">
             <h2><?= $oil->name ?>詳細</h2>
             <ul>
-                <li><img src="<?= $oil->image ?>"></li>
-                <li><?= $oil->id ?></li>
+                <li><img src="images/<?= $oil->image ?>"></li>
                 <li>名前：<?= $oil->name ?></li>
                 <li>学名：<?= $oil->scientific_name ?></li>
                 <li>科名：<?= $oil->plant_name ?></li>
@@ -38,7 +37,7 @@
                 <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->effect ?></a></li>
             <?php endforeach; ?>
             </ul>
-            <p1><a href="index.php">Back to Top</a></p1>
+            <p1><a href="index.php">トップページへ</a></p1>
         </div>
     </body>
 </html>

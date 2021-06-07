@@ -19,22 +19,26 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h2>エッセンシャルオイル登録</h2>
-        <div class="essential_oils">
-            <form action="oil_create.php" method="POST" enctype="multipart/form-data">
-                名前：<input type="text" name="name"><br>
-                学名：<input type="text" name="scientific_name"><br>
-                科名：<input type="text" name="plant_name"><br>
-                抽出方法：<input type="text" name="extraction"><br>
-                香り：<input type="text" name="aroma"><br>
-                注意事項：<input type="text" name="caution"><br>
-                英名：<input type="text" name="english_name"><br>
-                画像：<input type="file" name="image"><br>
-                <button type="submit">登録</button>
-            </form>
+        <h2>関連登録</h2>
+        <div class="relations">
+                <form action="relation_create.php" method="POST" enctype="multipart/form-data">
+                    エッセンシャルオイル：
+                    <?php foreach($oils as $oil): ?>
+                        <input type="radio" name="oil" value="<?= $oil->id ?>"><?= $oil->name ?>&nbsp;
+                    <?php endforeach; ?>
+                    <br>
+                    効果：
+                    <?php foreach($effects as $effect): ?>
+                        <input type="radio" name="effect" value="<?= $effect->id ?>"><?= $effect->effect ?>&nbsp;
+                    <?php endforeach; ?>
+                    <br>
+                    使用方法：<input type="text" name="howto"><br>
+                    詳細：<input type="text" name="content"><br>
+                    注意事項：<input type="text" name="caution"><br>
+                    <button type="submit">登録</button>
+                </form>
             <br><br>
             <p1><a href="mypage_top.php">トップページへ</a></p1>
-            
         </div>
     </body>
 </html>

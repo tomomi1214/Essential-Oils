@@ -113,6 +113,29 @@
             // 完成した効能一覧、はいあげる
             return $effects;  
         }
+        //新規effect登録をするメソッド
+        public static function insert($effect) {
+            // 例外処理
+            try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // 具体的な値はあいまいにしたまま INSERT文の実行準備
+                $stmt = $pdo->prepare('INSERT INTO effects(effect, content, caution) VALUES(:effect, :content, :caution)');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                //文字列　‗STR　　整数‗INT
+                $stmt->bindValue(':effect', $effect->effect, PDO::PARAM_STR);
+                $stmt->bindValue(':content', $effect->content, PDO::PARAM_STR);
+                $stmt->bindValue(':caution', $effect->caution, PDO::PARAM_STR);
+
+                // INSERT文本番実行
+                $stmt->execute();
+                
+            }catch(PDOException $e){
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+        }
 
         /*
         public static function get_oil($id){
@@ -143,29 +166,6 @@
         }
         */
         /*
-        //新規ユーザ登録をするメソッド
-        public static function insert($user) {
-            // 例外処理
-            try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // 具体的な値はあいまいにしたまま INSERT文の実行準備
-                $stmt = $pdo->prepare('INSERT INTO users(name, email, password) VALUES(:name, :email, :password)');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                //文字列　‗STR　　整数‗INT
-                $stmt->bindValue(':name', $user->name, PDO::PARAM_STR);
-                $stmt->bindValue(':email', $user->email, PDO::PARAM_STR);
-                $stmt->bindValue(':password', $user->password, PDO::PARAM_STR);
-
-                // INSERT文本番実行
-                $stmt->execute();
-                
-            }catch(PDOException $e){
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-        }
         //入力されたメールアドレス、パスワードをもったユーザがいるかをチェック
         public static function login($email, $password){
             //例外処理

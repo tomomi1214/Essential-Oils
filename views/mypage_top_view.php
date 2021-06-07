@@ -27,12 +27,11 @@
             <?php foreach($oils as $oil): ?>
             <ul>
                     <h3><?= strtoupper(substr($oil->english_name, 0,1)) ?></h3>
-                    <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
+                    <li><a href="oil_detail_for_user.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>
-            
-            <p><a href="oil_top_for_user.php">>>See More</a></p>
-        </div>
+            <p1><a href="oil_register.php">エッセンシャルオイル登録</a></p1><br>
+                    </div>
         <div class="effects">
             <h2>Effects</h2>
             <?php foreach($effects as $effect): ?>
@@ -41,7 +40,8 @@
                 <li><?= $effect->effect ?></li>
             </ul>
             <?php endforeach; ?>
-            <p><a href="effect_top_for_user.php">>>See More</a></p>
+            <p1><a href="effect_register.php">効果登録</a></p1><br>
+            <p1><a href="relation_register.php">関連登録</a></p1><br>
         </div>
         <p><a href="logout.php">ログアウト</a></p>
     </body>

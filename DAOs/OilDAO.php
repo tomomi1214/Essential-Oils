@@ -96,14 +96,43 @@
             // 完成したユーザー、はいあげる
             return $oil;  
         }
-                //新規oil登録をするメソッド
+        /*
+        //$name指定して1つのオイル情報を取得する
+        public static function get_oil_id_by_name($name){
+            //例外処理
+             try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文の実行準備(:idは適当、不明確)
+                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE name=:name');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                $stmt->bindValue(':name', $name, PDO::PARAM_INT);
+                // SELECT文本番実行
+                $stmt->execute();
+
+                // Fetch ModeをOilクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
+                // SELECT文の結果を Oilクラスのインスタンスに格納
+                $oil = $stmt->fetch();
+                
+            }catch(PDOException $e){
+                
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成したユーザー、はいあげる
+            return $oil;  
+        }
+        */
+        //新規oil登録をするメソッド
         public static function insert($oil) {
             // 例外処理
             try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // 具体的な値はあいまいにしたまま INSERT文の実行準備
-                $stmt = $pdo->prepare('INSERT INTO essential_oils(name, scientific_name, plant_name, extraction, aroma, caution, english_name, image) VALUES(:name, :scientific_name, :plant_name, :extraction, :aroma, :caution, :english_name, :image)');
+                $stmt = $pdo->prepare('INSERT INTO essential_oils(name, scientific_name, plant_name, extraction, aroma, caution, english_name, user_id, image) VALUES(:name, :scientific_name, :plant_name, :extraction, :aroma, :caution, :english_name, :user_id, :image)');
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
                 //文字列　‗STR　　整数‗INT
                 $stmt->bindValue(':name', $oil->name, PDO::PARAM_STR);
@@ -113,6 +142,7 @@
                 $stmt->bindValue(':aroma', $oil->aroma, PDO::PARAM_STR);
                 $stmt->bindValue(':caution', $oil->caution, PDO::PARAM_STR);
                 $stmt->bindValue(':english_name', $oil->english_name, PDO::PARAM_STR);
+                $stmt->bindValue(':user_id', $oil->user_id, PDO::PARAM_INT);
                 $stmt->bindValue(':image', $oil->image, PDO::PARAM_STR);
 
                 // INSERT文本番実行
