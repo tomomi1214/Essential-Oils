@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lag="ja">
+<html lang="ja">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -17,32 +17,19 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- Original JavaScript -->
         <script src="js/script.js"></script>
-    </head>    
+    </head>
     <body>
-        <h1>Aroma Knowledge</h1>
-        <p><?= $login_user->name ?>さん、ようこそ！</p>
-
         <div class="essential_oils">
             <h2>Essential Oils</h2>
             <?php foreach($oils as $oil): ?>
             <ul>
-                    <h3><?= strtoupper(substr($oil->english_name, 0,1)) ?></h3>
-                    <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
+                <h3><?= strtoupper(substr($oil->english_name, 0,1)) ?></h3>
+                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>
-            
-            <p><a href="oil_top_for_user.php">>>See More</a></p>
+            <p1><a href="oil_register.php">エッセンシャルオイル登録</a></p1><br>
+            <p1><a href="mypage_top.php">トップページに戻る</a></p1><br>
         </div>
-        <div class="effects">
-            <h2>Effects</h2>
-            <?php foreach($effects as $effect): ?>
-            <ul>
-                <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->id ?></a></li>
-                <li><?= $effect->effect ?></li>
-            </ul>
-            <?php endforeach; ?>
-            <p><a href="effect_top_for_user.php">>>See More</a></p>
-        </div>
-        <p><a href="logout.php">ログアウト</a></p>
+
     </body>
 </html>

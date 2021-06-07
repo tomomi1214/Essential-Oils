@@ -33,8 +33,9 @@
                 <button type="submit">登録</button>
             </form>
             <br><br>
-            <p1><a href="index.php">Essential Oils Topへ</a></p1><br>
-            <p1><a href="index.php">トップページへ戻る</a></p1>
+            <p1><a href="oil_top_for_user.php">エッセンシャルオイルトップへ</a></p1><br>
+            <p1><a href="mypage_top.php">トップページへ</a></p1>
+            
         </div>
     </body>
 </html>
