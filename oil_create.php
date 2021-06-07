@@ -18,14 +18,14 @@
     $login_user = $_SESSION['login_user'];
 
     $image = $_FILES['image']['name'];
-    
-    $oil = new Oil($name, $scientific_name, $plant_name, $extraction, $aroma, $caution, $english_name, $login_user->user_id, $image);
-    var_dump($oil);
+
+    $file = 'images/' . $image;
+
+    $oil = new Oil($name, $scientific_name, $plant_name, $extraction, $aroma, $caution, $english_name, $login_user->id, $file);
     
     OilDAO::insert($oil);
     //var_dump($oil);
     
-    $file = 'images/' . $image;
     
     move_uploaded_file($_FILES['image']['tmp_name'], $file);
     

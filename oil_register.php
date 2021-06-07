@@ -1,5 +1,4 @@
 <?php
-    session_start();
-    $login_user = $_SESSION['login_user'];
 
+    require_once 'filters/LoginFilter.php';
     include_once 'views/oil_register_view.php';

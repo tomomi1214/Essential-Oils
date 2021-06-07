@@ -27,10 +27,10 @@
             $this->image = $image;
         }
         //登録したユーザのインスタンスを取得メソッド
-        public function user(){
+        /*public function user(){
             //UserDaoを使用してユーザインスタンスを取得
             $user = UserDAO::get_user($this->user_id);
             return $user;
-        }
+        }*/
 
     }

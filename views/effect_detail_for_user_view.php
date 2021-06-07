@@ -33,7 +33,6 @@
                 <li><a href="oil_detail_for_user.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>
-            <p1><a href="effects_top_for_user.php">Effect Topへ</a></p1>
             <p1><a href="mypage_top.php">トップページへ</a></p1><br>
         </div>
     </body>

@@ -120,12 +120,13 @@
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // 具体的な値はあいまいにしたまま INSERT文の実行準備
-                $stmt = $pdo->prepare('INSERT INTO effects(effect, content, caution) VALUES(:effect, :content, :caution)');
+                $stmt = $pdo->prepare('INSERT INTO effects(effect, content, caution, user_id) VALUES(:effect, :content, :caution, :user_id)');
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
                 //文字列　‗STR　　整数‗INT
                 $stmt->bindValue(':effect', $effect->effect, PDO::PARAM_STR);
                 $stmt->bindValue(':content', $effect->content, PDO::PARAM_STR);
                 $stmt->bindValue(':caution', $effect->caution, PDO::PARAM_STR);
+                $stmt->bindValue(':user_id', $effect->user_id, PDO::PARAM_INT);
 
                 // INSERT文本番実行
                 $stmt->execute();
@@ -137,6 +138,32 @@
             }
         }
 
+        public static function find($id){
+            //例外処理
+             try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文の実行準備(:idは適当、不明確)
+                $stmt = $pdo->prepare('SELECT * FROM effects WHERE id=:id');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                // SELECT文本番実行
+                $stmt->execute();
+
+                // Fetch ModeをPostクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Effect');
+                // SELECT文の結果を Postクラスのインスタンスに格納
+                $effect = $stmt->fetch();
+                
+            }catch(PDOException $e){
+                
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成した、はい投稿あげる
+            return $effect;  
+        }
         /*
         public static function get_oil($id){
             //例外処理

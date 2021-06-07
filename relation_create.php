@@ -17,8 +17,10 @@
     $content = $_POST['content'];
 
     $caution = $_POST['caution'];
+    
+    $login_user = $_SESSION['login_user'];
 
-    $relation = new Relation($oil_id, $effect_id, $howto, $content, $caution);
+    $relation = new Relation($oil_id, $effect_id, $howto, $content, $caution, $login_user->id);
     //var_dump($oil);
     
     RelationDAO::insert($relation);
