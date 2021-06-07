@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -20,17 +19,15 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <div class="essential_oils">
-            <h2>Essential Oils</h2>
-            <?php foreach($oils as $oil): ?>
+        <div class="effects">
+            <h2>Effects</h2>
+            <?php foreach($effects as $effect): ?>
             <ul>
-                <h3><?= strtoupper(substr($oil->english_name, 0,1)) ?></h3>
-                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
+                <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->id ?></a></li>
+                <li><?= $effect->effect ?></li>
             </ul>
             <?php endforeach; ?>
-            <p1><a href="oil_register.php">エッセンシャルオイル登録</a></p1><br>
-            <p1><a href="mypage_top.php">トップページに戻る</a></p1><br>
-            
+            <p1><a href="index.php">トップページに戻る</a></p1><br>
         </div>
 
     </body>
