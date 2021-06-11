@@ -5,22 +5,17 @@
     require_once 'models/Relation.php';
 
     session_start();
-    
-    //var_dump($_POST);
-    if(!isset($_POST['oil'])){
-        $oil_id = null;
-        var_dump($oil_id);
-    } else if($_POST['oil'] === null){
+
+    //if(!empty($_POST['oil'])){
         $oil_id = $_POST['oil'];
-        var_dump($oil_id);
-    }
-    if(!isset($_POST['effect'])){
-        $effect_id = null;
-        var_dump($effect_id);
-    }else{
+    //}
+    //var_dump($_POST['oil']);
+    var_dump($oil_id);
+    
+    //if(!empty($_POST['effect'])){
         $effect_id = $_POST['effect'];
-        var_dump($effect_id);
-    }
+    //}
+    var_dump($effect_id);
     $howto = $_POST['howto'];
     $content = $_POST['content'];
 
@@ -32,6 +27,8 @@
     //var_dump($relation);
     
     $errors = $relation->validate($relation);
+   // var_dump($errors);
+    
     
     if(count($errors) === 0){
         

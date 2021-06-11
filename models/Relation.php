@@ -23,10 +23,13 @@
             
             $errors = array();
             
-            if(!isset($this->oil_id) | $this->oil_id === ''){
+            //if(!isset($this->oil_id)){
+            if($this->oil_id === ''){
+                $errors[] = 'エッセンシャルオイルを選択してください';
+            }else if($this->oil_id === null){
                 $errors[] = 'エッセンシャルオイルを選択してください';
             }
-            if(!isset($this->effect_id) | $this->effect_id === ''){
+            if(!isset($this->effect_id)){
                 $errors[] = '効能を選択してください';
             }
             if($this->howto === ''){
@@ -38,5 +41,6 @@
             if($this->caution === ''){
                 $errors[] = '注意事項を入力してください';
             }
+            return $errors;
         }
     }
