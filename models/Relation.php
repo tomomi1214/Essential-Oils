@@ -18,4 +18,25 @@
             $this->caution = $caution;
             $this->user_id = $user_id;
         }
+        
+        public function validate(){
+            
+            $errors = array();
+            
+            if(!isset($this->oil_id) | $this->oil_id === ''){
+                $errors[] = 'エッセンシャルオイルを選択してください';
+            }
+            if(!isset($this->effect_id) | $this->effect_id === ''){
+                $errors[] = '効能を選択してください';
+            }
+            if($this->howto === ''){
+                $errors[] = '使用方法を入力してください';
+            }
+            if($this->content === ''){
+                $errors[] = '詳細を入力してください';
+            }
+            if($this->caution === ''){
+                $errors[] = '注意事項を入力してください';
+            }
+        }
     }

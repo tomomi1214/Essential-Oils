@@ -20,18 +20,29 @@
     </head>    
     <body>
         <h1>Aroma Knowledge</h1>
-        <p><?= $login_user->name ?>さん、ようこそ！</p>
+        <p>Hello <?= $login_user->name ?> !</p>
+        <p><a href="logout.php">ログアウト</a></p>
+        
+        <?php if($flash_message !== null): ?>
+        <p><?= $flash_message ?></p>
+        <?php endif; ?>
 
         <div class="essential_oils">
             <h2>Essential Oils</h2>
+            <?php $pre_letter = ''; ?>
             <?php foreach($oils as $oil): ?>
             <ul>
-                    <h3><?= strtoupper(substr($oil->english_name, 0,1)) ?></h3>
-                    <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
+                <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
+                <?php if($letter !== $pre_letter): ?>
+                <h3><?= $letter ?></h3>
+                <?php endif; ?>
+                <?php $pre_letter = $letter; ?>
+                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>
+
             <p1><a href="oil_register.php">エッセンシャルオイル登録</a></p1><br>
-                    </div>
+        </div>
         <div class="effects">
             <h2>Effects</h2>
             <?php foreach($effects as $effect): ?>
@@ -42,6 +53,5 @@
             <p1><a href="effect_register.php">効果登録</a></p1><br>
             <p1><a href="relation_register.php">関連登録</a></p1><br>
         </div>
-        <p><a href="logout.php">ログアウト</a></p>
     </body>
 </html>

@@ -20,6 +20,13 @@
     </head>
     <body>
         <h2>エッセンシャルオイル登録</h2>
+        <?php if($errors !== null): ?>
+        <ul>
+            <?php foreach($errors as $error): ?>
+            <li><?= $error ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
         <div class="essential_oils">
             <form action="oil_create.php" method="POST" enctype="multipart/form-data">
                 名前：<input type="text" name="name"><br>
@@ -32,9 +39,9 @@
                 画像：<input type="file" name="image"><br>
                 <button type="submit">登録</button>
             </form>
-            <br><br>
-            <p1><a href="mypage_top.php">トップページへ</a></p1>
-            
+            <br>
         </div>
+        <p><a href="mypage_top.php">トップページへ</a></p>
+
     </body>
 </html>

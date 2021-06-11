@@ -23,12 +23,20 @@
 
     $oil = new Oil($name, $scientific_name, $plant_name, $extraction, $aroma, $caution, $english_name, $login_user->id, $file);
     
-    OilDAO::insert($oil);
-    //var_dump($oil);
-    
-    
     move_uploaded_file($_FILES['image']['tmp_name'], $file);
+
+    $errors = $oil->validate($oil);
     
-    header('Location: mypage_top.php');
-    exit;
-    
+    if(count($errors) === 0){
+        $flash_message = OilDAO::insert($oil);
+        
+        $_SESSION['flash_message'] = $flash_message;
+        
+        header('Location: mypage_top.php');
+        exit;
+    }else{
+        $_SESSION['errors'] = $errors;
+        
+        header('Location: oil_register.php');
+        exit;
+    }

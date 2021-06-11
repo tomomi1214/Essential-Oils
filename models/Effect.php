@@ -15,5 +15,21 @@
             $this->caution = $caution;
             $this->user_id = $user_id;
         }
+        public function validate(){
+            
+            $errors = array();
+        
+            if($this->effect === ''){
+                $errors[] = '効能を入力してください';
+            }
+            if($this->content === ''){
+                $errors[] = '詳細を入力してください';
+            }
+            if($this->caution === ''){
+                $errors[] = '注意事項を入力してください';
+            }
+            return $errors;
+        }
+
     }
     

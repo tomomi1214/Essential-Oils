@@ -20,15 +20,23 @@
     </head>
     <body>
         <h1>Aroma Knowledge</h1>
+        <?php if($flash_message !== null): ?>
+        <p><?= $flash_message ?></p>
+        <?php endif; ?>
         <div class="main">
             <p><a href="user_register.php">会員登録</a></p>
             <p><a href="login.php">Login</a></p>
         </div>
         <div class="essential_oils">
             <h2>Essential Oils</h2>
+            <?php $pre_letter = ''; ?>
             <?php foreach($oils as $oil): ?>
             <ul>
-                <h3><?= strtoupper(substr($oil->english_name, 0,1)) ?></h3>
+                <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
+                <?php if($letter !== $pre_letter): ?>
+                <h3><?= $letter ?></h3>
+                <?php endif; ?>
+                <?php $pre_letter = $letter; ?>
                 <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>

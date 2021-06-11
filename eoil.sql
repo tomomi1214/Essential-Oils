@@ -67,7 +67,7 @@ CREATE TABLE `essential_oils` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `essential_oils_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ CREATE TABLE `essential_oils` (
 
 LOCK TABLES `essential_oils` WRITE;
 /*!40000 ALTER TABLE `essential_oils` DISABLE KEYS */;
-INSERT INTO `essential_oils` VALUES (1,'ラベンダー','Lavandula angustifolia','シソ科','水蒸気蒸留法','フローラル','特になし','Lavender',1,'images/lavender.jpg','2021-06-07 13:49:14'),(2,'セージ','Salvia officinalis','シソ科','水蒸気蒸留法','【ハーブ系】フレッシュな草の、少し刺激のある香り','特になし','Sage',1,'images/sage.jpg','2021-06-07 14:03:10'),(3,'カモミールローマン','Chamaemelum nobile','キク科','水蒸気蒸留法','【フローラル系】甘くほのかにフルーティーなリンゴのような香り','特になし','Chamomile Roman',2,'images/Camomile.jpg','2021-06-07 23:20:50');
+INSERT INTO `essential_oils` VALUES (1,'ラベンダー','Lavandula angustifolia','シソ科','水蒸気蒸留法','フローラル','特になし','Lavender',1,'images/lavender.jpg','2021-06-07 13:49:14'),(2,'セージ','Salvia officinalis','シソ科','水蒸気蒸留法','【ハーブ系】フレッシュな草の、少し刺激のある香り','特になし','Sage',1,'images/sage.jpg','2021-06-07 14:03:10'),(3,'カモミールローマン','Chamaemelum nobile','キク科','水蒸気蒸留法','【フローラル系】甘くほのかにフルーティーなリンゴのような香り','特になし','Chamomile Roman',2,'images/Camomile.jpg','2021-06-07 23:20:50'),(4,'レモン','Citrus limon','ミカン科','コールドプレス','【柑橘系】さわやかなシトラス','光毒性、刺激強','Lemon',2,'images/lemon.jpg','2021-06-07 23:32:57');
 /*!40000 ALTER TABLE `essential_oils` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,4 +153,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-08  8:29:43
+-- Dump completed on 2021-06-08 15:29:18

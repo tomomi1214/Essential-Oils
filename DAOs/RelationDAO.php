@@ -1,31 +1,10 @@
 <?php
     //外部ファイルの読み込み
     require_once'models/Relation.php';
+    require_once 'DAOs/DAO.php';
     //DAO: DBを扱う専門家
-    class RelationDAO {
-        //データベースと接続するめぞっド
-        //private ここでしか使わないメソッド
-        // static ::を示す
-        private static function get_connection(){
-            // 接続オプション設定
-            $options = array(
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_CLASS,
-                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
-            );
-            // データベースを操作する万能の神様誕生
-            $pdo = new PDO('mysql:host=localhost;dbname=Eoil_app', 'root', '', $options);
-            // 神様、はいあげる
-            return $pdo;
-        }
-        //DBと切断する
-        private static function close_connection($pdo, $stmt){
-            //万能の神様、さようなら
-            $pdo = null;
-            //結果、さようなら
-            $stmt = null;
-        }
-        
+    class RelationDAO extends DAO{
+    
         //DBから全オイル情報を取得する
         public static function get_all_relations(){
         // 例外処理
@@ -139,11 +118,11 @@
 
                 // INSERT文本番実行
                 $stmt->execute();
-                
-            }catch(PDOException $e){
-            }finally{
                 // 後処理
                 self::close_connection($pdo, $stmt);
+                return "新規関連登録が成功しました！";                
+            }catch(PDOException $e){
+                return 'PDO exception: ' . $e->getMessage();
             }
         }
         /*

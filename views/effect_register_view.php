@@ -19,17 +19,24 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h2>効果登録</h2>
+        <h2>効能登録</h2>
+        <?php if($errors !== null): ?>
+        <ul>
+            <?php foreach($errors as $error): ?>
+            <li><?= $error ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
         <div class="effects">
             <form action="effect_create.php" method="POST" enctype="multipart/form-data">
-                効果：<input type="text" name="effect"><br>
+                効能：<input type="text" name="effect"><br>
                 詳細：<input type="text" name="content"><br>
                 注意事項：<input type="text" name="caution"><br>
                 <button type="submit">登録</button>
             </form>
-            <br><br>
-            <p1><a href="mypage_top.php">トップページへ</a></p1>
-            
+            <br>
         </div>
+        <p><a href="mypage_top.php">トップページへ</a></p>
+
     </body>
 </html>

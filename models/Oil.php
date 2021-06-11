@@ -10,9 +10,9 @@
         public $extraction;     //抽出方法
         public $aroma;          //香り
         public $caution;         //注意事項
-        public $english_name;
-        public $user_id;
-        public $image;
+        public $english_name;   //英名
+        public $user_id;        //登録したUser
+        public $image;          //画像
         public $created_at;     //登録日時
         
         public function __construct($name="", $scientific_name="", $plant_name="", $extraction="", $aroma="", $caution="", $english_name="", $user_id="", $image=""){
@@ -26,11 +26,36 @@
             $this->user_id = $user_id;
             $this->image = $image;
         }
-        //登録したユーザのインスタンスを取得メソッド
-        /*public function user(){
-            //UserDaoを使用してユーザインスタンスを取得
-            $user = UserDAO::get_user($this->user_id);
-            return $user;
-        }*/
+        public function validate(){
+            
+            $errors = array();
+        
+            if($this->name === ''){
+                $errors[] = 'エッセンシャルオイル名を入力してください';
+            }
+            if($this->scientific_name === ''){
+                $errors[] = '学名を入力してください';
+            }
+            if($this->plant_name === ''){
+                $errors[] = '科名を入力してください';
+            }
+            if($this->extraction === ''){
+                $errors[] = '抽出方法を入力してください';
+            }
+            if($this->aroma === ''){
+                $errors[] = '香りを入力してください';
+            }
+            if($this->caution === ''){
+                $errors[] = '注意事項を入力してください';
+            }
+            if($this->english_name === ''){
+                $errors[] = '英名を入力してください';
+            }
+            if($this->image === ''){
+                $errors[] = '画像を選択してください';
+            }
+            return $errors;
+        }
+        
 
     }

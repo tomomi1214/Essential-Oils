@@ -7,6 +7,9 @@
     </head>
     <body>
         <h1>ログイン</h1>
+        <?php if(flash_message !== ull): ?>
+        <p><?= $flash_message ?></p>
+        <?php endif; ?>
         <form action="login_check.php" method="POST">
             メールアドレス:<input type="email" name="email"><br>
             パスワード:<input type="password" name="password"><br>

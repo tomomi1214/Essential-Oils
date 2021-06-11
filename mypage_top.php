@@ -7,13 +7,13 @@
     
     $login_user = $_SESSION['login_user'];
     
+    $flash_message = $_SESSION['flash_message'];
+    $_SESSION['flash_message'] = null;
     
     //OilDAOを使用してオイル一覧を取得
     $oils = OilDAO::get_all_oils_sort();
     $effects = EffectDAO::get_all_effects();
-    
-    
-    
+
     
     //View表示
     include_once 'views/mypage_top_view.php';

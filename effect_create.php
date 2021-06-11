@@ -1,6 +1,8 @@
 <?php
     
     require_once 'DAOs/EffectDAO.php';
+    require_once 'DAOs/UserDAO.php';
+    require_once 'models/Effect.php';
     session_start();
     
     $effect = $_POST['effect'];
@@ -9,10 +11,21 @@
     
     $login_user = $_SESSION['login_user'];
 
-    $effect = new Effect($effect,$content, $caution, $login_user->id);
+    $effect = new Effect($effect, $content, $caution, $login_user->id);
 
-    EffectDAO::insert($effect);
-
-    header('Location: mypage_top.php');
-    exit;
+    $errors = $effect->validate($effect);
+    //エラーがなければ
+    if(count($errors) === 0){
+        $flash_message = EffectDAO::insert($effect);
+        
+        $_SESSION['flash_message'] = $flash_message;
+        
+        header('Location: mypage_top.php');
+        exit;
+    }else{
+        $_SESSION['errors'] = $errors;
+        
+        header('Location: effect_register.php');
+        exit;
+    }
     
