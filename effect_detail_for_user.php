@@ -4,10 +4,11 @@
     require_once 'DAOs/EffectDAO.php';
     session_start();
 
+    $flash_message = $_SESSION['flash_message'];
+    $_SESSION['flash_message'] = null;
     $id = $_GET['id'];
     
     $effect = EffectDAO::find($id);
-    
 
     $oils = OilDAO::get_all_oils_by_effect_id($id);
     //var_dump($effects);

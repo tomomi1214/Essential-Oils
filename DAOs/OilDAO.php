@@ -196,61 +196,85 @@
             // 完成した、はい投稿あげる
             return $oil;  
         }
-        /*
-        //入力されたメールアドレス、パスワードをもったユーザがいるかをチェック
-        public static function login($email, $password){
-            //例外処理
-             try{
-                // データベースに接続して万能の神様誕生
+        // 画像ファイル名を取得するメソッド（uploadフォルダ内のファイルを物理削除するため）
+        public static function get_image_name_by_id($id){
+            try {
                 $pdo = self::get_connection();
-                // SELECT文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('SELECT * FROM users WHERE email=:email AND password=:password');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-                $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-                // SELECT文本番実行
+                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE id = :id');
+                // バインド処理
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                // 実行
                 $stmt->execute();
-
-                // Fetch ModeをUserクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'User');
-                // SELECT文の結果を Userクラスのインスタンスに格納
-                $user = $stmt->fetch();
-                
-            }catch(PDOException $e){
-                
-            }finally{
-                // 後処理
+                // フェッチの結果を、oilクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
+                $oil = $stmt->fetch();
+    
                 self::close_connection($pdo, $stmt);
+                    
+                // 画像名を返す
+                return $oil->image;
+                
+            } catch (PDOException $e) {
+                return 'PDO exception: ' . $e->getMessage();
             }
-            // 完成したユーザー、はいあげる
-            return $user;
         }
-        */
-        
-        /*
+
         //$idを指定して入力された情報に更新
-        public static function update($user, $id){
+        public static function update($oil){
             //例外処理
              try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
-                // UPDATE文の実行準備(:id, :name, :ageは適当、不明確)
-                $stmt = $pdo->prepare('UPDATE users SET name=:name, age=:age WHERE id=:id');
+                // UPDATE文の実行準備
+                $stmt = $pdo->prepare('UPDATE essential_oils SET name=:name, scientific_name=:scientific_name, plant_name=:plant_name, extraction=:extraction, aroma=:aroma, caution=:caution, english_name=:english_name, image=:image WHERE id = :id');
+
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-                $stmt->bindValue(':name', $user->name, PDO::PARAM_STR);
-                $stmt->bindValue(':age', $user->age, PDO::PARAM_INT);
-                
+                $stmt->bindParam(':name', $oil->name, PDO::PARAM_STR);
+                $stmt->bindParam(':scientific_name', $oil->scientific_name, PDO::PARAM_STR);
+                $stmt->bindParam(':plant_name', $oil->plant_name, PDO::PARAM_STR);
+                $stmt->bindParam(':extraction', $oil->extraction, PDO::PARAM_STR);
+                $stmt->bindParam(':aroma', $oil->aroma, PDO::PARAM_STR);
+                $stmt->bindParam(':caution', $oil->caution, PDO::PARAM_STR);
+                $stmt->bindParam(':english_name', $oil->english_name, PDO::PARAM_STR);
+                $stmt->bindParam(':user_id', $oil->user_id, PDO::PARAM_INT);
+                $stmt->bindParam(':image', $oil->image, PDO::PARAM_STR);
+
                 // update文本番実行
                 $stmt->execute();
-
-            }catch(PDOException $e){
-                
-            }finally{
-                // 後処理
                 self::close_connection($pdo, $stmt);
+                
+                //画像削除
+                /*
+                if($image !== $oil->image){
+                    unlink('images/' . $image);
+                }*/
+                
+                return 'id: ' . $oil->name . 'の情報が更新されました';
+
+            } catch (PDOException $e) {
+                return 'PDO exception: ' . $e->getMessage();
             }
-        } 
+        }
+        /*
+        // ファイルをアップロードするメソッド
+        public static function upload(){
+            
+            // ファイル名をランダムに生成（ユニーク化）
+            $image = uniqid(mt_rand(), true); 
+        
+            // アップロードされたファイルの拡張子を取得
+            $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
+
+            // 画像のフルパスを設定
+            $file = 'images/' . $image;
+
+            // uploadディレクトリにファイル保存
+            move_uploaded_file($_FILES['image']['tmp_name'], $file);
+            
+            // 新しく作成された画像名を返す
+            return $image;
+        }*/
+        /*
         //$idのユーザを削除する
         public static function delete($id){
             //例外処理

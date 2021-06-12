@@ -37,7 +37,7 @@
                 <h3><?= $letter ?></h3>
                 <?php endif; ?>
                 <?php $pre_letter = $letter; ?>
-                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
+                <li><a href="oil_detail_for_user.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>
 

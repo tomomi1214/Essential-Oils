@@ -54,6 +54,25 @@
             // 完成したユーザー、はいあげる
             return $effect;  
         }
+        // id値からデータを抜き出すメソッド
+        public static function get_effect_by_id($id){
+        try {
+            $pdo = self::get_connection();
+            $stmt = $pdo->prepare('SELECT * FROM effects WHERE id = :id');
+            // バインド処理
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            // 実行
+            $stmt->execute();
+            // フェッチの結果を、messageクラスのインスタンスにマッピングする
+            $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Effect');
+            $effect = $stmt->fetch();
+            self::close_connection($pdo, $stmt);
+            // メッセージクラスのインスタンスを返す
+            return $effect;
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
         //$oil_idが与えられた時、それに与えられらeffect情報を取得する
         public static function get_all_effects_by_oil_id($oil_id){
             //例外処理
@@ -142,88 +161,39 @@
             // 完成した、はい投稿あげる
             return $effect;  
         }
-        /*
-        public static function get_oil($id){
-            //例外処理
-             try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // SELECT文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('SELECT * FROM relations WHERE id=:id');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-                // SELECT文本番実行
-                $stmt->execute();
-
-                // Fetch ModeをPostクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Post');
-                // SELECT文の結果を Postクラスのインスタンスに格納
-                $oil = $stmt->fetch();
-                
-            }catch(PDOException $e){
-                
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-            // 完成した、はい投稿あげる
-            return $oil;  
-        }
-        */
-        /*
-        //入力されたメールアドレス、パスワードをもったユーザがいるかをチェック
-        public static function login($email, $password){
-            //例外処理
-             try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // SELECT文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('SELECT * FROM users WHERE email=:email AND password=:password');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-                $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-                // SELECT文本番実行
-                $stmt->execute();
-
-                // Fetch ModeをUserクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'User');
-                // SELECT文の結果を Userクラスのインスタンスに格納
-                $user = $stmt->fetch();
-                
-            }catch(PDOException $e){
-                
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-            // 完成したユーザー、はいあげる
-            return $user;
-        }
-        */
-        /*
         //$idを指定して入力された情報に更新
-        public static function update($user, $id){
+        public static function update($effect){
             //例外処理
              try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // UPDATE文の実行準備(:id, :name, :ageは適当、不明確)
-                $stmt = $pdo->prepare('UPDATE users SET name=:name, age=:age WHERE id=:id');
+                $stmt = $pdo->prepare('UPDATE effects SET effect=:effect, content=:content, caution=:caution, user_id=:user_id WHERE id = :id');
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-                $stmt->bindValue(':name', $user->name, PDO::PARAM_STR);
-                $stmt->bindValue(':age', $user->age, PDO::PARAM_INT);
-                
+                $stmt->bindParam(':effect', $effect->effect, PDO::PARAM_STR);
+                $stmt->bindParam(':content', $effect->content, PDO::PARAM_STR);
+                $stmt->bindParam(':caution', $effect->caution, PDO::PARAM_STR);
+                $stmt->bindParam(':user_id', $effect->user_id, PDO::PARAM_INT);
+    
                 // update文本番実行
                 $stmt->execute();
-
+                //print_r($stmt->errorInfo());
+                self::close_connection($pdo, $stmt);
+                return "情報を更新しました！";
             }catch(PDOException $e){
+                return 'PDO exception: ' . $e->getMessage();
+            }
+        }
+            
+            /*    
+             }catch(PDOException $e){
                 
             }finally{
                 // 後処理
                 self::close_connection($pdo, $stmt);
             }
-        } 
+        }*/
+        /*
         //$idのユーザを削除する
         public static function delete($id){
             //例外処理

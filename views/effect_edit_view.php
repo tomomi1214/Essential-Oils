@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/style.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
-        <title>Effects Page</title>
+        <title>Effect編集</title>
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -19,27 +19,26 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h1>Effects</h1>
-        <div class="effects">
-            <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
-            <?php endif; ?>
-
-            <h2><?= $effect->effect ?></h2>
-            <ul>
-                <li>効果：<?= $effect->effect ?></li>
-                <li>詳細：<?= $effect->content ?></li>
-                <li>注意事項：<?= $effect->caution ?></li>
-            </ul>
-            <p><a href="effect_edit.php?id=<?= $id ?>">編集</a></p>
-
-            <h2>オイル一覧</h2>
-            <?php foreach($oils as $oil): ?>
-            <ul>
-                <li><a href="oil_detail_for_user.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
-            </ul>
+        <h2><?= $effect->effect ?>編集</h2>
+        <?php if($errors !== null): ?>
+        <ul>
+            <?php foreach($errors as $error): ?>
+            <li><?= $error ?></li>
             <?php endforeach; ?>
-            <p1><a href="mypage_top.php">トップページへ</a></p1><br>
+        </ul>
+        <?php endif; ?>
+        <div class="effects">
+            <form action="effect_update.php" method="POST">
+                効能：<input type="text" name="effect" value="<?= $effect->effect ?>"><br>
+                詳細：<input type="text" name="content" value="<?= $effect->content ?>"><br>
+                注意事項：<input type="text" name="caution" value="<?= $effect->caution ?>"><br>
+                <input type="hidden" name="id" value="<?= $id ?>">
+
+                <button type="submit">編集</button>
+            </form>
+            <br>
         </div>
+        <p><a href="mypage_top.php">トップページへ</a></p>
+
     </body>
 </html>

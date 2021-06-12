@@ -16,12 +16,15 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- Original JavaScript -->
-        <script src="js/script.js"></script>
     </head>
     <body>
         <h1>Essential Oils</h1>
         <div class="essential_oils">
             <h2><?= $oil->name ?>詳細</h2>
+            
+            <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
+            <?php endif; ?>
             <ul>
                 <li><img src="<?= $oil->image ?>"></li>
                 <li>名前：<?= $oil->name ?></li>
@@ -31,6 +34,8 @@
                 <li>香り：<?= $oil->aroma ?></li>
                 <li>注意事項：<?= $oil->caution ?></li>
             </ul>
+            <p><a href="oil_edit.php?id=<?= $id ?>">編集</a></p>
+
             <h3>効果</h3>
             <ul>
             <?php foreach($effects as $effect): ?>
@@ -39,5 +44,7 @@
             </ul>
             <p1><a href="mypage_top.php">トップページへ</a></p1>
         </div>
+        <script src="js/script.js"></script>
+
     </body>
 </html>

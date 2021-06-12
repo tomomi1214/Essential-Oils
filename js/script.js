@@ -1,5 +1,16 @@
 /*global $*/
 
+//画像のプレビュー(Javascript)
+function previewImage(obj){
+	var fileReader = new FileReader();
+	fileReader.onload = (function() {
+		document.getElementById('preview').src = fileReader.result;
+	});
+	fileReader.readAsDataURL(obj.files[0]);
+}
+
+
+//Top
 $(function(){
     const images = ['images/orangeflower.jpg', 'images/lavender.jpg', 'images/apricots.jpg', 'images/Camomile.jpg', 'images/basil.jpg']
     let count = 1;
