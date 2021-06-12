@@ -32,7 +32,7 @@ CREATE TABLE `effects` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `effects_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `effects` (
 
 LOCK TABLES `effects` WRITE;
 /*!40000 ALTER TABLE `effects` DISABLE KEYS */;
-INSERT INTO `effects` VALUES (1,'安眠','眠れない時に','特になし',1,'2021-06-07 22:56:46'),(2,'リラックス','ストレスフルな状態に','過剰摂取に注意',1,'2021-06-07 22:57:59');
+INSERT INTO `effects` VALUES (1,'安眠','眠れない時に','特になし',1,'2021-06-07 22:56:46'),(2,'リラックス','ストレスフルな状態に','過剰摂取に注意',1,'2021-06-07 22:57:59'),(8,'虫','虫が嫌いな香り','特になし',7,'2021-06-10 09:31:00');
 /*!40000 ALTER TABLE `effects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +67,7 @@ CREATE TABLE `essential_oils` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `essential_oils_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ CREATE TABLE `essential_oils` (
 
 LOCK TABLES `essential_oils` WRITE;
 /*!40000 ALTER TABLE `essential_oils` DISABLE KEYS */;
-INSERT INTO `essential_oils` VALUES (1,'ラベンダー','Lavandula angustifolia','シソ科','水蒸気蒸留法','フローラル','特になし','Lavender',1,'images/lavender.jpg','2021-06-07 13:49:14'),(2,'セージ','Salvia officinalis','シソ科','水蒸気蒸留法','【ハーブ系】フレッシュな草の、少し刺激のある香り','特になし','Sage',1,'images/sage.jpg','2021-06-07 14:03:10'),(3,'カモミールローマン','Chamaemelum nobile','キク科','水蒸気蒸留法','【フローラル系】甘くほのかにフルーティーなリンゴのような香り','特になし','Chamomile Roman',2,'images/Camomile.jpg','2021-06-07 23:20:50'),(4,'レモン','Citrus limon','ミカン科','コールドプレス','【柑橘系】さわやかなシトラス','光毒性、刺激強','Lemon',2,'images/lemon.jpg','2021-06-07 23:32:57');
+INSERT INTO `essential_oils` VALUES (1,'ラベンダー','Lavandula angustifolia','シソ科','水蒸気蒸留法','フローラル','特になし','Lavender',1,'images/lavender.jpg','2021-06-07 13:49:14'),(2,'セージ','Salvia officinalis','シソ科','水蒸気蒸留法','【ハーブ系】フレッシュな草の、少し刺激のある香り','特になし','Sage',1,'images/sage.jpg','2021-06-07 14:03:10'),(3,'カモミールローマン','Chamaemelum nobile','キク科','水蒸気蒸留法','【フローラル系】甘くほのかにフルーティーなリンゴのような香り','特になし','Chamomile Roman',2,'images/Camomile.jpg','2021-06-07 23:20:50'),(4,'レモン','Citrus limon','ミカン科','コールドプレス','【柑橘系】さわやかなシトラス','光毒性、刺激強','Lemon',2,'images/lemon.jpg','2021-06-07 23:32:57'),(5,'ティーツリー','Melaleuca alternifolia','フトモモ科','水蒸気蒸留法','【樹木系】フレッシュで、苦味と甘さが混ざったウッディーな香り','刺激強','tea tree',7,'images/teatree.jpg','2021-06-10 06:17:56'),(6,'ネロリ','Citrus aurantium','ミカン科','水蒸気蒸留法','【フローラル系】フローラルとシトラスが混ざり、ほのかに苦みを感じる香り','刺激強','Neroli',7,'images/neroli.jpg','2021-06-10 06:53:18'),(10,'ユーカリ','Eucalyptus globulus','フトモモ科','水蒸気蒸留法','【樹木系】強くフレッシュ。ほのかな甘さにグリーン調の香り','刺激強、高血圧・てんかん症の人、幼児は避ける','Eucalyptus',7,'images/eucalyptus.jpg','2021-06-10 07:46:10'),(11,'ユーカリ','Eucalyptus globulus','フトモモ科','水蒸気蒸留法','【樹木系】強くフレッシュ。ほのかな甘さにグリーン調の香り','刺激強、高血圧・てんかん症の人、幼児は避ける','Eucalyptus',7,'images/teatree.jpg','2021-06-11 04:50:57');
 /*!40000 ALTER TABLE `essential_oils` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +103,7 @@ CREATE TABLE `relations` (
   CONSTRAINT `relations_ibfk_1` FOREIGN KEY (`oil_id`) REFERENCES `essential_oils` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `relations_ibfk_2` FOREIGN KEY (`effect_id`) REFERENCES `effects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `relations_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +112,7 @@ CREATE TABLE `relations` (
 
 LOCK TABLES `relations` WRITE;
 /*!40000 ALTER TABLE `relations` DISABLE KEYS */;
-INSERT INTO `relations` VALUES (1,1,2,'ルームフレグランス','オイルを数滴混ぜて使用','特になし',1,'2021-06-07 23:08:43'),(2,3,2,'ルームフレグランス','眠れない時に','特になし',2,'2021-06-07 23:21:38');
+INSERT INTO `relations` VALUES (1,1,2,'ルームフレグランス','オイルを数滴混ぜて使用','特になし',1,'2021-06-07 23:08:43'),(2,3,2,'ルームフレグランス','眠れない時に','特になし',2,'2021-06-07 23:21:38'),(5,10,8,'ブレンドして虫よけスプレーとして','xxxxx','目に入らないように注意する',7,'2021-06-11 00:41:49'),(8,3,2,'aaa','bbb','ccc',7,'2021-06-11 02:42:15');
 /*!40000 ALTER TABLE `relations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Tomomi','tomomi@gmail.com','tomomi','2021-06-07 11:11:43'),(2,'Takoaka','takaoka@gmail.com','takaoka','2021-06-07 23:18:17');
+INSERT INTO `users` VALUES (1,'Tomomi','tomomi@gmail.com','tomomi','2021-06-07 11:11:43'),(2,'Takoaka','takaoka@gmail.com','takaoka','2021-06-07 23:18:17'),(3,'たかおかともみ','','','2021-06-10 04:06:38'),(7,'toomomi','toomomi@gmail.com','toomomi','2021-06-10 05:24:20');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -153,4 +153,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-08 15:29:18
+-- Dump completed on 2021-06-12 11:22:20
