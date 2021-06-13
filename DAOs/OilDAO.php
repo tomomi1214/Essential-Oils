@@ -75,6 +75,27 @@
             // 完成したユーザー、はいあげる
             return $oil;  
         }
+        // idからオイルデータを抜き出すメソッド
+        public static function get_oil_by_id($id){
+            try {
+                $pdo = self::get_connection();
+                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE id = :id');
+                // バインド処理
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                // 実行
+                $stmt->execute();
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
+                // フェッチの結果を、Oilクラスのインスタンスにマッピングする
+                $oil = $stmt->fetch();
+            
+                self::close_connection($pdo, $stmt);
+                // メッセージクラスのインスタンスを返す
+                return $oil;
+            } catch (PDOException $e) {
+                return null;
+            }
+        }
+
         /*
         //$name指定して1つのオイル情報を取得する
         public static function get_oil_id_by_name($name){
@@ -274,7 +295,7 @@
             // 新しく作成された画像名を返す
             return $image;
         }*/
-        /*
+        
         //$idのユーザを削除する
         public static function delete($id){
             //例外処理
@@ -282,7 +303,7 @@
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // DELETE文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('DELETE FROM users WHERE id=:id');
+                $stmt = $pdo->prepare('DELETE FROM essential_oils WHERE id=:id');
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
                 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
@@ -295,5 +316,5 @@
                 // 後処理
                 self::close_connection($pdo, $stmt);
             }
-        }*/
+        }
     }

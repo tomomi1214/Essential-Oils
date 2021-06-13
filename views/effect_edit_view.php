@@ -28,7 +28,7 @@
         </ul>
         <?php endif; ?>
         <div class="effects">
-            <form action="effect_update.php" method="POST">
+            <form action="effect_update.php" method="POST" enctype="multipart/form-data">
                 効能：<input type="text" name="effect" value="<?= $effect->effect ?>"><br>
                 詳細：<input type="text" name="content" value="<?= $effect->content ?>"><br>
                 注意事項：<input type="text" name="caution" value="<?= $effect->caution ?>"><br>

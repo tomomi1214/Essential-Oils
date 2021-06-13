@@ -1,17 +1,12 @@
 <?php
     require_once 'filters/LoginFilter.php';
     require_once 'DAOs/EffectDAO.php';
+    session_start();
     
     $id = $_GET['id'];
     $login_user = $_SESSION['login_user'];
         
-    if($id ==='' || $id === null){
-        $_SESSION['error'] = 'IDが指定されていません';
-        
-        header('Location: mypage_top.php');
-    }
-    
-    $effect = EffectDAO::get_effect($id);
+    $effect = EffectDAO::get_effect_by_id($id);
     
     //セッションに保存したエラー配列を取得
     $errors = $_SESSION['errors'];

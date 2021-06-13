@@ -12,6 +12,8 @@
     $login_user = $_SESSION['login_user'];
 
     $effect = new Effect($effect, $content, $caution, $login_user->id);
+    //var_dump($effect);
+
 
     $errors = $effect->validate($effect);
     //エラーがなければ

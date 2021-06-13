@@ -34,8 +34,13 @@
                 <li>香り：<?= $oil->aroma ?></li>
                 <li>注意事項：<?= $oil->caution ?></li>
             </ul>
+            <?php if($login_user->id === $oil->user_id): ?>
             <p><a href="oil_edit.php?id=<?= $id ?>">編集</a></p>
-
+            <form action="oil_delete.php" method="POST">
+                <input type="hidden" name="id" value="<?= $id?>">
+                <button type="submit" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">削除</button>
+            </form>
+            <?php endif; ?>
             <h3>効果</h3>
             <ul>
             <?php foreach($effects as $effect): ?>

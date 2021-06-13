@@ -31,7 +31,13 @@
                 <li>詳細：<?= $effect->content ?></li>
                 <li>注意事項：<?= $effect->caution ?></li>
             </ul>
+            <?php if($login_user->id === $effect->user_id): ?>
             <p><a href="effect_edit.php?id=<?= $id ?>">編集</a></p>
+            <form action="effect_delete.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $id?>">
+                <button type="submit" onclick="return confirm('効能情報を削除します。よろしいですか？')">削除</button>
+            </form>
+            <?php endif; ?>
 
             <h2>オイル一覧</h2>
             <?php foreach($oils as $oil): ?>

@@ -161,6 +161,34 @@
             // 完成した、はい投稿あげる
             return $effect;  
         }
+            // データを更新するメソッド
+    public static function update($effect, $id){ 
+            //例外処理
+             try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // UPDATE文の実行準備(:id, :name, :ageは適当、不明確)
+                $stmt = $pdo->prepare('UPDATE effects SET effect=:effect, content=:content, caution=:caution, user_id=:user_id WHERE id = :id');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                $stmt->bindParam(':effect', $effect->effect, PDO::PARAM_STR);
+                $stmt->bindParam(':content', $effect->content, PDO::PARAM_STR);
+                $stmt->bindParam(':caution', $effect->caution, PDO::PARAM_STR);
+                $stmt->bindParam(':user_id', $effect->user_id, PDO::PARAM_INT);
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
+    
+                // update文本番実行
+                $stmt->execute();
+                self::close_connection($pdo, $stmt);
+                return "情報を更新しました！";
+            }catch(PDOException $e){
+                return 'PDO exception: ' . $e->getMessage();
+            }
+        }
+
+        
+        
+        
+        /*
         //$idを指定して入力された情報に更新
         public static function update($effect){
             //例外処理
@@ -177,13 +205,14 @@
     
                 // update文本番実行
                 $stmt->execute();
-                //print_r($stmt->errorInfo());
                 self::close_connection($pdo, $stmt);
-                return "情報を更新しました！";
+                //return "情報を更新しました！";
+
             }catch(PDOException $e){
+
                 return 'PDO exception: ' . $e->getMessage();
             }
-        }
+        }*/
             
             /*    
              }catch(PDOException $e){
@@ -193,20 +222,22 @@
                 self::close_connection($pdo, $stmt);
             }
         }*/
-        /*
-        //$idのユーザを削除する
+        
+        //$idの効能情報を削除する
         public static function delete($id){
             //例外処理
              try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // DELETE文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('DELETE FROM users WHERE id=:id');
+                $stmt = $pdo->prepare('DELETE FROM effects WHERE id=:id');
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
                 // DELETE文本番実行
                 $stmt->execute();
+                
+                return '情報を削除しました！';
 
             }catch(PDOException $e){
                 
@@ -214,6 +245,6 @@
                 // 後処理
                 self::close_connection($pdo, $stmt);
             }
-        }*/
+        }
 
     }
