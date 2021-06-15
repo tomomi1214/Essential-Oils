@@ -8,6 +8,7 @@
     $_SESSION['flash_message'] = null;
     
     $id = $_GET['id'];
+    //var_dump($id);
     $login_user = $_SESSION['login_user'];
     
     $effect = EffectDAO::find($id);

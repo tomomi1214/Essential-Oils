@@ -59,13 +59,13 @@ h1 {
 p {
     margin-left: 50px;
 }
-.essential_oils, .effects, .relations {
+.main, .essential_oils, .effects, .registerList, .relations {
     margin: 50px 50px;
 }
-.essential_oils p, .effects p, .main p, .relations p {
+.essential_oils p, .effects p, .main p, .relations p, .registerList p {
     font-size: 17px;
     margin-left: 30px;
 }
 .essential_oils ul, .effects ul, .relations ul{
     list-style: none;
-}    
+} 

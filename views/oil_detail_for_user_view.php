@@ -26,7 +26,7 @@
             <p><?= $flash_message ?></p>
             <?php endif; ?>
             <ul>
-                <li><img src="<?= $oil->image ?>"></li>
+                <li><img src="<?= $oil->image ?>" style="max-width: 400px"></li>
                 <li>名前：<?= $oil->name ?></li>
                 <li>学名：<?= $oil->scientific_name ?></li>
                 <li>科名：<?= $oil->plant_name ?></li>
@@ -36,7 +36,7 @@
             </ul>
             <?php if($login_user->id === $oil->user_id): ?>
             <p><a href="oil_edit.php?id=<?= $id ?>">編集</a></p>
-            <form action="oil_delete.php" method="POST">
+            <form action="oil_delete.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $id?>">
                 <button type="submit" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">削除</button>
             </form>
@@ -47,6 +47,10 @@
                 <li><a href="effect_detail_for_user.php?id=<?= $effect->id ?>"><?= $effect->effect ?></a></li>
             <?php endforeach; ?>
             </ul>
+            <?php if($login_user->id === $relation->user_id): ?>
+            <p><a href="relation_edit.php?id=<?= $id ?>">編集</a></p>
+            <?php endif; ?>
+            <br>
             <p1><a href="mypage_top.php">トップページへ</a></p1>
         </div>
         <script src="js/script.js"></script>

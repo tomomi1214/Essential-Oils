@@ -95,6 +95,53 @@
                 return null;
             }
         }
+        // user_idからoil情報抜き出すためのメソッド
+        public static function get_all_oils_by_user_id($user_id){
+            try {
+                $pdo = self::get_connection();
+                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE user_id = :user_id');
+                // バインド処理
+                $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                // 実行
+                $stmt->execute();
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
+                // フェッチの結果を、Oilクラスのインスタンスにマッピングする
+                $oils = $stmt->fetchAll();
+                //var_dump($relations);
+                return $oils;
+                
+            } catch (PDOException $e) {
+                self::close_connection($pdo, $stmt);
+            }
+        }
+
+
+        // user_idからoil nameを抜き出すためのメソッド
+        public static function get_all_oils_by_user_id_for_relations($user_id){
+            try {
+                $pdo = self::get_connection();
+                $stmt = $pdo->prepare('SELECT * FROM relations WHERE user_id = :user_id');
+                // バインド処理
+                $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                // 実行
+                $stmt->execute();
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+                // フェッチの結果を、Oilクラスのインスタンスにマッピングする
+                $relations = $stmt->fetchAll();
+                //var_dump($relations);
+        
+                $oils = array();
+                foreach($relations as $relation){
+                    $oil = self::get_oil($relation->oil_id);
+                    $oils[] = $oil;
+                }
+                //var_dump($oils);
+                
+            } catch (PDOException $e) {
+                self::close_connection($pdo, $stmt);
+            }
+            return $oils;
+        }
 
         /*
         //$name指定して1つのオイル情報を取得する
@@ -217,8 +264,9 @@
             // 完成した、はい投稿あげる
             return $oil;  
         }
+        
         // 画像ファイル名を取得するメソッド（uploadフォルダ内のファイルを物理削除するため）
-        public static function get_image_name_by_id($id){
+        /*public static function get_image_name_by_id($id){
             try {
                 $pdo = self::get_connection();
                 $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE id = :id');
@@ -238,16 +286,16 @@
             } catch (PDOException $e) {
                 return 'PDO exception: ' . $e->getMessage();
             }
-        }
+        }*/
 
         //$idを指定して入力された情報に更新
-        public static function update($oil){
+        public static function update($oil, $id){
             //例外処理
              try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // UPDATE文の実行準備
-                $stmt = $pdo->prepare('UPDATE essential_oils SET name=:name, scientific_name=:scientific_name, plant_name=:plant_name, extraction=:extraction, aroma=:aroma, caution=:caution, english_name=:english_name, image=:image WHERE id = :id');
+                $stmt = $pdo->prepare('UPDATE essential_oils SET name=:name, scientific_name=:scientific_name, plant_name=:plant_name, extraction=:extraction, aroma=:aroma, caution=:caution, english_name=:english_name, user_id=:user_id, image=:image WHERE id = :id');
 
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
                 $stmt->bindParam(':name', $oil->name, PDO::PARAM_STR);
@@ -259,18 +307,12 @@
                 $stmt->bindParam(':english_name', $oil->english_name, PDO::PARAM_STR);
                 $stmt->bindParam(':user_id', $oil->user_id, PDO::PARAM_INT);
                 $stmt->bindParam(':image', $oil->image, PDO::PARAM_STR);
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
                 // update文本番実行
                 $stmt->execute();
                 self::close_connection($pdo, $stmt);
-                
-                //画像削除
-                /*
-                if($image !== $oil->image){
-                    unlink('images/' . $image);
-                }*/
-                
-                return 'id: ' . $oil->name . 'の情報が更新されました';
+                return '情報が更新されました！';
 
             } catch (PDOException $e) {
                 return 'PDO exception: ' . $e->getMessage();

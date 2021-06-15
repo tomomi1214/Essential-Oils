@@ -2,7 +2,6 @@
     require_once 'DAOs/UserDAO.php';
     require_once 'DAOs/OilDAO.php';
     require_once 'models/Oil.php';
-
     session_start();
     
     //var_dump($_POST);
@@ -11,7 +10,7 @@
     //var_dump($id);
     
     //Oilの前の情報を取得
-    $oil = OilDAO::get_oil($id);
+    $oil = OilDAO::get_oil_by_id($id);
     //var_dump($oil);
     
     //オイルデータが存在すれば
@@ -24,6 +23,8 @@
         $aroma = $_POST['aroma'];
         $caution = $_POST['caution'];
         $english_name = $_POST['english_name'];
+        
+        //$login_user = $_SESSION['login_user'];
     
         //画像が選択されていれば
         if($_FILES['image']['size'] !== 0){
@@ -57,7 +58,7 @@
         //var_dump($errors);
         
         if(count($errors) === 0){
-            $flash_message = OilDAO::update($oil);
+            $flash_message = OilDAO::update($oil, $id);
             
             $_SESSION['flash_message'] = $flash_message;
         
@@ -69,5 +70,9 @@
             header('Location: oil_edit.php?id=' . $id);
             exit;
         }
+    }else{
+        $_SESSION['error'] = '存在しないページです。';
+        header('Location: mypage_top.php');
+        exit;
     }
     

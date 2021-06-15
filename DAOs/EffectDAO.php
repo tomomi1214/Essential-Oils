@@ -73,6 +73,51 @@
             return null;
         }
     }
+        // user_idからデータを抜き出すメソッド
+        public static function get_all_effects_by_user_id($user_id){
+        try {
+            $pdo = self::get_connection();
+            $stmt = $pdo->prepare('SELECT * FROM effects WHERE user_id = :user_id');
+            // バインド処理
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            // 実行
+            $stmt->execute();
+            // フェッチの結果を、messageクラスのインスタンスにマッピングする
+            $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Effect');
+            $effects = $stmt->fetchAll();
+            self::close_connection($pdo, $stmt);
+            // メッセージクラスのインスタンスを返す
+            return $effects;
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
+        // user_idから効能名を抜き出すメソッド
+        public static function get_all_effects_by_user_id_for_relations($user_id){
+        try {
+            $pdo = self::get_connection();
+            $stmt = $pdo->prepare('SELECT * FROM relations WHERE user_id = :user_id');
+            // バインド処理
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            // 実行
+            $stmt->execute();
+            // フェッチの結果を、messageクラスのインスタンスにマッピングする
+            $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+            $relations = $stmt->fetchAll();
+            
+            $effects = array();
+            foreach($relations as $relation){
+                $effect = self::get_effect($relation->effect_id);
+                $effects[] = $effect;
+            }
+            
+            
+        } catch (PDOException $e) {
+            self::close_connection($pdo, $stmt);
+        }
+        return $effects;
+    }
+
         //$oil_idが与えられた時、それに与えられらeffect情報を取得する
         public static function get_all_effects_by_oil_id($oil_id){
             //例外処理
@@ -167,7 +212,7 @@
              try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
-                // UPDATE文の実行準備(:id, :name, :ageは適当、不明確)
+                // UPDATE文の実行準備(:effect....は適当、不明確)
                 $stmt = $pdo->prepare('UPDATE effects SET effect=:effect, content=:content, caution=:caution, user_id=:user_id WHERE id = :id');
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
                 $stmt->bindParam(':effect', $effect->effect, PDO::PARAM_STR);
@@ -179,7 +224,7 @@
                 // update文本番実行
                 $stmt->execute();
                 self::close_connection($pdo, $stmt);
-                return "情報を更新しました！";
+                return '情報が更新されました！';
             }catch(PDOException $e){
                 return 'PDO exception: ' . $e->getMessage();
             }
