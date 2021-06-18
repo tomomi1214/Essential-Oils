@@ -41,7 +41,7 @@
             </ul>
             <?php endforeach; ?>
 
-            <p1><a href="oil_register.php">エッセンシャルオイル登録</a></p1><br>
+            <p1><a href="oil_register.php?page=top">エッセンシャルオイル登録</a></p1><br>
         </div>
         <div class="effects">
             <h2>Effects</h2>
@@ -50,7 +50,7 @@
                 <li><a href="effect_detail_for_user.php?id=<?= $effect->id ?>"><?= $effect->effect ?></a></li>
             </ul>
             <?php endforeach; ?>
-            <p1><a href="effect_register.php">効果登録</a></p1><br>
+            <p1><a href="effect_register.php?page=top">効果登録</a></p1><br>
             <p1><a href="relation_register.php">関連登録</a></p1><br>
         </div>
         <div class="registerList">

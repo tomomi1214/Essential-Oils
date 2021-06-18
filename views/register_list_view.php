@@ -22,16 +22,21 @@
         <h1>Aroma Knowledge</h1>
         <div class="main">
         <h2><?= $login_user->name ?>登録一覧</h2>
+        
         <?php if($flash_message !== null): ?>
         <p><?= $flash_message ?></p>
         <?php endif; ?>
         </div>
         <div class="essential_oils">
             <h2>Essential Oils</h2>
+            <?php $pre_letter = ''; ?>
             <?php foreach($oils as $oil): ?>
             <ul>
                 <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
+                <?php if($letter !== $pre_letter): ?>
                 <h3><?= $letter ?></h3>
+                <?php endif; ?>
+                <?php $pre_letter = $letter; ?>
                 <li><a href="oil_detail_for_user.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
             </ul>
             <?php endforeach; ?>
@@ -48,14 +53,13 @@
         </div>
         <div class="relations">
             <h2>Relations</h2>
-            <form action="relation_delete.php" method="POST" enctype="multipart/form-data">
+            
+             <form action="relation_delete.php" method="POST">
                 <?php foreach($relations as $relation): ?>
-                <input type="checkbox" name="relation" value="<?= $relation->id ?>"><?= $relation->id ?><br>
-                <input type="hidden" name="id" value="<?= $id ?>">
+                <input type="checkbox" name="id[]" value="<?= $relation->id ?>">【<?= $relation->id ?>】<?= $relation->essential_oil_name ?> - <?= $relation->effect ?> <br>
                 <?php endforeach; ?>
                 <button type="submit">削除</button>
             </form>
-
             <p1><a href="relation_register.php">関連登録</a></p1><br>  
             <p1><a href="mypage_top.php">トップページへ</a></p1><br>
 

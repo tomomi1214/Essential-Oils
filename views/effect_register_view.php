@@ -28,10 +28,11 @@
         </ul>
         <?php endif; ?>
         <div class="effects">
-            <form action="effect_create.php" method="POST" enctype="multipart/form-data">
+            <form action="effect_create.php" method="POST">
                 効能：<input type="text" name="effect"><br>
                 詳細：<input type="text" name="content"><br>
                 注意事項：<input type="text" name="caution"><br>
+                <input type="hidden" name="page" value="<?= $page ?>">
                 <button type="submit">登録</button>
             </form>
             <br>

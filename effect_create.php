@@ -8,6 +8,7 @@
     $effect = $_POST['effect'];
     $content = $_POST['content'];
     $caution = $_POST['caution'];
+    $page = $_POST['page'];
     
     $login_user = $_SESSION['login_user'];
 
@@ -22,8 +23,13 @@
         
         $_SESSION['flash_message'] = $flash_message;
         
-        header('Location: mypage_top.php');
-        exit;
+        if($page === 'top'){
+            header('Location: mypage_top.php');
+            exit;
+        }else{
+            header('Location: register_list.php');
+            exit;
+        }
     }else{
         $_SESSION['errors'] = $errors;
         

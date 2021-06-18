@@ -11,4 +11,7 @@
     $errors = $_SESSION['errors'];
     $_SESSION['errors'] = null;
     
+    //Page設定
+    $page = $_GET['page'];
+    
     include_once 'views/relation_register_view.php';

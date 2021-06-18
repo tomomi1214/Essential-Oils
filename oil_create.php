@@ -20,6 +20,8 @@
     $image = $_FILES['image']['name'];
 
     $file = 'images/' . $image;
+    
+    $page = $_POST['page'];
 
     $oil = new Oil($name, $scientific_name, $plant_name, $extraction, $aroma, $caution, $english_name, $login_user->id, $file);
     
@@ -32,8 +34,13 @@
         
         $_SESSION['flash_message'] = $flash_message;
         
-        header('Location: mypage_top.php');
-        exit;
+        if($page === 'top'){
+            header('Location: mypage_top.php');
+            exit;
+        }else {
+            header('Location: register_list.php');
+            exit;        }
+        
     }else{
         $_SESSION['errors'] = $errors;
         

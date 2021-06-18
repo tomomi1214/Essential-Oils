@@ -198,7 +198,8 @@
                 self::close_connection($pdo, $stmt);
                 return "新規エッセンシャルオイル登録が成功しました！";
             }catch(PDOException $e){
-                return 'PDO exception: ' . $e->getMessage();
+                //return 'PDO exception: ' . $e->getMessage();
+                return $oil->name . 'は既に登録されています。';
             }
         }
 

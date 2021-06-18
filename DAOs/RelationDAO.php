@@ -130,7 +130,7 @@
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // SELECT文実行準備 statement object
-                $stmt = $pdo->prepare('SELECT * FROM relations WHERE user_id=:user_id');
+                $stmt = $pdo->prepare('SELECT relations.id, essential_oils.name AS essential_oil_name, effects.effect as effect FROM relations JOIN essential_oils ON relations.oil_id = essential_oils.id JOIN effects ON relations.effect_id = effects.id WHERE relations.user_id=:user_id');
                 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
                 // INSERT文本番実行
                 $stmt->execute();
@@ -169,7 +169,8 @@
                 self::close_connection($pdo, $stmt);
                 return "新規関連登録が成功しました！";                
             }catch(PDOException $e){
-                return 'PDO exception: ' . $e->getMessage();
+                //return 'PDO exception: ' . $e->getMessage();
+                return 'この関連は既に登録されています。';
             }
         }
         /*

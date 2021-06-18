@@ -176,7 +176,8 @@
                 self::close_connection($pdo, $stmt);
                 return "新規効能登録が成功しました！";
             }catch(PDOException $e){
-                return 'PDO exception: ' . $e->getMessage();
+                //return 'PDO exception: ' . $e->getMessage();
+                return $effect->effect . 'は既に登録されています。';
             }
         }
 

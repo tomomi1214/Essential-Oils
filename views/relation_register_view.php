@@ -28,7 +28,7 @@
         </ul>
         <?php endif; ?>
         <div class="relations">
-            <form action="relation_create.php" method="POST" enctype="multipart/form-data">
+            <form action="relation_create.php" method="POST" >
                 エッセンシャルオイル：
                 <?php foreach($oils as $oil): ?>
                 <input type="radio" name="oil" value="<?= $oil->id ?>"><?= $oil->name ?>&nbsp;                    
@@ -42,6 +42,7 @@
                 使用方法：<input type="text" name="howto"><br>
                 詳細：<input type="text" name="content"><br>
                 注意事項：<input type="text" name="caution"><br>
+                <input type="hidden" name="page" value="<?= $page ?>">
                 <button type="submit">登録</button>
             </form>
             <br><br>

@@ -3,26 +3,23 @@
     require_once 'DAOs/RelationDAO.php';
     session_start();
     
-    $id = $_POST['id'];
     var_dump($id);
     
-    /*
-    if($id === ""){
-        $_SESSION['error'] = '不正アクセスです';
-        header ('Location: register_list.php');
-        exit;
-    }
-    $relation = RelationDAO:: get_relation_by_id($id);  
-
-    if($relation !== false){
-        $flash_message = RelationDAO::delete($id);
-        $_SESSION['flash_message'] = $flash_message;
-        
-        header('Location: register_list.php');
-        exit;
+    
+    $ids = $_POST['id'];
+    
+    if(count($ids) === 0){
+        // エラーメッセージのセット
+      
     }else{
-        $_SESSION['error'] = '存在しないページです';
-        header('Location: register_list.php');
-        exit;
+        foreach($ids as $id){
+            // print $id;
+            // $relation = RelationDAO:: get_relation_by_id($id);
+            RelationDAO::delete($id);
+        }
+        
+        $_SESSION['flash_message'] = '関連性を削除しました。';
     }
-    */
+    
+    header('Location: register_list.php');
+    exit;

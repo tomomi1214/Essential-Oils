@@ -37,6 +37,7 @@
                 注意事項：<input type="text" name="caution"><br>
                 英名：<input type="text" name="english_name"><br>
                 画像：<input type="file" name="image"><br>
+                <input type="hidden" name="page" value="<?= $page ?>">
                 <button type="submit">登録</button>
             </form>
             <br>
