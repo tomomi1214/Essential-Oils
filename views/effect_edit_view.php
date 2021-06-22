@@ -33,7 +33,7 @@
                 詳細：<input type="text" name="content" value="<?= $effect->content ?>"><br>
                 注意事項：<input type="text" name="caution" value="<?= $effect->caution ?>"><br>
                 <input type="hidden" name="id" value="<?= $id ?>">
-
+                <input type="hidden" name="page" value="<?= $page ?>">
                 <button type="submit">編集</button>
             </form>
             <br>

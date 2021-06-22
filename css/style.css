@@ -52,20 +52,155 @@
 }
 */
 
-h1 {
-    padding-left: 30px;
+body {
+    font-family: Times New Roman, Meiryo UI;
 }
 
-p {
-    margin-left: 50px;
+/*-----Header----*/
+.header {
+    height: 100px;
+    text-align: center;
+    background: #154f22;
 }
-.main, .essential_oils, .effects, .registerList, .relations {
+
+.header h1 {
+    color: white;
+    padding: 20px;
+    font-family: Times New Roman;
+    font-size: 3.0rem;
+}
+
+/*-----Login/Register----*/
+.main{
+    height: 50px;
+    margin: 20px 50px;
+    float: right;
+
+}
+.main span{
+    font-size: 15px;
+}
+
+/*-----Essential_Oils----*/
+.essential_oils{
+    margin: 50px 50px;
+    clear: right;
+}
+.title {
+    margin-left: 150px;
+    font-size: 50px;
+}
+.essential_oils ul{
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.EoilContent{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.EoilContent p{
+    text-align: center;
+    font-size: 60px;
+    clear: left;
+}
+.EoilContent a{
+    text-decoration: none;
+    color: black;
+}
+
+
+/*-----Effects----*/
+
+.effects{
     margin: 50px 50px;
 }
-.essential_oils p, .effects p, .main p, .relations p, .registerList p {
+.EffectContent{
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 30px;
+}
+.EffectContent a{
+    color: gray;
+    text-align: center;
+    font-size: 19px;
+    text-decoration: none;
+}
+
+.EffectBtn{
+    width: 160px;
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: solid 2px #67c5ff;
+    border-radius: 25px;
+    transition: .4s;
+}
+
+.EffectBtn:hover{
+    background: #67c5ff;
+    color: white;
+    
+    
+}
+
+/*---Footer---*/
+.footer{
+    height: 150px;
+    background: #154f22;
+    bottom: 0;
+}
+.footer {
+    color: white;
+    font-size: 30px;
+}
+.logo {
+    display: inline-block;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+.nav {
+    display: inline-block;
+    margin-left: 150px;
+}
+
+.footer ul{
+    float: left;
+    list-style: none;
+    color: white;
+}
+.footer ul li{
+    float: left;
+    font-size: 18px;
+}
+.footer a {
+    color: white;
+    display: block;
+    text-decoration: none;
+    padding: 0 40px;
+}
+.copylight{
+    display: inline-block;
+    
+}
+.footer p{
+    font-size: 10px;
+    float: right;
+    bottom : 0;
+    margin-right: 10px;
+    margin-top: 120px;
+}
+
+/*--Other-*/
+.registerList, .relations {
+    margin: 50px 50px;
+}
+.relations p, .registerList p {
     font-size: 17px;
     margin-left: 30px;
 }
-.essential_oils ul, .effects ul, .relations ul{
+.relations ul{
     list-style: none;
 } 

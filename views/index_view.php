@@ -19,35 +19,50 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h1>Aroma Knowledge</h1>
+        <div class="header">
+            <h1>Aroma Knowledge</h1>
+        </div>
         <?php if($flash_message !== null): ?>
         <p><?= $flash_message ?></p>
         <?php endif; ?>
         <div class="main">
-            <p><a href="user_register.php">会員登録</a></p>
-            <p><a href="login.php">Login</a></p>
+            <span><a href="user_register.php">会員登録</a></span>
+            <span> / </span>
+            <span><a href="login.php">Login</a></span>
         </div>
         <div class="essential_oils">
-            <h2>Essential Oils</h2>
-            <?php $pre_letter = ''; ?>
-            <?php foreach($oils as $oil): ?>
-            <ul>
+            <h2 class="title">Essential Oils</h2>
+            <div class="EoilContent">
+                <?php $pre_letter = ''; ?>
+                <?php foreach($oils as $oil): ?>
                 <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
                 <?php if($letter !== $pre_letter): ?>
-                <h3><?= $letter ?></h3>
+                <p><?= $letter ?></p>
                 <?php endif; ?>
                 <?php $pre_letter = $letter; ?>
-                <li><a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a></li>
-            </ul>
-            <?php endforeach; ?>
+                <a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a>
+                <?php endforeach; ?>
+            </div>
         </div>
         <div class="effects">
-            <h2>Effects</h2>
+            <h2 class="title">Effects</h2>
+            <div class="EffectContent">
             <?php foreach($effects as $effect): ?>
-            <ul>
-                <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->effect ?></a></li>
-            </ul>
+                <a href="effect_detail.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a>
             <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="footer">
+            <h1 class="logo">Aroma Knowledge</h1>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">Essential Oils</a></li>
+                    <li><a href="#">Effects</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">My Page</a></li>
+                </ul>
+            </div>
+            <p class="copylight">COPYRIGHT © All rights Reserved.</p>
         </div>
     </body>
 </html>

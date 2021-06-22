@@ -23,13 +23,6 @@
         $effect = new Effect($effect, $content, $caution, $login_user->id);
         //var_dump($effect);
         
-        //インスタンス情報の更新
-        /*Oilと同じこのやり方だと編集不可
-        $effect->effect = $effect;
-        $effect->content = $content;
-        $effect->caution = $caution;
-        */
-        
         // 入力チェック
         $errors = $effect->validate($effect);
         //var_dump($errors);
@@ -38,7 +31,7 @@
             
             $flash_message = EffectDAO::update($effect, $id);
             $_SESSION['flash_message'] = $flash_message;
-            
+        
             header('Location: effect_detail_for_user.php?id=' . $id);
             exit;
             
@@ -48,9 +41,5 @@
             header('Location: effect_edit.php?id='. $id);
             exit;
         }
-    }else{
-        $_SESSION['error'] = '存在しないページです。';
-        header('Location: mypage_top.php');
-        exit;
     }
    

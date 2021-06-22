@@ -12,6 +12,9 @@
     $errors = $_SESSION['errors'];
     $_SESSION['errors'] = null;
     
+    //Page設定
+    $page = $_GET['page'];
+
     
     //effect情報が存在すれば
     if($effect !== false){

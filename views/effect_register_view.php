@@ -24,7 +24,7 @@
         <ul>
             <?php foreach($errors as $error): ?>
             <li><?= $error ?></li>
-            <?php endforeach; ?>
+            <?php endforeach; ?>    
         </ul>
         <?php endif; ?>
         <div class="effects">
