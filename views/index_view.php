@@ -19,7 +19,7 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <div class="header">
+        <div class="header" style="background-image:url(images/top1.jpg)">
             <h1>Aroma Knowledge</h1>
         </div>
         <?php if($flash_message !== null): ?>
@@ -34,16 +34,29 @@
             <h2 class="title">Essential Oils</h2>
             <div class="EoilContent">
                 <?php $pre_letter = ''; ?>
+                <?php $count = 1; ?>
                 <?php foreach($oils as $oil): ?>
-                <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
-                <?php if($letter !== $pre_letter): ?>
-                <p><?= $letter ?></p>
-                <?php endif; ?>
-                <?php $pre_letter = $letter; ?>
-                <a href="oil_detail.php?id=<?= $oil->id ?>"><?= $oil->name ?></a>
+                    <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
+                    <?php if($letter !== $pre_letter): ?>
+                        <?php if($count !== 1): ?>
+                    </div>
+                            <?php $count = 1; ?>
+                        <?php endif; ?>
+                    <div class="oil">
+                        <p><?= $letter ?></p>
+                    <?php endif; ?>
+                    
+                    <?php $pre_letter = $letter; ?>
+                    <?php $count++; ?>
+                    <div class="oilset">
+                        <a href="oil_detail.php?id=<?= $oil->id ?>"><img src="<?= $oil->image?>"  class="OilPic" alt="Oil"></a>
+                        <a href="oil_detail.php?id=<?= $oil->id ?>" class="OilName"><?= $oil->name ?></a>
+                    </div>
                 <?php endforeach; ?>
+                </div>
             </div>
         </div>
+        <div class="wrapper">
         <div class="effects">
             <h2 class="title">Effects</h2>
             <div class="EffectContent">
@@ -52,16 +65,17 @@
             <?php endforeach; ?>
             </div>
         </div>
-        <div class="footer">
+        </div>
+        <div class="footer" style="background-image:url(images/footer.jpg)">
             <h1 class="logo">Aroma Knowledge</h1>
-            <div class="nav">
+            <!---div class="nav">
                 <ul>
                     <li><a href="#">Essential Oils</a></li>
                     <li><a href="#">Effects</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">My Page</a></li>
                 </ul>
-            </div>
+            </div--->
             <p class="copylight">COPYRIGHT © All rights Reserved.</p>
         </div>
     </body>

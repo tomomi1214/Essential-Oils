@@ -99,7 +99,7 @@
         public static function get_all_oils_by_user_id($user_id){
             try {
                 $pdo = self::get_connection();
-                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE user_id = :user_id');
+                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE user_id = :user_id ORDER BY english_name ASC');
                 // バインド処理
                 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
                 // 実行
@@ -352,6 +352,8 @@
 
                 // DELETE文本番実行
                 $stmt->execute();
+                
+                return 'エッセンシャルオイル情報を削除しました。';
 
             }catch(PDOException $e){
                 

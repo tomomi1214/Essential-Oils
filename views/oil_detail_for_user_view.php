@@ -39,6 +39,7 @@
             <form action="oil_delete.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $id?>">
                 <button type="submit" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">削除</button>
+                <input type="hidden" name="page" value="<?= $page ?>">
             </form>
             <?php endif; ?>
             <h3>効果</h3>
@@ -51,6 +52,7 @@
             <p><a href="relation_edit.php?id=<?= $id ?>">編集</a></p>
             <?php endif; ?>
             <br>
+            <p1><a href="register_list.php">登録一覧トップへ</a></p1>
             <p1><a href="mypage_top.php">トップページへ</a></p1>
         </div>
         <script src="js/script.js"></script>

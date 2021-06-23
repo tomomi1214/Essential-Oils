@@ -36,6 +36,7 @@
             <form action="effect_delete.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <button type="submit" onclick="return confirm('効能情報を削除します。よろしいですか？')">削除</button>
+                <input type="hidden" name="page" value="<?= $page ?>">
             </form>
             <?php endif; ?>
 
