@@ -313,31 +313,36 @@
                 // update文本番実行
                 $stmt->execute();
                 self::close_connection($pdo, $stmt);
+                
+                //画像処理
+                if($image !== $oil->image){
+                    unlink('upload/' . $image);
+                }
                 return '情報が更新されました！';
 
             } catch (PDOException $e) {
                 return 'PDO exception: ' . $e->getMessage();
             }
         }
-        /*
+        
         // ファイルをアップロードするメソッド
         public static function upload(){
             
             // ファイル名をランダムに生成（ユニーク化）
             $image = uniqid(mt_rand(), true); 
-        
+
             // アップロードされたファイルの拡張子を取得
             $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
 
             // 画像のフルパスを設定
-            $file = 'images/' . $image;
+            $file = 'upload/'  . $image;
 
             // uploadディレクトリにファイル保存
             move_uploaded_file($_FILES['image']['tmp_name'], $file);
             
             // 新しく作成された画像名を返す
             return $image;
-        }*/
+        }
         
         //$idのユーザを削除する
         public static function delete($id){

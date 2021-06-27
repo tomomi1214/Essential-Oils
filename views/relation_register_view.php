@@ -19,34 +19,80 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h2>関連登録</h2>
-        <?php if($errors !== null): ?>
-        <ul>
-            <?php foreach($errors as $error): ?>
-            <li><?= $error ?></li>
-            <?php endforeach; ?>
-        </ul>
-        <?php endif; ?>
+        <div class="header" style="background-image:url(images/top1.jpg)">
+            <h1>Aroma Knowledge</h1>
+        </div>
         <div class="relations">
-            <form action="relation_create.php" method="POST" >
-                エッセンシャルオイル：
+            <h2 class="title">Relation</h1>
+            <?php if($errors !== null): ?>
+            <ul>
+                <?php foreach($errors as $error): ?>
+                <li><?= $error ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        
+            <div class="RelationDetail">    
+                <form action="relation_create.php" method="POST">
+                <div class="row">
+                    <label for="colFormLabel" class="col-form-label m-1">エッセンシャルオイル:</label>
+                </div>
                 <?php foreach($oils as $oil): ?>
-                <input type="radio" name="oil" value="<?= $oil->id ?>"><?= $oil->name ?>&nbsp;                    
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="oil" value="<?= $oil->id?>">
+                    <label class="form-check-label" for="oil"><?= $oil->name ?></label>
+                </div>
                 <?php endforeach; ?>
-                <br>
-                効果：
+                
+                <div class="row">
+                    <label for="colFormLabel" class="col-form-label m-1">効能:</label>
+                </div>
                 <?php foreach($effects as $effect): ?>
-                <input type="radio" name="effect" value="<?= $effect->id ?>"><?= $effect->effect ?>&nbsp;
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="effect" value="<?= $effect->id?>">
+                    <label class="form-check-label" for="effect"><?= $effect->effect ?></label>
+                </div>
                 <?php endforeach; ?>
                 <br>
-                使用方法：<input type="text" name="howto"><br>
-                詳細：<input type="text" name="content"><br>
-                注意事項：<input type="text" name="caution"><br>
-                <input type="hidden" name="page" value="<?= $page ?>">
-                <button type="submit">登録</button>
-            </form>
-            <br><br>
-            <p1><a href="mypage_top.php">トップページへ</a></p1>
+                <!--1行--->
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">使用方法</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="howto">
+                    </div>
+                </div>
+                <!--1行--->
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">詳細</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="content">
+                    </div>
+                </div>
+                <!--1行--->
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="caution">
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="hidden" name="page" value="<?= $page ?>">
+                </div>
+                <div class="form-group row">
+                    <div class="offset-sm-5 col-sm-1">
+                        <button type="submit" class="btn btn-success">Create</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="nav">
+            <a href="mypage_top.php">Back to TOP</a><br>
+            <a href="register_list.php">Go to Register List</a>
+        </div>
+        <div class="footer" style="background-image:url(images/footer.jpg)">
+            <h1 class="logo">Aroma Knowledge</h1>
+            <p class="copylight">COPYRIGHT © All rights Reserved.</p>
         </div>
     </body>
 </html>

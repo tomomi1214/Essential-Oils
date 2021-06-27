@@ -56,6 +56,7 @@ body {
     font-family: Times New Roman, Meiryo UI;
 }
 
+/*---index.php---*/
 /*-----Header----*/
 .header {
     height: 150px;
@@ -73,6 +74,13 @@ body {
     
 }
 
+/*--- TOP page flash_message ---*/
+
+.FlashMessage p{
+    margin-left: 200px;
+    margin-top: 5px;
+}
+
 /*-----Login/Register----*/
 .main{
     height: 50px;
@@ -85,7 +93,7 @@ body {
 }
 
 /*-----Essential_Oils----*/
-.essential_oils{
+.essential_oils, .effects, .other, .relations{
     margin: 50px 50px;
     margin-right: 250px;
     clear: right;
@@ -106,14 +114,14 @@ body {
     }
 
 
-.EoilContent p{
-    text-align: center;
-    font-size: 60px;
-    clear: left;
-}
 .oil{
     display: flex;
     margin-left: 400px;
+}
+.oil p1{
+    text-align: center;
+    font-size: 60px;
+    clear: left;
 }
 .OilName{
     text-decoration: none;
@@ -145,10 +153,11 @@ body {
 .effects .title {
     border-bottom: solid 10px gray;
 }
+/*EssentialOilたちとまとめた
 .effects{
     margin: 50px 50px;
     margin-right: 250px;
-}
+}*/
 .EffectContent{
     margin-left: 200px;
     margin-top: 30px;
@@ -156,7 +165,7 @@ body {
 .EffectContent a{
     color: gray;
     text-align: center;
-    font-size: 19px;
+    font-size: 18px;
     text-decoration: none;
 }
 
@@ -176,7 +185,22 @@ body {
     color: white;
     border: solid 2px orange;
 }
-
+/*---Effect detail---*/
+.OilBtn{
+    /*width: 160px;*/
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: solid 2px gray;
+    border-radius: 25px;
+    transition: .4s;
+}
+.OilBtn:hover{
+    background: orange;
+    color: white;
+    border: solid 2px orange;
+}
 /*---Footer---*/
 .footer {
     background: url(images/footer.jpg);
@@ -217,11 +241,11 @@ body {
     
 }
 
-/*---Login Page---*/
-.Login{
+/*---Login Page/ Create Account---*/
+.Login, .CreateAccount{
     height: 100vH;
 }
-.LoginMain{
+.LoginMain, .CreateMain{
     margin: 50px 50px;
     margin-right: 250px;
 }
@@ -236,14 +260,21 @@ body {
 .LoginForm p{
     padding-right: 30px;
 }
+.CreateMain ul{
+    margin-left: 200px;
+    margin-top: 10px;
+    color: red;
+}
+
+
 /*Go to top btn */
 .nav {
     display: inline-block;
     margin-left: 150px;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 40px;
 }
-/*---Footer2---*/
+/*---Footer2 for Login page and Create Account page---*/
 .footer2 {
     position: absolute;
     background: url(images/footer.jpg);
@@ -261,17 +292,52 @@ body {
     color: white;
     
 }
+/*---Mypage---*/
+.MypageMain{
+    margin: 30px 50px;
+}
+.MypageMain a{
+    float: right;
+    font-size: 18px;
+}
+.other p{
+    margin-left: 300px;
+    margin-top: 10px;
+}
+/*---Oil detail Page/ Effect detail Page---*/
+.subtitle{
+    margin-left: 230px;
+    font-size: 40px;
+    margin-top: 10px;
+}
+.OilDetail, .EffectDetail{
+    margin: 50px 300px;
+    text-align: center;
+}
+.RelationDetail{
+    margin: 50px 200px;
+}
 
+.OilDetail img{
+    margin-bottom: 50px;
+}
 
+/*--Oil / Effect更新　flash_messaeg--*/
+.essential_oils p,.essential_oils ul li, .effects p, .effects ul li, .relations ul li{
+    margin-left: 250px;
+}
 
 /*--Other-*/
-.registerList, .relations {
-    margin: 50px 50px;
-}
+
 .relations p, .registerList p {
     font-size: 17px;
     margin-left: 30px;
 }
-.relations ul{
-    list-style: none;
-} 
+/*--Relations register---*/
+.RelationContent {
+    margin-left: 200px;
+    margin-top: 30px;
+}
+.RelationTable{
+    margin: 10px 20px;
+}

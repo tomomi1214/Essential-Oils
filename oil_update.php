@@ -29,12 +29,10 @@
         //画像が選択されていれば
         if($_FILES['image']['size'] !== 0){
             // 画像ファイルの物理的アップロード処理
-            $image = $_FILES['image']['name'];
-            $file = 'images/' . $image;
-
+            $image = OilDAO::upload();
             //var_dump($image);
         }else{
-            $file = $oil->image;
+            $image = $oil->image;
             //var_dump($image);
         }
         
@@ -46,11 +44,11 @@
         $oil->aroma = $aroma;
         $oil->caution = $caution;
         $oil->english_name = $english_name;
-        $oil->image = $file;
+        $oil->image = $image;
     
         //var_dump($oil);
 
-        move_uploaded_file($_FILES['image']['tmp_name'], $file);
+        //move_uploaded_file($_FILES['image']['tmp_name'], $file);
 
         
         //入力チェック

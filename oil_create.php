@@ -16,17 +16,18 @@
     $english_name = $_POST['english_name'];
     
     $login_user = $_SESSION['login_user'];
-
-    $image = $_FILES['image']['name'];
-
-    $file = 'images/' . $image;
     
+    //画像が選択されていれば
+    if($_FILE['image']['size'] !==0){
+        //画像ファイルの物理アップロード処理
+        $image = OilDAO::upload();
+    }else{
+        $image = "";
+    }
     $page = $_POST['page'];
 
-    $oil = new Oil($name, $scientific_name, $plant_name, $extraction, $aroma, $caution, $english_name, $login_user->id, $file);
+    $oil = new Oil($name, $scientific_name, $plant_name, $extraction, $aroma, $caution, $english_name, $login_user->id, $image);
     
-    move_uploaded_file($_FILES['image']['tmp_name'], $file);
-
     $errors = $oil->validate($oil);
     
     if(count($errors) === 0){
@@ -34,12 +35,14 @@
         
         $_SESSION['flash_message'] = $flash_message;
         
+       
         if($page === 'top'){
             header('Location: mypage_top.php');
             exit;
         }else {
             header('Location: register_list.php');
-            exit;        }
+            exit;
+        }
         
     }else{
         $_SESSION['errors'] = $errors;

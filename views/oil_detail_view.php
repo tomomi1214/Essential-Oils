@@ -19,25 +19,61 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h1>Essential Oils</h1>
+        <div class="header" style="background-image:url(images/top1.jpg)">
+            <h1>Aroma Knowledge</h1>
+        </div>
         <div class="essential_oils">
-            <h2><?= $oil->name ?>詳細</h2>
-            <ul>
-                <li><img src="<?= $oil->image ?>"></li>
-                <li>名前：<?= $oil->name ?></li>
-                <li>学名：<?= $oil->scientific_name ?></li>
-                <li>科名：<?= $oil->plant_name ?></li>
-                <li>抽出方法：<?= $oil->extraction ?></li>
-                <li>香り：<?= $oil->aroma ?></li>
-                <li>注意事項：<?= $oil->caution ?></li>
-            </ul>
-            <h3>効果</h3>
+            <h2 class="title">Essential Oil</h1>
+            <h2 class="subtitle"><?= $oil->name ?></h2>
+            
+            <div class="OilDetail">
+                <img src="<?= 'upload/' . $oil->image ?>" style="max-width: 600px">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th style="width: 5%">名前</th>
+                            <td style="width: 20%"><?= $oil->name ?></td>
+                        </tr>
+                        <tr>
+                            <th>学名</th>
+                            <td><?= $oil->scientific_name ?></td>
+                        </tr>
+                        <tr>
+                            <th>科名</th>
+                            <td><?= $oil->plant_name ?></td>
+                        </tr>
+                        <tr>
+                            <th>抽出方法</th>
+                            <td><?= $oil->extraction ?></td>
+                        </tr>
+                        <tr>
+                            <th>香り</th>
+                            <td><?= $oil->aroma ?></td>
+                        </tr>
+                        <tr>
+                            <th>注意事項</th>
+                            <td><?= $oil->caution ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="effects">
+            <h2 class="title">Effects</h3>
             <ul>
             <?php foreach($effects as $effect): ?>
                 <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->effect ?></a></li>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
             </ul>
-            <p1><a href="index.php">トップページへ</a></p1>
         </div>
+        <div class="nav">
+            <a href="index.php">Back to TOP</a>
+        </div>
+        <div class="footer" style="background-image:url(images/footer.jpg)">
+            <h1 class="logo">Aroma Knowledge</h1>
+            <p class="copylight">COPYRIGHT © All rights Reserved.</p>
+        </div>
+        <!-- Original JavaScript -->
+        <script src="js/script.js"></script>
     </body>
 </html>

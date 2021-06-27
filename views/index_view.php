@@ -22,14 +22,19 @@
         <div class="header" style="background-image:url(images/top1.jpg)">
             <h1>Aroma Knowledge</h1>
         </div>
-        <?php if($flash_message !== null): ?>
-        <p><?= $flash_message ?></p>
-        <?php endif; ?>
+        
         <div class="main">
             <span><a href="user_register.php">会員登録</a></span>
             <span> / </span>
             <span><a href="login.php">Login</a></span>
         </div>
+        
+        <div class="FlashMessage">
+            <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
+            <?php endif; ?>
+        </div>
+
         <div class="essential_oils">
             <h2 class="title">Essential Oils</h2>
             <div class="EoilContent">
@@ -43,13 +48,13 @@
                             <?php $count = 1; ?>
                         <?php endif; ?>
                     <div class="oil">
-                        <p><?= $letter ?></p>
+                        <p1><?= $letter ?></p1>
                     <?php endif; ?>
                     
                     <?php $pre_letter = $letter; ?>
                     <?php $count++; ?>
                     <div class="oilset">
-                        <a href="oil_detail.php?id=<?= $oil->id ?>"><img src="<?= $oil->image?>"  class="OilPic" alt="Oil"></a>
+                        <a href="oil_detail.php?id=<?= $oil->id ?>"><img src="<?= 'upload/' . $oil->image?>"  class="OilPic" alt="Oil"></a>
                         <a href="oil_detail.php?id=<?= $oil->id ?>" class="OilName"><?= $oil->name ?></a>
                     </div>
                 <?php endforeach; ?>
@@ -57,25 +62,17 @@
             </div>
         </div>
         <div class="wrapper">
-        <div class="effects">
+            <div class="effects">
             <h2 class="title">Effects</h2>
-            <div class="EffectContent">
-            <?php foreach($effects as $effect): ?>
-                <a href="effect_detail.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a>
-            <?php endforeach; ?>
+                <div class="EffectContent">
+                <?php foreach($effects as $effect): ?>
+                    <a href="effect_detail.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a>
+                <?php endforeach; ?>
+                </div>
             </div>
-        </div>
         </div>
         <div class="footer" style="background-image:url(images/footer.jpg)">
             <h1 class="logo">Aroma Knowledge</h1>
-            <!---div class="nav">
-                <ul>
-                    <li><a href="#">Essential Oils</a></li>
-                    <li><a href="#">Effects</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">My Page</a></li>
-                </ul>
-            </div--->
             <p class="copylight">COPYRIGHT © All rights Reserved.</p>
         </div>
     </body>

@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/style.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
-        <title>Essential Oil編集</title>
+        <title>Essential Oil Edit</title>
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -19,34 +19,102 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-        <h2><?= $oil->name ?>編集</h2>
-        <?php if($errors !== null): ?>
-        <ul>
-            <?php foreach($errors as $error): ?>
-            <li><?= $error ?></li>
-            <?php endforeach; ?>
-        </ul>
-        <?php endif; ?>
-        <div class="essential_oils">
-            <form action="oil_update.php" method="POST" enctype="multipart/form-data">
-                名前：<input type="text" name="name" value="<?= $oil->name ?>"><br>
-                学名：<input type="text" name="scientific_name" value="<?= $oil->scientific_name ?>"><br>
-                科名：<input type="text" name="plant_name" value="<?= $oil->plant_name ?>"><br>
-                抽出方法：<input type="text" name="extraction" value="<?= $oil->extraction ?>"><br>
-                香り：<input type="text" name="aroma" value="<?= $oil->aroma ?>"><br>
-                注意事項：<input type="text" name="caution" value="<?= $oil->caution ?>"><br>
-                英名：<input type="text" name="english_name" value="<?= $oil->english_name ?>"><br><br>
-                画像：<img src="<?= $oil->image ?>" alt="表示する画像がありません。" style="max-width: 200px"><br><br>
-                      <input type="file" name="image" accept='image/*' onchange="previewImage(this);"><br>
-                    <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
-                    <input type="hidden" name="id" value="<?= $id ?>">
-
-                <br><br>
-                <button type="submit">更新</button>
-            </form>
-            <br>
+        <div class="header" style="background-image:url(images/top1.jpg)">
+            <h1>Aroma Knowledge</h1>
         </div>
-        <p><a href="mypage_top.php">トップページへ</a></p>
-
+        <div class="essential_oils">
+            <h2 class="title">Essential Oil</h1>
+            <h2 class="subtitle"><?= $oil->name ?> 編集</h2>
+            <?php if($errors !== null): ?>
+            <ul>
+                <?php foreach($errors as $error): ?>
+                <li><?= $error ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+                
+            <div class="OilDetail">
+                <form class="col-sm-12" action="oil_update.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="name" value="<?= $oil->name ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="scientific_name" value="<?= $oil->scientific_name ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="plant_name" value="<?= $oil->plant_name ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">抽出方法</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="extraction" value="<?= $oil->extraction ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="aroma" value="<?= $oil->aroma ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="caution" value="<?= $oil->caution ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="english_name" value="<?= $oil->english_name ?>">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">現在の画像</label>
+                        <div class="col-10">
+                            <img src="<?= 'upload/' . $oil->image ?>" alt="表示する画像がありません。" style="max-width:300px">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">画像アップロード</label>
+                        <div class="col-3">
+                            <input type="file" name="image" accept='images/*' onchange="previewImage(this);">
+                        </div>
+                        <div class="col-3">
+                            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:300px;">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="offset-sm-5 col-sm-1">
+                            <button type="submit" class="btn btn-info">Update</button>
+                        </div>
+                    </div>
+                </form>   
+            </div>
+        </div>
+        
+        <div class="nav">
+        <a href="mypage_top.php">Back to TOP</a><br>
+        <a href="register_list.php">Go to Register List</a>
+        </div>
+        <div class="footer" style="background-image:url(images/footer.jpg)">
+            <h1 class="logo">Aroma Knowledge</h1>
+            <p class="copylight">COPYRIGHT © All rights Reserved.</p>
+        </div>
     </body>
 </html>
