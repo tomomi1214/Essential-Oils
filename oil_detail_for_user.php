@@ -17,8 +17,9 @@
     $oil = OilDAO::find($id);
     $effects = EffectDAO::get_all_effects_by_oil_id($id);
     //var_dump($effects);
-
-    $relations = RelationDAO::get_relation_detail_by_oil_id($oil_id, $effect_id);
-    //var_dump($relations);
     
+    $relations = RelationDAO::get_relation_detail_by_oil_and_effect($id);
+    //var_dump($relations);
+
+
     include_once 'views/oil_detail_for_user_view.php';

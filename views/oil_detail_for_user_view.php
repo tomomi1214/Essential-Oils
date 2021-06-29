@@ -85,13 +85,13 @@
             <h2 class="title">Effects</h3>
             <div class="EffectContent">
                 <?php foreach($effects as $effect): ?>
-                    <a href="effect_detail_for_user.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a>
+                <div class="effectset">
+                    <a href="effect_detail_for_user.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a></br>
+                    <span><?= $effect->content ?></span>
+                </div>
                 <?php endforeach; ?>
             </div>
-            <?php if($login_user->id === $relation->user_id): ?>
-            <p><a href="relation_edit.php?id=<?= $id ?>">編集</a></p>
-            <?php endif; ?>
-            
+
             
             <div class="form-group row">
                 <div class="offset-2 col-10 mt-4">
@@ -100,6 +100,30 @@
             </div>
 
         </div>
+        <!---TEST--->
+        <!---div class="effects">
+            <h2 class="title">Effects</h3>
+            <div class="EffectContent">
+                <?php foreach($effects as $effect): ?>
+                <?php foreach($relations as $relation): ?>
+                <div class="effectset">
+                    <a href="effect_detail_for_user.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $relation->effect ?></a></br>
+                    <span><?= $relation->howto ?></span>
+                </div>
+                <?php endforeach; ?>
+                
+                <?php endforeach; ?>
+            </div--->
+
+            
+            <div class="form-group row">
+                <div class="offset-2 col-10 mt-4">
+                    <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
+                </div>
+            </div>
+
+        </div>
+        
         <div class="nav">
             <a href="mypage_top.php">Back to TOP</a><br>
             <a href="register_list.php">Go to Register List</a>

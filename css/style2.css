@@ -96,6 +96,13 @@ body {
     .effects .title {
         border-bottom: solid 6px gray;
     }
+    .effectset {
+        position: relative;
+        clear: both;
+        height: 60px;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
     .EffectContent{
         margin-left: 20px;
         margin-top: 10px;
@@ -109,6 +116,13 @@ body {
     .EffectBtn{
         width: 80px;
     }
+    .effectset span{
+        display: inline-block;
+        font-size: 10px;
+        margin-left:5px;
+        text-align: center;
+    }
+    
     /*---Footer---*/
     .footer {
         background-size: cover;

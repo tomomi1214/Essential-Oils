@@ -148,20 +148,21 @@
         }
         
         //oil_idとEffect_idを指定して情報取得する
-        public static function get_relation_detail_by_oil_id($oil_id, $effect_id){
+        public static function get_relation_detail_by_oil_and_effect($oil_id){
         // 例外処理
             try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // SELECT文実行準備 statement object
-                $stmt = $pdo->prepare('SELECT relations.id, relations.howto, essential_oils.name AS essential_oil_name, effects.effect AS effect FROM relations JOIN essential_oils ON relations.oil_id = essential_oils.id JOIN effects ON relations.effect_id = effects.id WHERE relations.oil_id=:oil_id AND relations.effect_id=:effect_id');
+                $stmt = $pdo->prepare('SELECT relations.id, relations.howto, essential_oils.name AS essential_oil_name, effects.effect AS effect FROM relations JOIN essential_oils ON relations.oil_id = essential_oils.id JOIN effects ON relations.effect_id = effects.id WHERE relations.oil_id=:oil_id');
                 $stmt->bindValue(':oil_id', $oil_id, PDO::PARAM_INT);
+                //$stmt->bindValue(':effect_id', $effect_id, PDO::PARAM_INT);
                 // INSERT文本番実行
                 $stmt->execute();
                 // Fetch ModeをRelationクラスに設定
                 $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
                 // SELECT文の結果を Relationクラスのインスタンス配列に格納
-                $relations = $stmt->fetch();
+                $relations = $stmt->fetchAll();
                 self::close_connection($pdo, $stmt);
                 return $relations;
 
