@@ -122,6 +122,23 @@ body {
         margin-left:5px;
         text-align: center;
     }
+    .EffectBtn-2{
+    width: 80px;
+    margin: 10px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: solid 1px gray;
+    border-radius: 25px;
+    transition: .4s;
+    float: left;
+}
+    
+.EffectBtn-2:hover{
+    background: #17a2b8;
+    color: white;
+    border: solid 1px #17a2b8;
+}
     
     /*---Footer---*/
     .footer {

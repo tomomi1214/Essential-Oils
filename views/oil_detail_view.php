@@ -59,14 +59,20 @@
                 </table>
             </div>
         </div>
+        
         <div class="effects">
             <h2 class="title">Effects</h3>
             <div class="EffectContent">
                 <?php foreach($effects as $effect): ?>
-                    <a href="effect_detail.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a>
+                <div class="effectset">
+                    <a href="effect_detail.php?id=<?= $effect->id ?>" class="EffectBtn-2"><?= $effect->effect ?></a></br>
+                    <span><?= $effect->content ?></span>
+                </div>
                 <?php endforeach; ?>
             </div>
-        </div>
+
+
+        
         <div class="nav">
             <a href="index.php">Back to TOP</a>
         </div>
