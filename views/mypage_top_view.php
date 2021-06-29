@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lag="ja">
+<html lang="ja">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -68,6 +68,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="wrapper">
             <div class="effects">
                 <h2 class="title">Effects</h2>
@@ -77,12 +78,13 @@
                     </div>
                 </div>
                 <div class="EffectContent">
-                <?php foreach($effects as $effect): ?>
-                    <a href="effect_detail_for_user.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a>
-                <?php endforeach; ?>
+                    <?php foreach($effects as $effect): ?>
+                        <a href="effect_detail_for_user.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
+        
         <div class="other">
             <h2 class="title">Other</h2>
             <!---関連登録ボタン For PC--->
@@ -115,6 +117,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="footer" style="background-image:url(images/footer.jpg)">
             <h1 class="logo">Aroma Knowledge</h1>
             <p class="copylight">COPYRIGHT © All rights Reserved.</p>
