@@ -18,7 +18,7 @@
     $login_user = $_SESSION['login_user'];
     
     //画像が選択されていれば
-    if($_FILE['image']['size'] !==0){
+    if($_FILES['image']['size'] !==0){
         //画像ファイルの物理アップロード処理
         $image = OilDAO::upload();
     }else{

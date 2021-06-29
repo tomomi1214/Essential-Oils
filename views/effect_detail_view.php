@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Original CSS -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style2.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
         <title>Effect Detail Page</title>
@@ -20,13 +21,13 @@
     </head>
     <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
-            <h1>Aroma Knowledge</h1>
+            <h1><a href="index.php">Aroma Knowledge</a></h1>
         </div>
         <div class="effects">
             <h2 class="title">Effect</h1>
             <h2 class="subtitle"><?= $effect->effect ?></h2>
             <div class="EffectDetail">
-                <table class="table">
+                <table class="table table-size">
                     <tbody>
                         <tr>
                             <th style="width: 5%">効能</th>

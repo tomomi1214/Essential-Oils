@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Original CSS -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style2.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
         <title>Register List</title>
@@ -90,7 +91,8 @@
 
             <?php if($relations !== null): ?>
             <div class="RelationContent">
-                <form action="relation_delete.php" method="POST" class="RelationTable">
+                <!--For PC--->
+                <form action="relation_delete.php" method="POST" class="RelationTable ForPC">
                     <table class="table table-borderless table-hover offset-md-3" style="width: 50%">
                         <thead>
                             <tr>
@@ -114,10 +116,37 @@
                     <div class="row offset-md-5">
                         <button type="submit" class="btn btn-outline-dark col-2" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
                     </div>
+                </form>
+                
+                <!--ForMobile--->
+                <form action="relation_delete.php" method="POST" class="RelationTable ForMobile">
+                    <table class="table table-borderless table-hover offset-md-3" style="width: 80%">
+                        <thead>
+                            <tr>
+                                <th style="width: 15%"></th>
+                                <th style="width: 25%">Essential oil</th>
+                                <th style="width: 25%">Effect</th>
+                            </tr>
+                        </thead>
+                        <?php foreach($relations as $relation): ?>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" name="id[]" value="<?= $relation->id ?>">
+                                </th>
+                                <td><?= $relation->essential_oil_name ?></td>
+                                <td><?= $relation->effect ?></td>
+                            </tr>
+                        </tbody>
+                        <?php endforeach; ?>
+                    </table>
+                    <div class="offset-9 col-10">
+                        <button type="submit" class="btn btn-outline-dark" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
+                    </div>
                 </form>    
+
+                
             </div>
-            <?php else: ?>
-            aaa
             <?php endif; ?>
         </div>
         

@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Original CSS -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style2.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
         <title>Effect Detail Page</title>
@@ -19,9 +20,8 @@
         <script src="js/script.js"></script>
     </head>
     <body>
-            <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
-            <h1>Aroma Knowledge</h1>
+            <h1><a href="mypage_top.php">Aroma Knowledge</h1></a>
         </div>
         <div class="effects">
             <h2 class="title">Effect</h1>
@@ -31,7 +31,7 @@
             <?php endif; ?>
 
             <div class="EffectDetail">
-                <table class="table">
+                <table class="table table-size">
                     <tbody>
                         <tr>
                             <th style="width: 5%">効能</th>
@@ -49,13 +49,23 @@
                 </table>
             </div>
              <?php if($login_user->id === $effect->user_id): ?>
-            <div class="row offset-md-5">
+             <!---For PC--->
+            <div class="row offset-md-5 ForPC">
                 <a href="effect_edit.php?id=<?= $id ?>" class="btn btn-outline-info col-sm-3">Edit</a>
                 <form class="col-sm-6" action="effect_delete.php" method="POST">
                     <input type="hidden" name="id" value="<?= $id ?>">
                     <button type="submit" class="btn btn-outline-dark col-sm-7" onclick="return confirm('効能情報を削除します。よろしいですか？')">Delete</button>
                 </form>
             </div>  
+                        <!---For Mobile--->
+            <div class="row ForMobile ml-5">
+                <a href="effect_edit.php?id=<?= $id ?>" class="btn btn-outline-info col-4">Edit</a>
+                <form class="col-5" action="effect_delete.php" method="POST">
+                    <input type="hidden" name="id" value="<?= $id ?>">
+                    <button type="submit" class="btn btn-outline-dark col-12" onclick="return confirm('効能情報を削除します。よろしいですか？')">Delete</button>
+                </form>
+            </div>  
+
             <?php endif; ?>
         </div>
         <div class="essential_oils">
@@ -65,6 +75,13 @@
                     <a href="oil_detail_for_user.php?id=<?= $oil->id ?>" class="OilBtn"><?= $oil->name ?></a>
                 <?php endforeach; ?>
             </div>
+            
+            <div class="form-group row">
+                <div class="offset-2 col-10 mt-4">
+                    <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
+                </div>
+            </div>
+
         </div>
         <div class="nav">
             <a href="mypage_top.php">Back to TOP</a><br>

@@ -62,7 +62,7 @@
                     <div class="form-group row offset-md-4">
                         <label class="col-4 col-form-label">Password</label>
                         <div class="col-7">
-                            <input type="text" class="form-control" name="password" placeholder="Password">
+                            <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
                     </div>
                     <!-- 1行 -->

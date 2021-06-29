@@ -33,7 +33,7 @@ CREATE TABLE `effects` (
   UNIQUE KEY `effect` (`effect`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `effects_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `effects` (
 
 LOCK TABLES `effects` WRITE;
 /*!40000 ALTER TABLE `effects` DISABLE KEYS */;
-INSERT INTO `effects` VALUES (1,'安眠','眠れない時に','特になし',1,'2021-06-07 22:56:46'),(2,'リラックス２','ストレスフルな状態に','過剰摂取に注意',1,'2021-06-07 22:57:59'),(9,'test','test','test',7,'2021-06-12 02:48:35'),(10,'安眠3','眠れない時に','特になし',1,'2021-06-12 07:34:07'),(11,'test2','test2','test2',1,'2021-06-13 06:20:54'),(13,'虫よけ','one','特になし',1,'2021-06-17 05:29:00');
+INSERT INTO `effects` VALUES (1,'殺菌効果','ニキビを直し、清潔な肌に','特になし',1,'2021-06-29 07:00:18'),(2,'頭痛緩和','ストレスや気温変化などの原因からくる偏頭痛の緩和','特になし',1,'2021-06-29 07:01:51'),(3,'虫刺され','虫刺されによる、痒みや腫れに効果的','特になし',1,'2021-06-29 08:32:24'),(4,'ニキビ','油分過多によるはニキビに','特になし',1,'2021-06-29 08:33:12'),(5,'リラックス','緊張した時や、ストレスフルな時に、ディフーザーに数滴たらしたり、お風呂に数滴入れて香りを楽しむ','特になし',1,'2021-06-29 08:34:39'),(6,'血行促進','血流の流れを良くする','特になし',2,'2021-06-29 08:51:02'),(7,'保湿','顔や体の保湿に','特になし',2,'2021-06-29 08:51:45'),(8,'ホルモン調整','ホルモンバランスを整える','体調を観察しながら使用する',2,'2021-06-29 08:53:57'),(9,'発汗作用','血流の流れを良くし、発汗を促進する','特になし',2,'2021-06-29 08:55:49'),(10,'集中力','集中力を高めたい時に効果的','特になし',2,'2021-06-29 08:58:00'),(11,'筋肉痛','筋肉に生じる痛みや、腰痛などに効果的','体調',2,'2021-06-29 09:00:15');
 /*!40000 ALTER TABLE `effects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +69,7 @@ CREATE TABLE `essential_oils` (
   UNIQUE KEY `name` (`name`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `essential_oils_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +78,7 @@ CREATE TABLE `essential_oils` (
 
 LOCK TABLES `essential_oils` WRITE;
 /*!40000 ALTER TABLE `essential_oils` DISABLE KEYS */;
-INSERT INTO `essential_oils` VALUES (1,'ラベンダー2','Lavandula angustifolia','シソ科','水蒸気蒸留法','フローラル','特になし','Lavender',1,'images/lavender.jpg','2021-06-07 13:49:14'),(2,'セージ','Salvia officinalis','シソ科','水蒸気蒸留法','【ハーブ系】フレッシュな草の、少し刺激のある香り','特になし','Sage',1,'images/sage.jpg','2021-06-07 14:03:10'),(3,'カモミールローマン','Chamaemelum nobile','キク科','水蒸気蒸留法','【フローラル系】甘くほのかにフルーティーなリンゴのような香り','特になし','Chamomile Roman',2,'images/Camomile.jpg','2021-06-07 23:20:50'),(4,'レモン','Citrus limon','ミカン科','コールドプレス','【柑橘系】さわやかなシトラス','光毒性、刺激強','Lemon',2,'images/lemon.jpg','2021-06-07 23:32:57'),(5,'ティーツリー','Melaleuca alternifolia','フトモモ科','水蒸気蒸留法','【樹木系】フレッシュで、苦味と甘さが混ざったウッディーな香り','刺激強','tea tree',7,'images/teatree.jpg','2021-06-10 06:17:56'),(6,'ネロリ','Citrus aurantium','ミカン科','水蒸気蒸留法','【フローラル系】フローラルとシトラスが混ざり、ほのかに苦みを感じる香り','刺激強','Neroli',7,'images/neroli.jpg','2021-06-10 06:53:18'),(10,'ユーカリ','Eucalyptus globulus','フトモモ科','水蒸気蒸留法','【樹木系】強くフレッシュ。ほのかな甘さにグリーン調の香り','刺激強、高血圧・てんかん症の人、幼児は避ける','Eucalyptus',7,'images/eucalyptus.jpg','2021-06-10 07:46:10'),(11,'ユーカリ2','Eucalyptus globulus','フトモモ科','水蒸気蒸留法','【樹木系】強くフレッシュ。ほのかな甘さにグリーン調の香り','刺激強、高血圧・てんかん症の人、幼児は避ける','Eucalyptus',7,'images/teatree.jpg','2021-06-11 04:50:57'),(13,'アプリコット','アプリコット','アプリコット','アプリコット','アプリコット','アプリコット','aplicot',1,'images/apricots.jpg','2021-06-17 05:30:13'),(14,'レモングラス','レモングラス','レモングラス','レモングラス','レモングラス','レモングラス','Lemon grass',1,'images/lemon.jpg','2021-06-17 05:47:16'),(15,'ローズマリー','Rosmarinus officinalis','シソ科','水蒸気蒸留法','【ハーブ系】強いフレッシュなハーブの香り','特になし','Rosemary',1,'images/rosemary.jpg','2021-06-17 08:38:31');
+INSERT INTO `essential_oils` VALUES (1,'バジル','Ocimum basilicum','シソ科','水蒸気蒸留法','【ハーブ系】すっきりした甘さとスパイシーさがある香り','妊娠中・幼児は避ける、刺激強','Basil',1,'59331280160dac4bb7db551.58712906.jpg','2021-06-29 06:59:07'),(2,'ユーカリ','Eucalyptus globulus','フトモモ科','水蒸気蒸留法','【樹木系】強くフレッシュ。ほのかな甘さにグリーン調の香り','刺激強、高血圧・てんかん症の人、幼児は避ける','Eucalyptus',1,'197799487460dad8eb231d30.61777360.jpg','2021-06-29 08:25:15'),(3,'ラベンダー','Lavandula angustifolia','シソ科','水蒸気蒸留法','【フローラル系】ハーブとフローラルが融合した香り','特になし','Lavender',1,'214679807660dad92702b109.12582615.jpg','2021-06-29 08:26:15'),(4,'ゼラニウム','Pelargonium graveolens','フウロソウ科','水蒸気蒸留法','【フローラル系】新鮮なグリーンと甘いフローラルが混ざったような香り','妊娠中は避ける、刺激強','Geranium',1,'155755439160dad9864b3ce3.09683493.jpg','2021-06-29 08:27:50'),(5,'ダマスクローズ','Rosa damascena','バラ科','水蒸気蒸留法','【フローラル系】フレッシュなローズの香り。','妊娠中は避ける、刺激強','Rose',1,'92018596460dad9cb6f8727.69221326.jpg','2021-06-29 08:28:59'),(6,'ティーツリー','Melaleuca alternifolia','フトモモ科','水蒸気蒸留法','【樹木系】フレッシュで、苦味と甘さが混ざったウッディーな香り','刺激強','Teatree',1,'92355578760dada2a5d3518.70907372.jpg','2021-06-29 08:30:34'),(7,'アイリス','Iris pallida','アヤメ科','水蒸気蒸留法','【フローラル系】スミレに似た温かくフローラルな香り','妊娠中は避ける、刺激強','Iris',2,'77944660560dadca25594d0.99299427.jpg','2021-06-29 08:41:06'),(8,'ジャスミン','Jasminum officinalis','モクセイ科','溶剤抽出法、二酸化炭素蒸留法','【フローラル系】濃厚な甘いフローラル調の香り','妊娠中は避ける、刺激強','Jasmine',2,'3643046360dadcf272cf06.46218743.jpg','2021-06-29 08:42:26'),(9,'イランイラン','Cananga odorata var. genuina','バンレイシ科','水蒸気蒸留法','【オリエンタル系】エキゾチックな甘い香り','妊娠中は避ける、刺激強、低血圧の人は避ける','YlangYlang',2,'115374637160dadd5353b946.27869778.jpg','2021-06-29 08:44:03'),(10,'タイム','Thymus vulgaris','シソ科','水蒸気蒸留法','【ハーブ系】甘さとほんのり辛さのあるハーブ調の香り','妊娠中、高血圧の人、幼児は避ける、刺激強','Thyme',2,'55725899860dadda1084611.59181895.jpg','2021-06-29 08:45:21'),(11,'ローズマリー','Rosmarinus officinalis','シソ科','水蒸気蒸留法','【ハーブ系】強いフレッシュなハーブの香り','抽出種類によって、乳幼児、妊婦、授乳中の人、神経系の弱い人、てんかん患者の人には使用しない','Rosemary',2,'83683934160dade2052f449.12911844.jpg','2021-06-29 08:47:28'),(12,'セージ','Salvia officinalis','シソ科','水蒸気蒸留法','【ハーブ系】フレッシュな草の、少し刺激のある香り','妊娠中は避ける、刺激強','Sage',2,'65300144260dade699e28c4.14026999.jpg','2021-06-29 08:48:41'),(13,'レモン','Citrus limon','ミカン科','圧搾法','【柑橘系】さわやかなシトラス、レモンの香り','光毒性、刺激強','Lemon',1,'61184626160dae588703324.73108313.jpg','2021-06-29 09:19:04');
 /*!40000 ALTER TABLE `essential_oils` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +106,7 @@ CREATE TABLE `relations` (
   CONSTRAINT `relations_ibfk_1` FOREIGN KEY (`oil_id`) REFERENCES `essential_oils` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `relations_ibfk_2` FOREIGN KEY (`effect_id`) REFERENCES `effects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `relations_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `relations` (
 
 LOCK TABLES `relations` WRITE;
 /*!40000 ALTER TABLE `relations` DISABLE KEYS */;
-INSERT INTO `relations` VALUES (1,1,2,'ルームフレグランス','オイルを数滴混ぜて使用','特になし',1,'2021-06-07 23:08:43'),(2,3,2,'ルームフレグランス','眠れない時に','特になし',2,'2021-06-07 23:21:38'),(8,3,2,'aaa','bbb','ccc',7,'2021-06-11 02:42:15'),(9,3,1,'aaa','vv','xx',1,'2021-06-13 02:17:05'),(10,10,13,'スプレー','aa','特になし',1,'2021-06-18 05:11:44'),(11,14,13,'ブレンドして虫よけスプレーとして','a','a',1,'2021-06-18 05:18:36');
+INSERT INTO `relations` VALUES (1,1,1,'フェイシャルケアへ','クリームに混ぜて使用する','特になし',1,'2021-06-29 07:02:37'),(2,1,2,'こめかみに塗布する','バジル、ラベンダー、ティーツリーなどと混ぜてこめかみに塗布する','特になし',1,'2021-06-29 07:02:57'),(3,3,5,'ルームフレグランス','ディフーザーに数滴たらして香りを楽しむ','特になし',1,'2021-06-29 08:35:28'),(4,6,3,'虫刺され箇所に数滴塗布する','虫刺され箇所に数滴塗布する','特になし',1,'2021-06-29 08:36:25'),(5,4,5,'マッサージに','クリームに数滴混ぜて使用する','刺激が強いため、幼児や妊娠中は避ける',1,'2021-06-29 08:38:02'),(6,6,2,'こめかみに塗布する','バジル','特になし',1,'2021-06-29 08:38:39'),(7,10,4,'ニキビ箇所に塗布する','ニキビ箇所に塗布する','妊娠中は避ける、刺激強',2,'2021-06-29 08:50:27'),(8,11,10,'手首に塗布','レモンやローズマリーをブレンドしたオイルを手首に塗布して香りを楽しむ','特になし',2,'2021-06-29 08:59:15'),(10,2,11,'ボディマッサージ','キャリアオイルにレモン、ユーカリ、バジルをブレンドし、患部に塗布するか、マッサージする','体調を観察しながら使用する',2,'2021-06-29 09:03:37'),(11,1,11,'ボディマッサージ','キャリアオイルにレモン、ユーカリ、バジルをブレンドし、患部に塗布するか、マッサージする','特になし',2,'2021-06-29 09:04:01'),(12,12,10,'手首に塗布','オイルを手首に塗布し、香りを楽しむ','特になし',2,'2021-06-29 09:07:24'),(13,10,6,'ボディマッサージ','キャリアオイルに数滴混ぜ、マッサージする','特になし',2,'2021-06-29 09:08:37'),(14,8,7,'スキンケア、ボディケア','クリームに数滴混ぜ','特になし',2,'2021-06-29 09:09:37'),(15,7,5,'ルームフレグランス','お部屋などの空間の香りに使用することで心を落ち着かせる効果','特になし',2,'2021-06-29 09:14:25'),(16,9,8,'マッサージ','キャリアオイルに数滴混ぜ、マッサージする','体調を観察しながら使用する',2,'2021-06-29 09:16:11'),(17,5,8,'ボディマッサージ','キャリアオイルに数滴混ぜ、腹部や腰をマッサージする','体調を観察しながら使用する',2,'2021-06-29 09:17:24'),(18,13,10,'手首に塗布','レモンやローズマリーをブレンドしたオイルを手首に塗布','光毒性をもつレモンを使用する場合は、日光に当たらない箇所に塗布する',1,'2021-06-29 09:20:53');
 /*!40000 ALTER TABLE `relations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +134,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +143,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Tomomi','tomomi@gmail.com','tomomi','2021-06-07 11:11:43'),(2,'Takoaka','takaoka@gmail.com','takaoka','2021-06-07 23:18:17'),(3,'たかおかともみ','','','2021-06-10 04:06:38'),(7,'toomomi','toomomi@gmail.com','toomomi','2021-06-10 05:24:20');
+INSERT INTO `users` VALUES (1,'Tomomi','tomomi@gmail.com','tomomi','2021-06-29 06:56:43'),(2,'TAKAOKA','takaoka@gmail.com','takaoka','2021-06-29 06:57:12');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -156,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-18 14:19:22
+-- Dump completed on 2021-06-29 18:21:34

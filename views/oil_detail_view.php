@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Original CSS -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style2.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
         <title>Essential Oil Page</title>
@@ -20,15 +21,15 @@
     </head>
     <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
-            <h1>Aroma Knowledge</h1>
+            <h1><a href="index.php">Aroma Knowledge</a></h1>
         </div>
         <div class="essential_oils">
             <h2 class="title">Essential Oil</h1>
             <h2 class="subtitle"><?= $oil->name ?></h2>
             
             <div class="OilDetail">
-                <img src="<?= 'upload/' . $oil->image ?>" style="max-width: 600px">
-                <table class="table">
+                <img src="<?= 'upload/' . $oil->image ?>">
+                <table class="table table-size">
                     <tbody>
                         <tr>
                             <th style="width: 5%">名前</th>
@@ -60,11 +61,11 @@
         </div>
         <div class="effects">
             <h2 class="title">Effects</h3>
-            <ul>
-            <?php foreach($effects as $effect): ?>
-                <li><a href="effect_detail.php?id=<?= $effect->id ?>"><?= $effect->effect ?></a></li>
+            <div class="EffectContent">
+                <?php foreach($effects as $effect): ?>
+                    <a href="effect_detail.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $effect->effect ?></a>
                 <?php endforeach; ?>
-            </ul>
+            </div>
         </div>
         <div class="nav">
             <a href="index.php">Back to TOP</a>

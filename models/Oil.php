@@ -50,6 +50,8 @@
             }
             if($this->english_name === ''){
                 $errors[] = '英名を入力してください';
+            }else if(!preg_match('/^[a-zA-Z]+$/', $this->english_name)){
+                $errors[] = '英名をアルファベットで入力してください';
             }
             if($this->image === ''){
                 $errors[] = '画像を選択してください';

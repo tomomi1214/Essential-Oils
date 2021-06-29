@@ -2,6 +2,7 @@
     //C
     require_once 'DAOs/OilDAO.php';
     require_once 'DAOs/EffectDAO.php';
+    require_once 'filters/LoginFilter.php';
     session_start();
 
     $flash_message = $_SESSION['flash_message'];

@@ -1,0 +1,202 @@
+@charset "utf8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    font-family: Times New Roman, Meiryo UI;
+}
+
+@media screen and (max-width: 480px){
+/*---index.php---*/
+/*-----Header----*/
+    .header {
+        width: 100%;
+        background-size: cover;
+        height: 70px;
+    }
+    .header h1{
+        font-size: 30px;
+        padding: 10px;
+        padding-top: 20px;
+    }
+/*--- TOP page flash_message ---*/
+    
+    .FlashMessage p{
+        margin-left: 50px;
+        margin-top: 5px;
+    }    
+    
+    /*-----Login/Register----*/
+    .main{
+        height: 20px;
+        margin: 5px 10px;
+        float: right;
+    
+    }
+    .main span{
+        font-size: 12px;
+    }
+    
+    /*-----Essential_Oils----*/
+    .essential_oils, .effects, .other, .relations, .LoginMain{
+        margin: 30px 30px;
+        margin-right: 20px;
+        clear: right;
+    }
+    /*--For all title---*/
+    .title {
+        margin-left: 10px;
+        font-size: 30px;
+        border-bottom: solid 7px moccasin;
+    }
+    .subtitle{
+        font-size: 20px;
+    }
+
+    
+    .EoilContent, .EffectContent{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    /*アルファベット*/
+    .oil{
+        display: flex;
+        margin-left: 40px;
+    }
+    .oil p1{ 
+        text-align: center;
+        font-size: 35px;
+        clear: left;
+    }
+    .OilName{
+        font-size: 14px;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        display: block;
+        margin-left: 47px;
+        width: 111px;
+        position: absolute;
+        z-index: 1;
+        margin-top: -45px;
+    }
+    .OilPic {
+        opacity: 0;
+        max-width: 100px;
+        margin-left: 50px;
+    }
+    .EoilContent a:hover .OilPic, .OilPic:hover{
+        opacity: 1;
+    }
+    /*-----Effects----*/
+    .wrapper{
+        background: #ece08829;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .effects .title {
+        border-bottom: solid 6px gray;
+    }
+    .EffectContent{
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+    .EffectContent a{
+        color: gray;
+        text-align: center;
+        font-size: 13px;
+        text-decoration: none;
+    }
+    .EffectBtn{
+        width: 80px;
+    }
+    /*---Footer---*/
+    .footer {
+        background-size: cover;
+        bottom: 0;
+        height: 80px;
+    }
+    .logo {
+        display: inline-block;
+        color: white;
+        margin-top: 20px;
+        margin-left: 120px;
+        font-size: 25px;
+    }
+    
+    .copylight{
+        display: inline-block;
+        font-size: 5px;
+        float: right;
+        bottom: 0;
+        margin-right: 10px;
+        margin-bottom: 0;
+        color: white;
+    }
+/*---Login page---*/
+    .Login{
+        height: 100vH;
+    }
+    .footer2{
+        background-size: cover;
+        bottom: 0;
+        height: 60px;
+        position: relative;
+    }
+    .copylight2{
+        display: inline-block;
+        font-size: 5px;
+        float: right;
+        margin-right: 10px;
+        margin-top: 40px;
+        color: white;
+    }
+    /*Go to top btn */
+    .nav {
+        display: inline-block;
+        margin-left: 50px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+/*---mypage---*/
+    .MypageMain {
+        margin: 10px;
+        height: 60px;
+    }
+    .MypageMain h2 {
+        font-size: 23px;
+        
+    }
+    .MypageMain a{
+        float: right;
+        padding-right: 10px;
+    }
+    .MypageMain p{
+        font-size: 12px;
+    }
+    .OilcreateBtn{
+        display: none;
+    }
+    
+    /*---bootstrap---*/
+    .ForPC{
+        display: none;
+    }
+    .ForMobile label{
+        font-size: 12px;
+    }
+/*---Oil detail---*/
+
+    .OilDetail .table{
+        margin-top: 10px;
+    }
+    .OilDetail img{
+        max-width: 300px;
+    }
+    .table-size{
+        font-size: 14px !important;
+    }
+/*---relation register---*/
+    .RelationDetail {
+        margin: 10px 10px;
+    }
+}

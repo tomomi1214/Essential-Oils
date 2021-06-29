@@ -3,13 +3,15 @@
     require_once 'DAOs/RelationDAO.php';
     session_start();
     
-    var_dump($id);
+    //var_dump($id);
     
     
     $ids = $_POST['id'];
     
     if(count($ids) === 0){
         // エラーメッセージのセット
+        $flash_message = RelationDAO::delete($id);
+        $_SESSION['flash_message'] = $flash_message;
       
     }else{
         foreach($ids as $id){

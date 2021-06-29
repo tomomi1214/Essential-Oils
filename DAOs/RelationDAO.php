@@ -74,7 +74,7 @@
             // 完成した投稿一覧、はいあげる
             return $relation;       
         }
-
+/*
         //DBからeffect_idに対するオイル情報取得する
         public static function get_all_relations_by_effect_id($effect_id){
         // 例外処理
@@ -123,6 +123,7 @@
             // 完成した投稿一覧、はいあげる
             return $oils;    
         }
+    */
         //user_idを指定して情報取得する
         public static function get_all_relations_by_user_id($user_id){
         // 例外処理
@@ -130,7 +131,7 @@
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // SELECT文実行準備 statement object
-                $stmt = $pdo->prepare('SELECT relations.id, essential_oils.name AS essential_oil_name, effects.effect as effect FROM relations JOIN essential_oils ON relations.oil_id = essential_oils.id JOIN effects ON relations.effect_id = effects.id WHERE relations.user_id=:user_id');
+                $stmt = $pdo->prepare('SELECT relations.id, essential_oils.name AS essential_oil_name, effects.effect AS effect FROM relations JOIN essential_oils ON relations.oil_id = essential_oils.id JOIN effects ON relations.effect_id = effects.id WHERE relations.user_id=:user_id');
                 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
                 // INSERT文本番実行
                 $stmt->execute();
@@ -141,6 +142,29 @@
                 self::close_connection($pdo, $stmt);
                 return $relations;
                 
+            }catch(PDOException $e){
+                return null;
+            }
+        }
+        
+        //oil_idとEffect_idを指定して情報取得する
+        public static function get_relation_detail_by_oil_id($oil_id, $effect_id){
+        // 例外処理
+            try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文実行準備 statement object
+                $stmt = $pdo->prepare('SELECT relations.id, relations.howto, essential_oils.name AS essential_oil_name, effects.effect AS effect FROM relations JOIN essential_oils ON relations.oil_id = essential_oils.id JOIN effects ON relations.effect_id = effects.id WHERE relations.oil_id=:oil_id AND relations.effect_id=:effect_id');
+                $stmt->bindValue(':oil_id', $oil_id, PDO::PARAM_INT);
+                // INSERT文本番実行
+                $stmt->execute();
+                // Fetch ModeをRelationクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
+                // SELECT文の結果を Relationクラスのインスタンス配列に格納
+                $relations = $stmt->fetch();
+                self::close_connection($pdo, $stmt);
+                return $relations;
+
             }catch(PDOException $e){
                 return null;
             }
@@ -173,36 +197,7 @@
                 return 'この関連は既に登録されています。';
             }
         }
-        /*
-        //入力されたメールアドレス、パスワードをもったユーザがいるかをチェック
-        public static function login($email, $password){
-            //例外処理
-             try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // SELECT文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('SELECT * FROM users WHERE email=:email AND password=:password');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-                $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-                // SELECT文本番実行
-                $stmt->execute();
-
-                // Fetch ModeをUserクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'User');
-                // SELECT文の結果を Userクラスのインスタンスに格納
-                $user = $stmt->fetch();
-                
-            }catch(PDOException $e){
-                
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-            // 完成したユーザー、はいあげる
-            return $user;
-        }
-        */
+        
         //$effect_idを指定して、該当するオイル情報を取得する
         /*
         public static function get_relation($effect_id){
@@ -269,12 +264,13 @@
 
                 // DELETE文本番実行
                 $stmt->execute();
+                // 後処理
+                self::close_connection($pdo, $stmt);
 
             }catch(PDOException $e){
                 
             }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
+                return '削除対象が選択されていません。';
             }
         }
     }

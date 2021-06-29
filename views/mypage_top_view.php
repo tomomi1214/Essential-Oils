@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Original CSS -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style2.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
         <title>My Page</title>
@@ -61,7 +62,7 @@
                 <?php endforeach; ?>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row OilcreateBtn">
                 <div class="offset-10 col-10">
                     <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Create New Essential Oil</a>
                 </div>
@@ -71,7 +72,7 @@
             <div class="effects">
                 <h2 class="title">Effects</h2>
                 <div class="form-group row">
-                    <div class="offset-2 col-10 mt-4">
+                    <div class="offset-2 col-10 mt-1">
                         <a class="btn btn-outline-danger" href="effect_register.php?page=top" role="button">Create New Effect info.</a>
                     </div>
                 </div>
@@ -84,18 +85,33 @@
         </div>
         <div class="other">
             <h2 class="title">Other</h2>
-            <!---関連登録ボタン--->
-            <div class="form-group row">
+            <!---関連登録ボタン For PC--->
+            <div class="form-group row ForPC">
                 <div class="offset-2 col-10 mt-4">
                     <a class="btn btn-outline-success" href="relation_register.php" role="button">Create New Relation</a>
-                    <label class="col-4 col-form-label">エッセンシャルオイルに効果を登録することができます。</label>
-                </div>
+                    <label class="col-8 col-form-label">エッセンシャルオイルに効果を登録することができます。</label>
+                 </div>
             </div>
-            <!---登録一覧ページへ--->
-            <div class="form-group row">
+            <!---登録一覧ページへ for PC--->
+            <div class="form-group row ForPC">
                 <div class="offset-2 col-10 mt-4">
                     <a class="btn btn btn-outline-warning" href="register_list.php" role="button">Go to Register List</a>
                     <label class="col-8 col-form-label">登録した情報一覧が確認できます。ここから編集/削除もできます。</label>
+                </div>
+            </div>
+            
+            <!---関連登録ボタン For Mobile--->
+            <div class="form-group row ForMobile">
+                <div class="offset-1 col-10 mt-2">
+                    <a class="btn btn-outline-success" href="relation_register.php" role="button">Create New Relation</a><br>
+                    <label class="col-12 col-form-label">エッセンシャルオイルに効果を登録することができます。</label>
+                 </div>
+            </div>
+            <!---登録一覧ページへ for Mobile--->
+            <div class="form-group row ForMobile">
+                <div class="offset-1 col-10 mt-2">
+                    <a class="btn btn btn-outline-warning" href="register_list.php" role="button">Go to Register List</a><br>
+                    <label class="col-12 col-form-label">登録した情報一覧が確認できます。ここから編集/削除もできます。</label>
                 </div>
             </div>
         </div>
