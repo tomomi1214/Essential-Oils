@@ -106,7 +106,6 @@
                     <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
                 </div>
             </div>
-
         </div>
         <!---TEST--->
         <!---div class="effects">

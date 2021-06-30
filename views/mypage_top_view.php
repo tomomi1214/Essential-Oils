@@ -62,8 +62,8 @@
                 <?php endforeach; ?>
                 </div>
             </div>
-            <div class="form-group row OilcreateBtn">
-                <div class="offset-10 col-10">
+            <div class="form-group row">
+                <div class="offset-8 col-10">
                     <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Create New Essential Oil</a>
                 </div>
             </div>

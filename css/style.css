@@ -9,6 +9,7 @@ body {
     text-align: center;
     background: url(images/top1.jpg);
     background-size: cover;
+    width: 100%;
 }
 
 .header h1 {
@@ -59,13 +60,13 @@ body {
 
 
 
-
+/*---For PC---*/
 @media screen and (min-width :768px) {
-
 /*---index.php---*/
 /*-----Header----*/
     .header {
         height: 150px;
+        
     }
     
     .header h1 {
@@ -94,7 +95,7 @@ body {
     /*-----Essential_Oils----*/
     .essential_oils, .effects, .other, .relations{
         margin: 50px 50px;
-        margin-right: 250px;
+        /*margin-right: 250px;*/
         clear: right;
     }
     .title {
@@ -115,7 +116,7 @@ body {
     
     .oil{
         display: flex;
-        margin-left: 400px;
+        margin-left: 30%;
     }
     .oil p1{
         text-align: center;
@@ -204,10 +205,11 @@ body {
         background: url(images/footer.jpg);
         background-size: cover;
         bottom: 0;
+        width: 100%;
     }
     .logo {
         display: inline-block;
-        margin-left: 450px;
+        margin-left: 40%;
         margin-top: 40px;
         color: white;
         margin-bottom: 40px;
@@ -318,7 +320,6 @@ body {
     }
     /*--Relations register---*/
     .RelationContent {
-        margin-left: 200px;
         margin-top: 30px;
     }
     .RelationTable{

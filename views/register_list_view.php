@@ -93,7 +93,7 @@
             <div class="RelationContent">
                 <!--For PC--->
                 <form action="relation_delete.php" method="POST" class="RelationTable ForPC">
-                    <table class="table table-borderless table-hover offset-md-3" style="width: 50%">
+                    <table class="table table-borderless table-hover offset-md-3" style="width: 60%">
                         <thead>
                             <tr>
                                 <th style="width: 15%"></th>
@@ -114,7 +114,7 @@
                         <?php endforeach; ?>
                     </table>
                     <div class="row offset-md-5">
-                        <button type="submit" class="btn btn-outline-dark col-2" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
+                        <button type="submit" class="btn btn-outline-dark col-3" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
                     </div>
                 </form>
                 

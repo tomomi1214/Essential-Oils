@@ -5,6 +5,36 @@ body {
     font-family: Times New Roman, Meiryo UI;
 }
 
+@media screen and (max-width: 768px) { 
+    .title {
+        margin-left: 20px;
+        font-size: 60px;
+        border-bottom: solid 10px moccasin;
+    }  
+    .subtitle{
+        margin-left: 30px;
+        font-size: 40px;
+        margin-top: 10px;
+    }
+    .OilDetail, .EffectDetail, .LoginMain, .CreateMain,
+    .RelationDetail, .RelationContent {
+        margin: 50px 10%;
+    }
+    .EffectContent{
+        margin-left: 10%;
+        margin-top: 30px;
+    }
+    .logo {
+        margin-left: 30%;
+    }
+    .copylight {
+        margin-top: -40px;
+    }
+    
+    
+}
+
+
 @media screen and (max-width: 480px){
 /*---index.php---*/
 /*-----Header----*/
@@ -60,7 +90,7 @@ body {
     /*アルファベット*/
     .oil{
         display: flex;
-        margin-left: 40px;
+        margin-left: 30px;
     }
     .oil p1{ 
         text-align: center;
@@ -73,16 +103,16 @@ body {
         color: black;
         text-align: center;
         display: block;
-        margin-left: 47px;
+        margin-left: 12px;
         width: 111px;
         position: absolute;
         z-index: 1;
-        margin-top: -45px;
+        margin-top: -40px;
     }
     .OilPic {
         opacity: 0;
         max-width: 100px;
-        margin-left: 50px;
+        margin-left: 20px;
     }
     .EoilContent a:hover .OilPic, .OilPic:hover{
         opacity: 1;
@@ -150,7 +180,7 @@ body {
         display: inline-block;
         color: white;
         margin-top: 20px;
-        margin-left: 120px;
+        margin-left: 25%;
         font-size: 25px;
     }
     
@@ -204,9 +234,7 @@ body {
     .MypageMain p{
         font-size: 12px;
     }
-    .OilcreateBtn{
-        display: none;
-    }
+    
     
     /*---bootstrap---*/
     .ForPC{
