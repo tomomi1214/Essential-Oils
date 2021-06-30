@@ -2,8 +2,11 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-    font-family: Times New Roman, Meiryo UI;
+    font-family: Times New Roman, 游ゴシック, Meiryo UI;
 }
+.MypageMain h2{
+        font-family: Avenir Next;
+    }
 /*---for all page---*/
 .header {
     text-align: center;
@@ -81,6 +84,7 @@ body {
         margin-top: 5px;
     }
     
+    
     /*-----Login/Register----*/
     .main{
         height: 50px;
@@ -90,6 +94,19 @@ body {
     }
     .main span{
         font-size: 18px;
+    }
+    .FlashMessage{
+        margin: 50px;
+    }
+    .toptext{
+        margin-left: auto;
+        margin-right: auto;
+        width: 700px;
+        padding-top: 20px;
+    }
+    .toptext p {
+        text-align: center;
+        font-family: "游ゴシック";
     }
     
     /*-----Essential_Oils----*/
@@ -103,12 +120,7 @@ body {
         font-size: 60px;
         border-bottom: solid 10px moccasin;
     }
-    /*どこ用か不明
-    .essential_oils ul{
-        list-style: none;
-        margin-left: auto;
-        margin-right: auto;
-    }*/
+    
     .EoilContent{
         margin-left: 200px;
         margin-right: 200px;
@@ -153,11 +165,7 @@ body {
     .effects .title {
         border-bottom: solid 10px gray;
     }
-    /*EssentialOilたちとまとめた
-    .effects{
-        margin: 50px 50px;
-        margin-right: 250px;
-    }*/
+    
     
     .EffectContent{
         margin-left: 200px;
@@ -190,13 +198,13 @@ body {
     border-radius: 25px;
     transition: .4s;
     float: left;
-}
-    
-.EffectBtn-2:hover{
-    background: #17a2b8;
-    color: white;
-    border: solid 1px #17a2b8;
-}
+    }
+        
+    .EffectBtn-2:hover{
+        background: #17a2b8;
+        color: white;
+        border: solid 1px #17a2b8;
+    }
     
     /*---Effect detail---*/
     
@@ -285,6 +293,7 @@ body {
         float: right;
         font-size: 18px;
     }
+    
     .other p{
         margin-left: 300px;
         margin-top: 10px;

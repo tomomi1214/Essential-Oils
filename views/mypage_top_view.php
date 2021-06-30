@@ -24,13 +24,25 @@
             <h1>Aroma Knowledge</h1>
         </div>
         <div class="MypageMain">
-            <h2><?= $login_user->name; ?>, Thank you for comming!</h2>
+            <h2><?= $login_user->name; ?>, Thank you for comming.</h2>
             <a href="logout.php">Logout</a>
             <?php if($flash_message !== null): ?>
             <p><?= $flash_message ?></p>
             <?php endif; ?>
         </div>
+            
+        <div class="toptext ForPC">
+            <p>エッセンシャルオイルには香り以外の可能性も。</p>
+            <p>ふと身体の不調を感じたと時にそっと寄り添ってくれるオイルがあれば</p>
+            <p>より健やかな日々になるはずです。</p>
+        </div>
         
+        <div class="toptext ForMobile">
+            <p>エッセンシャルオイルには香り以外の可能性も。</p>
+            <p>ふと身体の不調を感じたと時にそっと寄り添ってくれる</p>
+            <p>オイルがあればより健やかな日々になるはずです。</p>
+        </div>
+
         <div class="essential_oils">
             <h2 class="title">Essential Oils</h2>
             <div class="form-group row">
@@ -62,7 +74,7 @@
                 <?php endforeach; ?>
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row ForPC">
                 <div class="offset-8 col-10">
                     <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Create New Essential Oil</a>
                 </div>

@@ -35,7 +35,13 @@
             <p><?= $flash_message ?></p>
             <?php endif; ?>
         </div>
-
+    
+        <div class="toptext">
+            <p>アロマには香り以外の可能性も。</p>
+            <p>ふと身体の不調を感じたと時にそっと寄り添ってくれるアロマオイルがあれば</p>
+            <p>より健やかな日々になるはずです。</p>
+        </div>
+    
         <div class="essential_oils">
             <h2 class="title">Essential Oils</h2>
             <div class="EoilContent">
