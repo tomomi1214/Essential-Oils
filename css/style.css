@@ -272,8 +272,8 @@ body {
         position: absolute;
         background: url(images/footer.jpg);
         background-size: cover;
-        bottom: 0;
         width: 100%;
+        bottom: 0;
     }
     .copylight2{
         display: inline-block;

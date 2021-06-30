@@ -99,14 +99,16 @@
                 </div>
                 <?php endforeach; ?>
             </div>
-
             
             <div class="form-group row">
-                <div class=" col-10 mt-4">
+                <div class="offset-2 col-10 mt-4">
                     <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
                 </div>
             </div>
         </div>
+
+            
+        
         <!---TEST--->
         <!---div class="effects">
             <h2 class="title">Effects</h3>

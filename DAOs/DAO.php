@@ -9,9 +9,9 @@
             );
             // データベースを操作する万能の神様誕生
             //Cloud9
-            //$pdo = new PDO('mysql:host=localhost;dbname=Eoil_app', 'root', '', $options);
+            $pdo = new PDO('mysql:host=localhost;dbname=Eoil_app', 'root', '', $options);
             //Xfree
-            $pdo = new PDO('mysql:host=mysql1.php.xdomain.ne.jp;dbname=aroma2021_eoil', 'aroma2021_eoil', 'kCxpw3y4', $options);
+            //$pdo = new PDO('mysql:host=mysql1.php.xdomain.ne.jp;dbname=aroma2021_eoil', 'aroma2021_eoil', 'kCxpw3y4', $options);
             // 神様、はいあげる
             return $pdo;
         }

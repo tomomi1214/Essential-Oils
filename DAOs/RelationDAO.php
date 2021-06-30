@@ -178,13 +178,12 @@
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // 具体的な値はあいまいにしたまま INSERT文の実行準備
-                $stmt = $pdo->prepare('INSERT INTO relations(oil_id, effect_id, howto, content, caution, user_id) VALUES(:oil_id, :effect_id, :howto, :content, :caution, :user_id)');
+                $stmt = $pdo->prepare('INSERT INTO relations(oil_id, effect_id, howto, caution, user_id) VALUES(:oil_id, :effect_id, :howto, :caution, :user_id)');
                 // バインド処理（あいまいだった値を具体的な値で穴埋めする）
                 //文字列　‗STR　　整数‗INT
                 $stmt->bindValue(':oil_id', $relation->oil_id, PDO::PARAM_INT);
                 $stmt->bindValue(':effect_id', $relation->effect_id, PDO::PARAM_INT);
                 $stmt->bindValue(':howto', $relation->howto, PDO::PARAM_STR);
-                $stmt->bindValue(':content', $relation->content, PDO::PARAM_STR);
                 $stmt->bindValue(':caution', $relation->caution, PDO::PARAM_STR);
                 $stmt->bindValue(':user_id', $relation->user_id, PDO::PARAM_INT);
 

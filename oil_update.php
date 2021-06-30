@@ -46,10 +46,6 @@
         $oil->english_name = $english_name;
         $oil->image = $image;
     
-        //var_dump($oil);
-
-        //move_uploaded_file($_FILES['image']['tmp_name'], $file);
-
         
         //入力チェック
         $errors = $oil->validate($oil);

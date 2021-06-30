@@ -105,7 +105,7 @@
             </div>
             
             <!---ForMobile--->
-            <div class="OilDetail ForMobile">
+            <div class="ForMobile">
                 <form class="col-sm-12" action="oil_create.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label for="colFormLabel" class="col-2 col-form-label">名前</label>

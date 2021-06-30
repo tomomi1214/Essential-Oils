@@ -315,9 +315,9 @@
                 self::close_connection($pdo, $stmt);
                 
                 //画像処理
-                if($image !== $oil->image){
-                    unlink('upload/' . $image);
-                }
+                //if($image !== $oil->image){
+                //    unlink('upload/' . $image);
+                //}
                 return '情報が更新されました！';
 
             } catch (PDOException $e) {
@@ -357,14 +357,17 @@
 
                 // DELETE文本番実行
                 $stmt->execute();
+                // 後処理
+                self::close_connection($pdo, $stmt);
+                
+                unlink('upload/' . $image);
+
                 
                 return 'エッセンシャルオイル情報を削除しました。';
 
             }catch(PDOException $e){
                 
             }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
             }
         }
     }

@@ -65,13 +65,6 @@
                     </div>
                     <!--1行--->
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">詳細</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="content">
-                        </div>
-                    </div>
-                    <!--1行--->
-                    <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="caution">
@@ -119,13 +112,6 @@
                         <label for="colFormLabel" class="col-3 col-form-label">使用方法</label>
                         <div class="col-9">
                             <input type="text" class="form-control" name="howto">
-                        </div>
-                    </div>
-                    <!--1行--->
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-2 col-form-label">詳細</label>
-                        <div class="col-10">
-                            <input type="text" class="form-control" name="content">
                         </div>
                     </div>
                     <!--1行--->

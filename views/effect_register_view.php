@@ -73,7 +73,7 @@
             
             
             <!---For Mobile--->
-            <div class="EffectDetail ForMobile">
+            <div class="ForMobile">
                 <form class="col-sm-12" action="effect_create.php" method="POST">
                     <!--1行--->
                     <div class="form-group row">
@@ -108,15 +108,14 @@
                     </div>
                 </form>
             </div>
-
-            
         </div>
         <div class="nav">
         <a href="mypage_top.php">Back to TOP</a><br>
         <a href="register_list.php">Go to Register List</a>
         </div>
-        <div class="footer2" style="background-image:url(images/footer.jpg)">
-            <p class="copylight2">COPYRIGHT © All rights Reserved.</p>
+        <div class="footer" style="background-image:url(images/footer.jpg)">
+            <h1 class="logo">Aroma Knowledge</h1>
+            <p class="copylight">COPYRIGHT © All rights Reserved.</p>
         </div>
     </body>
 </html>
