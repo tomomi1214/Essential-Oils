@@ -3,19 +3,18 @@
     require_once 'DAOs/EffectDAO.php';
     require_once 'DAOs/RelationDAO.php';
     require_once 'models/Relation.php';
-
+    require_once 'filters/LoginFilter.php';
     session_start();
     
     $oil_id = $_POST['oil'];
     $effect_id = $_POST['effect'];
     $howto = $_POST['howto'];
-    $content = $_POST['content'];
     $caution = $_POST['caution'];
     $login_user = $_SESSION['login_user'];
     
     $page = $_POST['page'];
 
-    $relation = new Relation($oil_id, $effect_id, $howto, $content, $caution, $login_user->id);
+    $relation = new Relation($oil_id, $effect_id, $howto, $caution, $login_user->id);
     //var_dump($relation);
     
     $errors = $relation->validate($relation);

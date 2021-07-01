@@ -47,7 +47,7 @@
             <h2 class="title">Essential Oils</h2>
             <div class="form-group row">
                 <div class="offset-2 col-10">                    
-                    <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Create New Essential Oil</a>
+                    <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
             </div>
             <div class="form-group row ForPC">
                 <div class="offset-8 col-10">
-                    <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Create New Essential Oil</a>
+                    <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
                 <h2 class="title">Effects</h2>
                 <div class="form-group row">
                     <div class="offset-2 col-10 mt-1">
-                        <a class="btn btn-outline-danger" href="effect_register.php?page=top" role="button">Create New Effect info.</a>
+                        <a class="btn btn-outline-danger" href="effect_register.php?page=top" role="button">Create New Effect info</a>
                     </div>
                 </div>
                 <div class="EffectContent">
@@ -109,7 +109,7 @@
             <!---登録一覧ページへ for PC--->
             <div class="form-group row ForPC">
                 <div class="offset-2 col-10 mt-4">
-                    <a class="btn btn btn-outline-warning" href="register_list.php" role="button">Go to Register List</a>
+                    <a class="btn btn btn-outline-warning" href="register_list.php" role="button">See Registered items</a>
                     <label class="col-8 col-form-label">登録した情報一覧が確認できます。ここから編集/削除もできます。</label>
                 </div>
             </div>
@@ -124,7 +124,7 @@
             <!---登録一覧ページへ for Mobile--->
             <div class="form-group row ForMobile">
                 <div class="offset-1 col-10 mt-2">
-                    <a class="btn btn btn-outline-warning" href="register_list.php" role="button">Go to Register List</a><br>
+                    <a class="btn btn btn-outline-warning" href="register_list.php" role="button">See Registered items</a><br>
                     <label class="col-12 col-form-label">登録した情報一覧が確認できます。ここから編集/削除もできます。</label>
                 </div>
             </div>

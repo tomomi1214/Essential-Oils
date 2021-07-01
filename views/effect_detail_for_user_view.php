@@ -85,7 +85,7 @@
         </div>
         <div class="nav">
             <a href="mypage_top.php">Back to TOP</a><br>
-            <a href="register_list.php">Go to Register List</a>
+            <a href="register_list.php">See Registered items</a>
         </div>
         <div class="footer" style="background-image:url(images/footer.jpg)">
             <h1 class="logo">Aroma Knowledge</h1>

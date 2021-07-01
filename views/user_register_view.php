@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Original CSS -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style2.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
         <title>Create Account</title>
@@ -68,7 +69,7 @@
                     <!-- 1行 -->
                     <div class="form-group row">
                         <div class="offset-7 col-10">
-                            <button type="submit" class="btn btn-primary">CREATE</button>                        
+                            <button type="submit" class="btn btn-primary">Create</button>                        
                         </div>
                     </div>
                     </form>

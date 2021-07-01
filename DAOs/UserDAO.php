@@ -48,7 +48,8 @@
                 return "新規ユーザ登録に成功しました!";
                 
             }catch(PDOException $e){
-                return 'PDO exception: ' . $e->getMessage();
+                //return 'PDO exception: ' . $e->getMessage();
+                return 'このアドレスは既に登録されています。';
             }
         }
         //入力されたメールアドレス、パスワードをもったユーザがいるかをチェック

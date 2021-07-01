@@ -1,6 +1,8 @@
 <?php
     
     require_once 'DAOs/EffectDAO.php';
+    require_once 'filters/LoginFilter.php';
+
     session_start();
     
     $id = $_POST['id'];

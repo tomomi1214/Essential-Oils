@@ -1,6 +1,7 @@
 <?php
     
     require_once 'DAOs/OilDAO.php';
+    require_once 'filters/LoginFilter.php';
     session_start();
     
     $id = $_POST['id'];

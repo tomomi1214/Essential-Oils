@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/style2.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
-        <title>Register List</title>
+        <title>Registered items</title>
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -25,7 +25,7 @@
         </div>
     
         <div class="MypageMain">
-            <h2><?= $login_user->name; ?> Register List</h2>
+            <h2><?= $login_user->name; ?>'s Registered items</h2>
             <a href="logout.php">Logout</a>
             <?php if($flash_message !== null): ?>
             <p><?= $flash_message ?></p>
@@ -36,7 +36,7 @@
             <h2 class="title">Essential Oils</h2>
             <div class="form-group row">
                 <div class="offset-2 col-10">                    
-                    <a class="btn btn-outline-danger" href="oil_register.php" role="button">Create New Essential Oil</a>
+                    <a class="btn btn-outline-danger" href="oil_register.php" role="button">Add New Essential Oil</a>
                 </div>
             </div>
 
@@ -70,7 +70,7 @@
                 <h2 class="title">Effects</h2>
                 <div class="form-group row">
                     <div class="offset-2 col-10 mt-4">
-                        <a class="btn btn-outline-danger" href="effect_register.php" role="button">Create New Effect info.</a>
+                        <a class="btn btn-outline-danger" href="effect_register.php" role="button">Create New Effect info</a>
                     </div>
                 </div>
                 <div class="EffectContent">
@@ -117,7 +117,7 @@
                         <button type="submit" class="btn btn-outline-dark col-3" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
                     </div>
                 </form>
-                
+            </div>    
                 <!--ForMobile--->
                 <form action="relation_delete.php" method="POST" class="RelationTable ForMobile">
                     <table class="table table-borderless table-hover offset-md-3" style="width: 80%">
@@ -140,13 +140,15 @@
                         </tbody>
                         <?php endforeach; ?>
                     </table>
-                    <div class="offset-9 col-10">
-                        <button type="submit" class="btn btn-outline-dark" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
+                    <div class="form-group row">
+                        <div class="offset-4 col-10 mt-4">
+                            <button type="submit" class="btn btn-outline-dark" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
+                        </div>
                     </div>
                 </form>    
 
                 
-            </div>
+            
             <?php endif; ?>
         </div>
         

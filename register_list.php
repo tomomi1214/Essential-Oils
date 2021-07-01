@@ -4,6 +4,7 @@
     require_once 'DAOs/UserDAO.php';
     require_once 'DAOs/OilDAO.php';
     require_once 'DAOs/RelationDAO.php';
+    require_once 'filters/LoginFilter.php';
     session_start();
     
     $login_user = $_SESSION['login_user'];

@@ -1,6 +1,6 @@
 <?php
     //外部ファイルの読み込み
-    require_once'models/Relation.php';
+    require_once 'models/Relation.php';
     require_once 'DAOs/DAO.php';
     //DAO: DBを扱う専門家
     class RelationDAO extends DAO{
@@ -148,14 +148,14 @@
         }
         
         //oil_idとEffect_idを指定して情報取得する
-        public static function get_relation_detail_by_oil_and_effect($oil_id){
+        public static function get_relation_detail_by_oil_id($id){
         // 例外処理
             try{
                 // データベースに接続して万能の神様誕生
                 $pdo = self::get_connection();
                 // SELECT文実行準備 statement object
-                $stmt = $pdo->prepare('SELECT relations.id, relations.howto, essential_oils.name AS essential_oil_name, effects.effect AS effect FROM relations JOIN essential_oils ON relations.oil_id = essential_oils.id JOIN effects ON relations.effect_id = effects.id WHERE relations.oil_id=:oil_id');
-                $stmt->bindValue(':oil_id', $oil_id, PDO::PARAM_INT);
+                $stmt = $pdo->prepare('SELECT relations.id, relations.howto, essential_oils.name AS essential_oil_name, effects.effect AS effect FROM relations JOIN essential_oils ON relations.oil_id = essential_oils.id JOIN effects ON relations.effect_id = effects.id WHERE relations.oil_id=:id');
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                 //$stmt->bindValue(':effect_id', $effect_id, PDO::PARAM_INT);
                 // INSERT文本番実行
                 $stmt->execute();

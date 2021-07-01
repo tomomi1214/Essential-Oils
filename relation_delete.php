@@ -1,6 +1,7 @@
 <?php
     
     require_once 'DAOs/RelationDAO.php';
+    require_once 'filters/LoginFilter.php';
     session_start();
     
     //var_dump($id);

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/style2.css">
         <!-- Favicon -->
         <link rel="icon" href="images/favicon.ico">
-        <title>Create new Effect</title>
+        <title>Create New Effect info</title>
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -26,7 +26,7 @@
         
         <div class="effects">
             <h2 class="title">Effect</h2>
-            <h2 class="subtitle">Create New Effect info.</h2>
+            <h2 class="subtitle">Create New Effect info</h2>
             <?php if($errors !== null): ?>
             <ul>
                 <?php foreach($errors as $error): ?>

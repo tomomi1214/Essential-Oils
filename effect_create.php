@@ -3,6 +3,8 @@
     require_once 'DAOs/EffectDAO.php';
     require_once 'DAOs/UserDAO.php';
     require_once 'models/Effect.php';
+    require_once 'filters/LoginFilter.php';
+
     session_start();
     
     $effect = $_POST['effect'];

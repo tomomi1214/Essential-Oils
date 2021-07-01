@@ -4,6 +4,7 @@
     require_once 'DAOs/RelationDAO.php';
     require_once 'DAOs/EffectDAO.php';
     require_once 'models/Relation.php';
+    require_once 'filters/LoginFilter.php';
     
     session_start();
     
@@ -18,7 +19,7 @@
     $effects = EffectDAO::get_all_effects_by_oil_id($id);
     //var_dump($effects);
     
-    $relations = RelationDAO::get_relation_detail_by_oil_and_effect($id);
+    $relations = RelationDAO::get_relation_detail_by_oil_id($id);
     //var_dump($relations);
 
 

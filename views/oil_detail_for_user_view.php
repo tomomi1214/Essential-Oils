@@ -92,42 +92,24 @@
         <div class="effects">
             <h2 class="title">Effects</h3>
             <div class="EffectContent">
-                <?php foreach($effects as $effect): ?>
+                <?php foreach($relations as $relation): ?>
                 <div class="effectset">
-                    <a href="effect_detail_for_user.php?id=<?= $effect->id ?>" class="EffectBtn-2"><?= $effect->effect ?></a></br>
-                    <span><?= $effect->content ?></span>
+                    <a href="effect_detail_for_user.php?id=<?= $relation->effect_id ?>" class="EffectBtn-2"><?= $relation->effect ?></a></br>
+                    <span><?= $relation->howto ?></span>
                 </div>
                 <?php endforeach; ?>
             </div>
             
             <div class="form-group row">
-                <div class="offset-2 col-10 mt-4">
-                    <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
+                <div class="col-8 mt-5">
+                    <a class="btn btn-outline-danger col-sm-3" href="relation_register.php" role="button">Create New Relation</a>
                 </div>
             </div>
         </div>
-
-            
-        
-        <!---TEST--->
-        <!---div class="effects">
-            <h2 class="title">Effects</h3>
-            <div class="EffectContent">
-                <?php foreach($effects as $effect): ?>
-                <?php foreach($relations as $relation): ?>
-                <div class="effectset">
-                    <a href="effect_detail_for_user.php?id=<?= $effect->id ?>" class="EffectBtn"><?= $relation->effect ?></a></br>
-                    <span><?= $relation->howto ?></span>
-                </div>
-                <?php endforeach; ?>
-                
-                <?php endforeach; ?>
-            </div>
-        </div--->
         
         <div class="nav">
             <a href="mypage_top.php">Back to TOP</a><br>
-            <a href="register_list.php">Go to Register List</a>
+            <a href="register_list.php">See Registered items</a>
         </div>
         <div class="footer" style="background-image:url(images/footer.jpg)">
             <h1 class="logo">Aroma Knowledge</h1>
