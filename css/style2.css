@@ -4,6 +4,14 @@
 body {
     font-family: 'Times New Roman', '游ゴシック', 'Meiryo UI';
 }
+.oil_elements {
+    display: flex;
+    flex-flow: wrap;
+    margin-left: 20px;
+}
+.oilset {
+    width: 50%;
+}
 
 @media screen and (max-width: 768px) { 
     .title {
@@ -16,6 +24,13 @@ body {
         font-size: 40px;
         margin-top: 10px;
     }
+    .toptext{
+        margin-left: auto;
+        margin-right: auto;
+        width: 350px;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
     .OilDetail, .EffectDetail, .LoginMain, .CreateMain,
     .RelationDetail, .RelationContent {
         margin: 50px 10%;
@@ -27,9 +42,6 @@ body {
     .logo {
         margin-left: 30%;
     }
-    
-    
-    
 }
 
 
@@ -37,6 +49,14 @@ body {
     .ForPC{
         display: none;
     }
+    form {
+        float: right;
+        margin-right: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    
 /*---index.php---*/
 /*-----Header----*/
     .header {
@@ -70,8 +90,7 @@ body {
         margin-left: auto;
         margin-right: auto;
         width: 350px;
-        padding-top: 20px;
-        margin-top: 20px;
+        padding-top: 40px;
     }
     .toptext p {
         margin-bottom: 6px;
@@ -94,9 +113,19 @@ body {
     .subtitle{
         font-size: 20px;
     }
-
+    .SearchOil {
+        height: 100px;
+    }
+    .SearchOil p2{
+        font-size: 12px;
+    }
     
-    .EoilContent, .EffectContent{
+    .EoilContent {
+        margin-top: 150px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .EoilContent2 {
         margin-left: 10px;
         margin-right: 10px;
     }
@@ -104,6 +133,7 @@ body {
     .oil{
         display: flex;
         margin-left: 30px;
+        border-bottom: solid 1px #cccccc6b;
     }
     .oil p1{ 
         text-align: center;
@@ -116,10 +146,9 @@ body {
         color: black;
         text-align: center;
         display: block;
-        margin-left: 12px;
+        margin-left: 20px;
         width: 111px;
         position: absolute;
-        z-index: 1;
         margin-top: -40px;
     }
     .OilPic {
@@ -161,6 +190,7 @@ body {
         font-size: 10px;
         margin-left:5px;
         text-align: center;
+        margin-top: 10px;
     }
     .EffectBtn-2{
         width: 80px;
@@ -256,6 +286,7 @@ body {
         margin-top: 10px;
     }
     .OilDetail img{
+        width: 100%;
         max-width: 300px;
     }
     .table-size{
@@ -265,4 +296,5 @@ body {
     .RelationDetail {
         margin: 10px 10px;
     }
+    
 }

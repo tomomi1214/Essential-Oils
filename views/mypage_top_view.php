@@ -45,13 +45,24 @@
 
         <div class="essential_oils">
             <h2 class="title">Essential Oils</h2>
+            <!---オイル検索--->
+            <form class="SearchOil" action="search_oils.php?page=top">
+                <input type="search" name="keyword" placeholder="オイル名">
+                <input type="hidden" name="page" valie="<?= $page ?>">
+                <button type="submit">検索</button>
+                <?php if($flash_message_ForOil !== null): ?>
+                <br>
+                <p2><?= $flash_message_ForOil ?></p2>
+                <?php endif; ?>
+            </form>
+            
             <div class="form-group row">
                 <div class="offset-2 col-10">                    
                     <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
                 </div>
             </div>
 
-            <div class="EoilContent">
+            <div class="EoilContent2">
                 <?php $pre_letter = ''; ?>
                 <?php $count = 1; ?>
                 <?php foreach($oils as $oil): ?>

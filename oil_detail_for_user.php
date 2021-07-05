@@ -12,6 +12,15 @@
     
     $id = $_GET['id'];
     
+    //$idがDBに存在するか確認
+    $oil = OilDAO::get_oil($id);
+    if($oil === false){
+        $_SESSION['flash_message'] = $id . 'のIDを持つエッセンシャルオイルは存在しません。';
+        
+        header('Location: mypage_top.php');
+        exit;
+    }
+    
     $flash_message = $_SESSION['flash_message'];
     $_SESSION['flash_message'] = null;
     

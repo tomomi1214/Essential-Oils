@@ -21,9 +21,8 @@
     </head>
     <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
-            <h1>Aroma Knowledge</h1>
-        </div>
-        
+            <h1><a href="index.php">Aroma Knowledge</h1></a>
+        </div>        
         <div class="main">
             <span><a href="user_register.php">会員登録</a></span>
             <span> / </span>
@@ -41,9 +40,18 @@
             <p>ふと身体の不調を感じたと時にそっと寄り添ってくれるアロマオイルがあれば</p>
             <p>より健やかな日々になるはずです。</p>
         </div>
-    
+        
         <div class="essential_oils">
             <h2 class="title">Essential Oils</h2>
+            <!---オイル検索--->
+            <form class="SearchOil" action="search_oils.php">
+                <input type="search" name="keyword" placeholder="オイル名">
+                <button type="submit">検索</button>
+                <?php if($flash_message_ForOil !== null): ?>
+                <br>
+                <p2><?= $flash_message_ForOil ?></p2>
+                <?php endif; ?>
+            </form>
             <div class="EoilContent">
                 <?php $pre_letter = ''; ?>
                 <?php $count = 1; ?>
@@ -51,11 +59,13 @@
                     <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
                     <?php if($letter !== $pre_letter): ?>
                         <?php if($count !== 1): ?>
+                        </div>
                     </div>
                             <?php $count = 1; ?>
                         <?php endif; ?>
                     <div class="oil">
                         <p1><?= $letter ?></p1>
+                        <div class="oil_elements">
                     <?php endif; ?>
                     
                     <?php $pre_letter = $letter; ?>
@@ -67,6 +77,7 @@
                 <?php endforeach; ?>
                 </div>
             </div>
+        </div>
         </div>
         <div class="wrapper">
             <div class="effects">

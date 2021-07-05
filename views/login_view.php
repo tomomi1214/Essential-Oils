@@ -22,8 +22,9 @@
     <body>
         <div class="Login">
         <div class="header" style="background-image:url(images/top1.jpg)">
-            <h1>Aroma Knowledge</h1>
+            <h1><a href="index.php">Aroma Knowledge</h1></a>
         </div>
+
         <div class="LoginMain">
             <h1 class="title">Login</h1>
             <?php if(flash_message !== null): ?>
@@ -44,7 +45,7 @@
                 <div class="form-group row offset-md-2">
                     <label class="col-3 col-form-label">Password</label>
                     <div class="col-7">     
-                        <input type="text" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                 </div>
                 <!-- 1行 -->

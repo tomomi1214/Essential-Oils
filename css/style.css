@@ -25,6 +25,11 @@ body {
     color: white;
 }
 
+form {
+    /*float: right;*/
+    margin: 50px;
+}
+
 .OilDetail, .EffectDetail{
     text-align: center;
 }
@@ -110,25 +115,34 @@ body {
     }
     
     /*-----Essential_Oils----*/
-    .essential_oils, .effects, .other, .relations{
+    .essential_oils, .effects, .other,
+    .relations, .SearchOil{
         margin: 50px 50px;
-        /*margin-right: 250px;*/
         clear: right;
     }
     .title {
-        margin-left: 200px;
+        margin-left: 10%;
         font-size: 60px;
         border-bottom: solid 10px moccasin;
+    }
+    
+    .SearchOil {
+        height: 60px;
+        margin-left: 300px;
+    }
+    .SearchOil p2{
+        margin-left: 20px;
     }
     
     .EoilContent{
         margin-left: 200px;
         margin-right: 200px;
+        margin-bottom: 25px;
     }
-    
     .oil{
         display: flex;
         margin-left: 30%;
+        border-bottom: solid 1px #cccccc6b;
     }
     .oil p1{
         text-align: center;
@@ -141,7 +155,7 @@ body {
         text-align: center;
         display: block;
         margin-left: 47px;
-        width: 111px;
+        width: 200px;
         position: absolute;
         z-index: 1;
         margin-top: -60px;
@@ -149,7 +163,7 @@ body {
     .OilPic {
         opacity: 0;
         max-width: 150px;
-        margin-left: 30px;
+        margin-left: 70px;
     }
     
     .EoilContent a:hover .OilPic, .OilPic:hover{

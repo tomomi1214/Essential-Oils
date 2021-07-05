@@ -21,7 +21,7 @@
     </head>
     <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
-            <h1>Aroma Knowledge</h1>
+            <h1><a href="mypage_top.php">Aroma Knowledge</h1></a>
         </div>
     
         <div class="MypageMain">

@@ -143,35 +143,6 @@
             return $oils;
         }
 
-        /*
-        //$name指定して1つのオイル情報を取得する
-        public static function get_oil_id_by_name($name){
-            //例外処理
-             try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // SELECT文の実行準備(:idは適当、不明確)
-                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE name=:name');
-                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
-                $stmt->bindValue(':name', $name, PDO::PARAM_INT);
-                // SELECT文本番実行
-                $stmt->execute();
-
-                // Fetch ModeをOilクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
-                // SELECT文の結果を Oilクラスのインスタンスに格納
-                $oil = $stmt->fetch();
-                
-            }catch(PDOException $e){
-                
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-            // 完成したユーザー、はいあげる
-            return $oil;  
-        }
-        */
         //新規oil登録をするメソッド
         public static function insert($oil) {
             // 例外処理
@@ -266,28 +237,6 @@
             return $oil;  
         }
         
-        // 画像ファイル名を取得するメソッド（uploadフォルダ内のファイルを物理削除するため）
-        /*public static function get_image_name_by_id($id){
-            try {
-                $pdo = self::get_connection();
-                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE id = :id');
-                // バインド処理
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                // 実行
-                $stmt->execute();
-                // フェッチの結果を、oilクラスのインスタンスにマッピングする
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
-                $oil = $stmt->fetch();
-    
-                self::close_connection($pdo, $stmt);
-                    
-                // 画像名を返す
-                return $oil->image;
-                
-            } catch (PDOException $e) {
-                return 'PDO exception: ' . $e->getMessage();
-            }
-        }*/
 
         //$idを指定して入力された情報に更新
         public static function update($oil, $id){
@@ -370,4 +319,32 @@
             }finally{
             }
         }
+        //オイルキーワード検索を行うメソッド
+        public static function search($keyword){
+            //例外処理
+             try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文の実行準備(:idは適当、不明確)
+                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE name LIKE :name');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                $stmt->bindValue(':name', '%' . $keyword . '%', PDO::PARAM_STR);
+                // SELECT文本番実行
+                $stmt->execute();
+
+                // Fetch ModeをPostクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
+                // SELECT文の結果を Postクラスのインスタンスに格納
+                $oils = $stmt->fetchAll();
+                
+            }catch(PDOException $e){
+                
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成した、はい投稿あげる
+            return $oils; 
+        }
+        
     }
