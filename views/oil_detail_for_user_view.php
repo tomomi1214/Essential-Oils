@@ -61,15 +61,18 @@
                     </tbody>
                 </table>
             </div>
+        
             <?php if($login_user->id === $oil->user_id): ?>
             <!---For PC--->
             <div class="row offset-md-5 ForPC">
-                <a href="oil_edit.php?id=<?= $id ?>" class="btn btn-outline-info col-sm-3">Edit</a>
-                <form class="col-sm-6" action="oil_delete.php" method="POST">
+                <a href="oil_edit.php?id=<?= $id ?>" class="col-sm-2 btn btn-outline-info">Edit</a>
+                <form class="col-sm-5" action="oil_delete.php" method="POST">
                     <input type="hidden" name="id" value="<?= $id ?>">
                     <button type="submit" class="btn btn-outline-dark col-sm-7" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">Delete</button>
                 </form>
             </div>  
+        
+            
             <!---For Mobile--->
             <div class="row ForMobile ml-5">
                 <a href="oil_edit.php?id=<?= $id ?>" class="btn btn-outline-info col-4">Edit</a>
@@ -81,28 +84,20 @@
             <?php endif; ?>
         </div>
         
-        <!---div class="effects">
-            <h2 class="title">Effects</h3>
-            <div class="EffectContent">
-                <?php foreach($effects as $effect): ?>
-                    <a href="effect_detail_for_user.php?id=<?= $effect->id ?>" class="EffectBtn-2"><?= $effect->effect ?></a>
-                <?php endforeach; ?>
-            </div--->
-        
         <div class="effects">
             <h2 class="title">Effects</h3>
             <div class="EffectContent">
-                <?php foreach($relations as $relation): ?>
+                <?php foreach($effects as $effect): ?>
                 <div class="effectset">
-                    <a href="effect_detail_for_user.php?id=<?= $relation->effect_id ?>" class="EffectBtn-2"><?= $relation->effect ?></a></br>
-                    <span><?= $relation->howto ?></span>
+                    <a href="effect_detail_for_user.php?id=<?= $effect->effect_id ?>" class="EffectBtn-2"><?= $effect->effect ?></a></br>
+                    <span><?= $effect->howto ?></span>
                 </div>
                 <?php endforeach; ?>
             </div>
             
             <div class="form-group row">
                 <div class="col-8 mt-5">
-                    <a class="btn btn-outline-danger col-sm-3" href="relation_register.php" role="button">Create New Relation</a>
+                    <a class="btn btn-outline-danger col-sm-4" href="relation_register.php" role="button">Create New Relation</a>
                 </div>
             </div>
         </div>

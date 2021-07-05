@@ -48,7 +48,7 @@
             <!---オイル検索--->
             <form class="SearchOil" action="search_oils.php?page=top">
                 <input type="search" name="keyword" placeholder="オイル名">
-                <input type="hidden" name="page" valie="<?= $page ?>">
+                <input type="hidden" name="page" value="mypage">
                 <button type="submit">検索</button>
                 <?php if($flash_message_ForOil !== null): ?>
                 <br>
@@ -87,7 +87,7 @@
             </div>
             <div class="form-group row ForPC">
                 <div class="offset-8 col-10">
-                    <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
+                    <a class="btn btn-outline-danger mt-5" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
                 </div>
             </div>
         </div>

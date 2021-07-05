@@ -111,10 +111,10 @@
             
 
             <!--- For Mobile--->  
-             <div class="ForMobile">
+             <div class="OilDetail ForMobile">
                 <form class="col-sm-12" action="oil_update.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group row">
-                        <label for="colFormLabel" class="col-2 col-form-label">名前</label>
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" name="name" value="<?= $oil->name ?>">
                         </div>

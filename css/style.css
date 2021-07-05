@@ -194,7 +194,7 @@ form {
     
     .effectset{
         position: relative;
-        height: 60px;
+        /*height: 60px;*/
         clear: both;
     }
     .effectset span{
@@ -319,7 +319,7 @@ form {
         margin-top: 10px;
     }
     .OilDetail, .EffectDetail{
-        margin: 50px 300px;
+        margin: 50px 20%;
     }
     .RelationDetail{
         margin: 50px 200px;

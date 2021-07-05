@@ -31,9 +31,10 @@ body {
         padding-top: 20px;
         margin-top: 20px;
     }
-    .OilDetail, .EffectDetail, .LoginMain, .CreateMain,
+    .OilDetail, .LoginMain, .CreateMain,
     .RelationDetail, .RelationContent {
         margin: 50px 10%;
+       
     }
     .EffectContent{
         margin-left: 10%;
@@ -49,11 +50,14 @@ body {
     .ForPC{
         display: none;
     }
-    form {
-        float: right;
+    /*form {
         margin-right: 50px;
         margin-top: 20px;
         margin-bottom: 20px;
+        margin-left: 0;
+    }*/
+    form {
+        margin: 0;
     }
     
     
@@ -90,7 +94,7 @@ body {
         margin-left: auto;
         margin-right: auto;
         width: 350px;
-        padding-top: 40px;
+        /*padding-top: 40px;*/
     }
     .toptext p {
         margin-bottom: 6px;
@@ -159,6 +163,10 @@ body {
     .EoilContent a:hover .OilPic, .OilPic:hover{
         opacity: 1;
     }
+    
+    
+    
+
     /*-----Effects----*/
     .wrapper{
         background: #ece08829;
@@ -263,7 +271,7 @@ body {
         height: 60px;
     }
     .MypageMain h2 {
-        font-size: 23px;
+        font-size: 19px;
         
     }
     .MypageMain a{
@@ -284,6 +292,7 @@ body {
 
     .OilDetail .table{
         margin-top: 10px;
+        float: left;
     }
     .OilDetail img{
         width: 100%;

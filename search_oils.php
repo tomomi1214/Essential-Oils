@@ -15,17 +15,16 @@
         $flash_message_ForOil = 'キーワード「' . $keyword . '」の検索に' . count($oils) . '件ヒットしました。';
     }
     
-    $page = $_POST['page'];
-    //var_dump($page);
+    $page = $_GET['page'];
+    // var_dump($page);
     
     
     if($page === 'mypage'){
-        
-        include_once 'views/mypage_top.php';
+        $login_user = $_SESSION['login_user'];
+        include_once 'views/mypage_top_view.php';
     }else {
 
         $effects = EffectDAO::get_all_effects();
         //var_dump($oils);
         include_once 'views/index_view.php';
     }
-    
