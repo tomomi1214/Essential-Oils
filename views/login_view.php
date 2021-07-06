@@ -21,49 +21,50 @@
     </head>
     <body>
         <div class="Login">
-        <div class="header" style="background-image:url(images/top1.jpg)">
-            <h1><a href="index.php">Aroma Knowledge</h1></a>
-        </div>
-
-        <div class="LoginMain">
-            <h1 class="title">Login</h1>
-            <?php if(flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
-            <?php endif; ?>
-        </div>
-        <div class="container">
-            <div class="row mt-2">
-                <form class="col-sm-12" action="login_check.php" method="POST">
-                <!-- 1行 -->
-                <div class="form-group row offset-md-2">
-                    <label class="col-3 col-form-label">Email Address</label>
-                    <div class="col-7">
-                        <input type="text" class="form-control" name="email" placeholder="Email Address">
-                    </div>
-                </div>
-                <!-- 1行 -->
-                <div class="form-group row offset-md-2">
-                    <label class="col-3 col-form-label">Password</label>
-                    <div class="col-7">     
-                        <input type="password" class="form-control" name="password" placeholder="Password">
-                    </div>
-                </div>
-                <!-- 1行 -->
-                <div class="form-group row offset-md-5">
-                    <div class="col-10">
-                        <button type="submit" class="btn btn-primary">Login</button>                        
-                    </div>
-                </div>
-                </form>
+            <div class="header" style="background-image:url(images/top1.jpg)">
+                <h1><a href="index.php">Aroma Knowledge</h1></a>
             </div>
-        </div>
-        <div class="nav">
-            <a href="index.php">Back to TOP</a>
-        </div>
-        <div class="footer2" style="background-image:url(images/footer.jpg)">
-            <p class="copylight2">COPYRIGHT © All rights Reserved.</p>
-        </div>
-        </div>
+            
+            <div class="LoginMain">
+                <h1 class="title">Login</h1>
+                <?php if(flash_message !== null): ?>
+                <p><?= $flash_message ?></p>
+                <?php endif; ?>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                    <form class="col-sm-12" action="login_check.php" method="POST">
+                    <!-- 1行 -->
+                    <div class="form-group row offset-md-1">
+                        <label class="col-3 col-form-label">Email Address</label>
+                        <div class="col-7">
+                            <input type="text" class="form-control" name="email" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <!-- 1行 -->
+                    <div class="form-group row offset-md-1">
+                        <label class="col-3 col-form-label">Password</label>
+                        <div class="col-7">     
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <!-- 1行 -->
+                    <div class="form-group row offset-md-5">
+                        <div class="col-10">
+                            <button type="submit" class="btn btn-primary">Login</button>                        
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="nav">
+                <a href="index.php">Back to TOP</a>
+            </div>
+            <div class="footer2" style="background-image:url(images/footer.jpg)">
+                <p class="copylight2">COPYRIGHT © All rights Reserved.</p>
+            </div>
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->

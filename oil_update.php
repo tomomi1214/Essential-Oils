@@ -1,21 +1,20 @@
 <?php
+    //外部ファイルの読み込み
     require_once 'DAOs/UserDAO.php';
     require_once 'DAOs/OilDAO.php';
     require_once 'models/Oil.php';
+    //セッション開始
     session_start();
     
-    //var_dump($_POST);
-    //編集するOilIDを取得する
+    //選択した$id値を取得
     $id = $_POST['id'];
-    //var_dump($id);
+
+    //編集するオイル情報を取得
+    $oil = OilDAO::get_oil($id);
     
-    //Oilの前の情報を取得
-    $oil = OilDAO::get_oil_by_id($id);
-    //var_dump($oil);
-    
-    //オイルデータが存在すれば
+    //オイルデータが存在する場合
     if($oil !== false){
-        //入力した編集するデータの取得
+        //入力情報取得
         $name = $_POST['name'];
         $scientific_name = $_POST['scientific_name'];
         $plant_name = $_POST['plant_name'];
@@ -24,16 +23,13 @@
         $caution = $_POST['caution'];
         $english_name = $_POST['english_name'];
         
-        //$login_user = $_SESSION['login_user'];
-    
-        //画像が選択されていれば
+        //画像が選択されてる場合
         if($_FILES['image']['size'] !== 0){
             // 画像ファイルの物理的アップロード処理
             $image = OilDAO::upload();
             //var_dump($image);
         }else{
             $image = $oil->image;
-            //var_dump($image);
         }
         
         //インスタンス情報の更新
@@ -47,15 +43,16 @@
         $oil->image = $image;
     
         
-        //入力チェック
+        //入力値をバリデーションチェック
         $errors = $oil->validate($oil);
-        //var_dump($errors);
         
+        //エラーがない場合
         if(count($errors) === 0){
+            //OilDAOを使用してオイル情報を更新し、メッセージをを取得
             $flash_message = OilDAO::update($oil, $id);
-            
+            //セッション情報に$flash_messageを渡す
             $_SESSION['flash_message'] = $flash_message;
-        
+            //画面遷移
             header('Location: oil_detail_for_user.php?id=' . $id);
             exit;
         }else{
@@ -64,9 +61,7 @@
             header('Location: oil_edit.php?id=' . $id);
             exit;
         }
-    }else{
-        $_SESSION['error'] = '存在しないページです。';
-        header('Location: mypage_top.php');
-        exit;
     }
+    
+    
     

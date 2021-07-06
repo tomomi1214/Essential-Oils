@@ -40,18 +40,20 @@
                 </div>
             </div>
 
-            <div class="EoilContent">
+            <div class="EoilContent2">
                 <?php $pre_letter = ''; ?>
                 <?php $count = 1; ?>
                 <?php foreach($oils as $oil): ?>
                     <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
                     <?php if($letter !== $pre_letter): ?>
                         <?php if($count !== 1): ?>
+                        </div>
                     </div>
                             <?php $count = 1; ?>
                         <?php endif; ?>
                     <div class="oil">
                         <p1><?= $letter ?></p1>
+                        <div class="oil_elements">
                     <?php endif; ?>
                     
                     <?php $pre_letter = $letter; ?>
@@ -64,7 +66,7 @@
                 </div>
             </div>
         </div>
-        
+        </div>
         <div class="wrapper">
             <div class="effects">
                 <h2 class="title">Effects</h2>
@@ -80,7 +82,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="relations">
             <h2 class="title">Relations</h1>
             <div class="form-group row">
@@ -88,7 +90,7 @@
                     <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
                 </div>
             </div>
-
+            
             <?php if($relations !== null): ?>
             <div class="RelationContent">
                 <!--For PC--->
@@ -117,10 +119,11 @@
                         <button type="submit" class="btn btn-outline-dark col-3" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
                     </div>
                 </form>
-            </div>    
+            </div> 
+            <div class="RelationContent">
                 <!--ForMobile--->
                 <form action="relation_delete.php" method="POST" class="RelationTable ForMobile">
-                    <table class="table table-borderless table-hover offset-md-3" style="width: 80%">
+                    <table class="table table-borderless table-hover offset-md-3" style="width: 100%">
                         <thead>
                             <tr>
                                 <th style="width: 15%"></th>
@@ -146,7 +149,7 @@
                         </div>
                     </div>
                 </form>    
-
+</div>
                 
             
             <?php endif; ?>

@@ -1,14 +1,16 @@
 <?php
 
     class Relation {
-        public $id;     //ID
-        public $oil_id;   //名前
-        public $effect_id;   //名前
-        public $howto; 
-        public $caution;         //注意事項
+        //プロパティ
+        public $id;
+        public $oil_id;
+        public $effect_id;
+        public $howto;
+        public $caution;
         public $user_id;
-        public $created_at;     //登録日時
+        public $created_at;
         
+        //コンストラクタ
         public function __construct($oil_id="", $effect_id="", $howto="",$caution="", $user_id=""){
             $this->oil_id = $oil_id;
             $this->effect_id = $effect_id;
@@ -17,28 +19,28 @@
             $this->user_id = $user_id;
         }
         
+        // バリデーションチェック
         public function validate(){
-            
+            //エラー配列を作成
             $errors = array();
             
-            if($this->oil_id === ''){
-                $errors[] = 'エッセンシャルオイルを選択してください';
-            }else if($this->oil_id === null){
+            //オイルが選択されていない場合
+            if($this->oil_id === null){
                 $errors[] = 'エッセンシャルオイルを選択してください';
             }            
-            
-            if($this->effect_id === ''){
-                $errors[] = '効能を選択してください';
-            }else if($this->effect_id === null){
+            //効能が選択されていない場合
+            if($this->effect_id === null){
                 $errors[] = '効能を選択してください';
             }
-            
+            //使用方法が入力されていない場合
             if($this->howto === ''){
                 $errors[] = '使用方法を入力してください';
             }
+            //注意事項が入力されていない場合
             if($this->caution === ''){
                 $errors[] = '注意事項を入力してください';
             }
+            //エラー配列を返す
             return $errors;
         }
     }

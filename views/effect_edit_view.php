@@ -24,7 +24,7 @@
             <h1><a href="mypage_top.php">Aroma Knowledge</h1></a>
         </div>
         <div class="effects">
-            <h2 class="title">Effect</h1>
+            <h2 class="title">Effect</h2>
             <h2 class="subtitle"><?= $effect->effect ?> 編集</h2>
             <?php if($errors !== null): ?>
             <ul>
@@ -78,5 +78,12 @@
             <h1 class="logo">Aroma Knowledge</h1>
             <p class="copylight">COPYRIGHT © All rights Reserved.</p>
         </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

@@ -24,7 +24,7 @@
             <h1><a href="mypage_top.php">Aroma Knowledge</h1></a>
         </div>
         <div class="essential_oils">
-            <h2 class="title">Essential Oil</h1>
+            <h2 class="title">Essential Oil</h2>
             <h2 class="subtitle"><?= $oil->name ?> 編集</h2>
             <?php if($errors !== null): ?>
             <ul>
@@ -109,7 +109,6 @@
                 </form>
             </div>
             
-
             <!--- For Mobile--->  
              <div class="OilDetail ForMobile">
                 <form class="col-sm-12" action="oil_update.php" method="POST" enctype="multipart/form-data">
@@ -119,36 +118,42 @@
                           <input type="text" class="form-control" name="name" value="<?= $oil->name ?>">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" name="scientific_name" value="<?= $oil->scientific_name ?>">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" name="plant_name" value="<?= $oil->plant_name ?>">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-2 col-form-label">抽出方法</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" name="extraction" value="<?= $oil->extraction ?>">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" name="aroma" value="<?= $oil->aroma ?>">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" name="caution" value="<?= $oil->caution ?>">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
                         <div class="col-sm-10">
@@ -172,8 +177,6 @@
                             <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
                         </div>
                     </div>
-
-                    
                     
                     <div class="row">
                         <input type="hidden" name="id" value="<?= $id ?>">
@@ -196,5 +199,12 @@
             <h1 class="logo">Aroma Knowledge</h1>
             <p class="copylight">COPYRIGHT © All rights Reserved.</p>
         </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

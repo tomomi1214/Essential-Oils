@@ -24,7 +24,7 @@
             <h1><a href="index.php">Aroma Knowledge</a></h1>
         </div>
         <div class="essential_oils">
-            <h2 class="title">Essential Oil</h1>
+            <h2 class="title">Essential Oil</h2>
             <h2 class="subtitle"><?= $oil->name ?></h2>
             
             <div class="OilDetail">
@@ -61,12 +61,12 @@
         </div>
         
         <div class="effects">
-            <h2 class="title">Effects</h3>
+            <h2 class="title">Effects</h2>
             <div class="EffectContent">
                 <?php foreach($effects as $effect): ?>
                 <div class="effectset">
-                    <a href="effect_detail.php?id=<?= $effect->id ?>" class="EffectBtn-2"><?= $effect->effect ?></a></br>
-                    <span><?= $effect->content ?></span>
+                    <a href="effect_detail.php?id=<?= $effect->effect_id ?>" class="EffectBtn-2"><?= $effect->effect ?></a></br>
+                    <span><?= $effect->howto ?></span>
                 </div>
                 <?php endforeach; ?>
             </div>

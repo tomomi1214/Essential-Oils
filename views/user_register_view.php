@@ -22,7 +22,7 @@
     <body>
         <div class="CreateAccount">
             <div class="header" style="background-image:url(images/top1.jpg)">
-                <h1>Aroma Knowledge</h1>
+                <h1><a href="index.php">Aroma Knowledge</a></h1>
             </div>
             <div class="CreateMain">
                 <h1 class="title">Create Account</h1>
@@ -34,18 +34,9 @@
                 <?php endforeach; ?>
                 <?php endif; ?>
                 </ul>
-            
-                <!---div class="users">
-                    <form action="user_create.php" method="POST">
-                        名前:<input type="text" name="name"><br>
-                        メールアドレス:<input type="email" name="email"><br>
-                        パスワード:<input type="password" name="password"><br>
-                        <button type="submit">登録</button>
-                    </form>
-                </div--->
                 <div class="row mt-3">
                     <form class="col-sm-10" action="user_create.php" method="POST">
-                        <!-- 1行 -->
+                    <!-- 1行 -->
                     <div class="form-group row offset-md-4">
                         <label class="col-4 col-form-label">Name</label>
                         <div class="col-7">
@@ -82,5 +73,12 @@
                 <p class="copylight2">COPYRIGHT © All rights Reserved.</p>
             </div>
         </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

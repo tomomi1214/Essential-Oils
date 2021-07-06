@@ -33,7 +33,7 @@ CREATE TABLE `effects` (
   UNIQUE KEY `effect` (`effect`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `effects_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `essential_oils` (
   UNIQUE KEY `name` (`name`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `essential_oils_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +78,7 @@ CREATE TABLE `essential_oils` (
 
 LOCK TABLES `essential_oils` WRITE;
 /*!40000 ALTER TABLE `essential_oils` DISABLE KEYS */;
-INSERT INTO `essential_oils` VALUES (1,'バジル','Ocimum basilicum','シソ科','水蒸気蒸留法','【ハーブ系】すっきりした甘さとスパイシーさがある香り','妊娠中・幼児は避ける、刺激強','Basil',1,'59331280160dac4bb7db551.58712906.jpg','2021-06-29 06:59:07'),(2,'ユーカリ','Eucalyptus globulus','フトモモ科','水蒸気蒸留法','【樹木系】強くフレッシュ。ほのかな甘さにグリーン調の香り','刺激強、高血圧・てんかん症の人、幼児は避ける','Eucalyptus',1,'197799487460dad8eb231d30.61777360.jpg','2021-06-29 08:25:15'),(3,'ラベンダー','Lavandula angustifolia','シソ科','水蒸気蒸留法','【フローラル系】ハーブとフローラルが融合した香り','特になし','Lavender',1,'175388073660dc4095a91697.51404814.jpg','2021-06-29 08:26:15'),(4,'ゼラニウム','Pelargonium graveolens','フウロソウ科','水蒸気蒸留法','【フローラル系】新鮮なグリーンと甘いフローラルが混ざったような香り','妊娠中は避ける、刺激強','T Geranium',1,'155755439160dad9864b3ce3.09683493.jpg','2021-06-29 08:27:50'),(5,'ダマスクローズ','Rosa damascena','バラ科','水蒸気蒸留法','【フローラル系】フレッシュなローズの香り。','妊娠中は避ける、刺激強','Rose',1,'92018596460dad9cb6f8727.69221326.jpg','2021-06-29 08:28:59'),(6,'ティーツリー','Melaleuca alternifolia','フトモモ科','水蒸気蒸留法','【樹木系】フレッシュで、苦味と甘さが混ざったウッディーな香り','刺激強','Teatree',1,'92355578760dada2a5d3518.70907372.jpg','2021-06-29 08:30:34'),(7,'アイリス','Iris pallida','アヤメ科','水蒸気蒸留法','【フローラル系】スミレに似た温かくフローラルな香り','妊娠中は避ける、刺激強','Iris',2,'77944660560dadca25594d0.99299427.jpg','2021-06-29 08:41:06'),(8,'ジャスミン','Jasminum officinalis','モクセイ科','溶剤抽出法、二酸化炭素蒸留法','【フローラル系】濃厚な甘いフローラル調の香り','妊娠中は避ける、刺激強','Jasmine',2,'3643046360dadcf272cf06.46218743.jpg','2021-06-29 08:42:26'),(9,'イランイラン','Cananga odorata var. genuina','バンレイシ科','水蒸気蒸留法','【オリエンタル系】エキゾチックな甘い香り','妊娠中は避ける、刺激強、低血圧の人は避ける','YlangYlang',2,'115374637160dadd5353b946.27869778.jpg','2021-06-29 08:44:03'),(10,'タイム','Thymus vulgaris','シソ科','水蒸気蒸留法','【ハーブ系】甘さとほんのり辛さのあるハーブ調の香り','妊娠中、高血圧の人、幼児は避ける、刺激強','Thyme',2,'55725899860dadda1084611.59181895.jpg','2021-06-29 08:45:21'),(11,'ローズマリー','Rosmarinus officinalis','シソ科','水蒸気蒸留法','【ハーブ系】強いフレッシュなハーブの香り','抽出種類によって、乳幼児、妊婦、授乳中の人、神経系の弱い人、てんかん患者の人には使用しない','Rosemary',2,'83683934160dade2052f449.12911844.jpg','2021-06-29 08:47:28'),(12,'セージ','Salvia officinalis','シソ科','水蒸気蒸留法','【ハーブ系】フレッシュな草の、少し刺激のある香り','妊娠中は避ける、刺激強','Sage',2,'65300144260dade699e28c4.14026999.jpg','2021-06-29 08:48:41'),(13,'レモン','Citrus limon','ミカン科','圧搾法','【柑橘系】さわやかなシトラス、レモンの香り','光毒性、刺激強','Lemon',1,'195946241660dc4774f3f304.33096331.jpg','2021-06-29 09:19:04');
+INSERT INTO `essential_oils` VALUES (1,'バジル','Ocimum basilicum','シソ科','水蒸気蒸留法','【ハーブ系】すっきりした甘さとスパイシーさがある香り','妊娠中・幼児は避ける、刺激強','Basil',1,'59331280160dac4bb7db551.58712906.jpg','2021-06-29 06:59:07'),(2,'ユーカリ','Eucalyptus globulus','フトモモ科','水蒸気蒸留法','【樹木系】強くフレッシュ。ほのかな甘さにグリーン調の香り','刺激強、高血圧・てんかん症の人、幼児は避ける','Eucalyptus',1,'197799487460dad8eb231d30.61777360.jpg','2021-06-29 08:25:15'),(3,'ラベンダー','Lavandula angustifolia','シソ科','水蒸気蒸留法','【フローラル系】ハーブとフローラルが融合した香り','特になし','Lavender',1,'175388073660dc4095a91697.51404814.jpg','2021-06-29 08:26:15'),(4,'ゼラニウム','Pelargonium graveolens','フウロソウ科','水蒸気蒸留法','【フローラル系】新鮮なグリーンと甘いフローラルが混ざったような香り','妊娠中は避ける、刺激強','T Geranium',1,'155755439160dad9864b3ce3.09683493.jpg','2021-06-29 08:27:50'),(5,'ダマスクローズ','Rosa damascena','バラ科','水蒸気蒸留法','【フローラル系】フレッシュなローズの香り。','妊娠中は避ける、刺激強','Rose',1,'92018596460dad9cb6f8727.69221326.jpg','2021-06-29 08:28:59'),(6,'ティーツリー','Melaleuca alternifolia','フトモモ科','水蒸気蒸留法','【樹木系】フレッシュで、苦味と甘さが混ざったウッディーな香り','刺激強','Teatree',1,'92355578760dada2a5d3518.70907372.jpg','2021-06-29 08:30:34'),(7,'アイリス','Iris pallida','アヤメ科','水蒸気蒸留法','【フローラル系】スミレに似た温かくフローラルな香り','妊娠中は避ける、刺激強','Iris',2,'77944660560dadca25594d0.99299427.jpg','2021-06-29 08:41:06'),(8,'ジャスミン','Jasminum officinalis','モクセイ科','溶剤抽出法、二酸化炭素蒸留法','【フローラル系】濃厚な甘いフローラル調の香り','妊娠中は避ける、刺激強','Jasmine',2,'3643046360dadcf272cf06.46218743.jpg','2021-06-29 08:42:26'),(9,'イランイラン','Cananga odorata var. genuina','バンレイシ科','水蒸気蒸留法','【オリエンタル系】エキゾチックな甘い香り','妊娠中は避ける、刺激強、低血圧の人は避ける','YlangYlang',2,'115374637160dadd5353b946.27869778.jpg','2021-06-29 08:44:03'),(10,'タイム','Thymus vulgaris','シソ科','水蒸気蒸留法','【ハーブ系】甘さとほんのり辛さのあるハーブ調の香り','妊娠中、高血圧の人、幼児は避ける、刺激強','Thyme',2,'55725899860dadda1084611.59181895.jpg','2021-06-29 08:45:21'),(11,'ローズマリー','Rosmarinus officinalis','シソ科','水蒸気蒸留法','【ハーブ系】強いフレッシュなハーブの香り','抽出種類によって、乳幼児、妊婦、授乳中の人、神経系の弱い人、てんかん患者の人には使用しない','Rosemary',2,'83683934160dade2052f449.12911844.jpg','2021-06-29 08:47:28'),(12,'セージ','Salvia officinalis','シソ科','水蒸気蒸留法','【ハーブ系】フレッシュな草の、少し刺激のある香り','妊娠中は避ける、刺激強','Sage',2,'65300144260dade699e28c4.14026999.jpg','2021-06-29 08:48:41'),(13,'レモン','Citrus limon','ミカン科','圧搾法','【柑橘系】さわやかなシトラス、レモンの香り','光毒性、刺激強','Lemon',1,'195946241660dc4774f3f304.33096331.jpg','2021-06-29 09:19:04'),(18,'a','a','a','a','a','a','a',4,'30237741160e47457d1d832.56193908.jpg','2021-07-06 15:18:47');
 /*!40000 ALTER TABLE `essential_oils` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,7 +105,7 @@ CREATE TABLE `relations` (
   CONSTRAINT `relations_ibfk_1` FOREIGN KEY (`oil_id`) REFERENCES `essential_oils` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `relations_ibfk_2` FOREIGN KEY (`effect_id`) REFERENCES `effects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `relations_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +142,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Tomomi','tomomi@gmail.com','tomomi','2021-06-29 06:56:43'),(2,'TAKAOKA','takaoka@gmail.com','takaoka','2021-06-29 06:57:12'),(3,'Test','test@gmail.com','test','2021-07-01 13:38:21');
+INSERT INTO `users` VALUES (1,'Tomomi','tomomi@gmail.com','tomomi','2021-06-29 06:56:43'),(2,'TAKAOKA','takaoka@gmail.com','takaoka','2021-06-29 06:57:12'),(3,'Test','test@gmail.com','test','2021-07-01 13:38:21'),(4,'test2','test2@gmail.com','test','2021-07-06 12:04:25');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -155,4 +155,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-06  2:13:11
+-- Dump completed on 2021-07-07  0:42:22

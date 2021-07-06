@@ -26,7 +26,6 @@ body {
 }
 
 form {
-    /*float: right;*/
     margin: 50px;
 }
 
@@ -34,7 +33,6 @@ form {
     text-align: center;
 }
 .OilBtn{
-    /*width: 160px;*/
     margin: 10px;
     display: inline-block;
     padding: 0.5em 1em;
@@ -69,7 +67,7 @@ form {
 
 
 /*---For PC---*/
-@media screen and (min-width :768px) {
+@media screen and (min-width :769px) {
 /*---index.php---*/
 /*-----Header----*/
     .header {
@@ -134,7 +132,7 @@ form {
         margin-left: 20px;
     }
     
-    .EoilContent{
+    .EoilContent, .EoilContent2{
         margin-left: 200px;
         margin-right: 200px;
         margin-bottom: 25px;
@@ -170,6 +168,7 @@ form {
         opacity: 1;
     }
     
+    
     /*-----Effects----*/
     .wrapper{
         background: #ece08829;
@@ -194,7 +193,6 @@ form {
     
     .effectset{
         position: relative;
-        /*height: 60px;*/
         clear: both;
     }
     .effectset span{
@@ -203,15 +201,15 @@ form {
     }
     
     .EffectBtn-2{
-    width: 160px;
-    margin: 10px;
-    display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    border: solid 1px gray;
-    border-radius: 25px;
-    transition: .4s;
-    float: left;
+        width: 160px;
+        margin: 10px;
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        border: solid 1px gray;
+        border-radius: 25px;
+        transition: .4s;
+        float: left;
     }
         
     .EffectBtn-2:hover{
@@ -219,8 +217,6 @@ form {
         color: white;
         border: solid 1px #17a2b8;
     }
-    
-    /*---Effect detail---*/
     
     /*---Footer---*/
     .footer {
@@ -278,8 +274,7 @@ form {
     .nav {
         display: inline-block;
         margin-left: 150px;
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin-bottom: 5%;
     }
     /*---Footer2 for Login page and Create Account page---*/
     .footer2 {
@@ -349,7 +344,7 @@ form {
         margin: 10px 20px;
     }
 
-/*---Bootstrap btn---*/
+    /*---Bootstrap btn---*/
     .ForMobile{
         display: none;
         
