@@ -101,7 +101,7 @@
                     </div>
                     
                     <div class="form-group row">
-                        <div class="offset-sm-5 col-sm-1">
+                        <div class="offset-sm-2 col-sm-6">
                             <button type="submit" class="btn btn-info">Update</button>
                         </div>
                     </div>
@@ -182,10 +182,8 @@
                         <input type="hidden" name="id" value="<?= $id ?>">
                     </div>
                     
-                    <div class="form-group row">
-                        <div class="offset-sm-5 col-sm-1">
-                            <button type="submit" class="btn btn-info">Update</button>
-                        </div>
+                    <div class="row ForMobile">
+                        <button type="submit" class="col-sm-12 btn btn-info">Update</button>
                     </div>
                 </form>   
             </div>

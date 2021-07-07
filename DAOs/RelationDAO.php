@@ -20,59 +20,7 @@
             }
             return $relations;    
         }
-    /*
-        //DBからidを指定して情報を取得する
-        public static function get_relation($id){
-        // 例外処理
-           try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // SELECT文実行準備 statement object
-                $stmt = $pdo->prepare('SELECT * FROM relations WHERE id=:id');
-                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-                // INSERT文本番実行
-                $stmt->execute();
-                // Fetch ModeをRelationクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
-                // SELECT文の結果を Relationクラスのインスタンス配列に格納
-                $relation = $stmt->fetchAll();
-                
-            }catch(PDOException $e){
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-            // 完成した投稿一覧、はいあげる
-            return $relation;       
-        }
-        
-        */
-        /*
-        //DBからidを指定して情報を取得する
-        public static function get_relation_by_id($id){
-        // 例外処理
-           try{
-                // データベースに接続して万能の神様誕生
-                $pdo = self::get_connection();
-                // SELECT文実行準備 statement object
-                $stmt = $pdo->prepare('SELECT * FROM relations WHERE id=:id');
-                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-                // INSERT文本番実行
-                $stmt->execute();
-                // Fetch ModeをRelationクラスに設定
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Relation');
-                // SELECT文の結果を Relationクラスのインスタンス配列に格納
-                $relation = $stmt->fetchAll();
-                
-            }catch(PDOException $e){
-            }finally{
-                // 後処理
-                self::close_connection($pdo, $stmt);
-            }
-            // 完成した投稿一覧、はいあげる
-            return $relation;       
-        }
-*/
+    
         //user_idを指定して情報取得する
         public static function get_all_relations_by_user_id($user_id){
             try{

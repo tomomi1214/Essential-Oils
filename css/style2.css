@@ -172,7 +172,10 @@ body {
     .EoilContent a:hover .OilPic, .OilPic:hover{
         opacity: 1;
     }
-
+    
+    form.col-sm-5 {
+        margin: 0;
+    }
     /*-----Effects----*/
     .wrapper{
         background: #ece08829;

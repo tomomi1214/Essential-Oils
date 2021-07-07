@@ -18,6 +18,11 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- Original JavaScript -->
         <script src="js/script.js"></script>
+        <style>
+            form.col-sm-5 {
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
@@ -64,24 +69,28 @@
             </div>
             
             <?php if($login_user->id === $oil->user_id): ?>
-            <!---For PC--->
-            <div class="row offset-md-5 ForPC">
-                <a href="oil_edit.php?id=<?= $id ?>" class="btn btn-outline-info col-sm-3">Edit</a>
-                <form class="col-sm-6" action="oil_delete.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <button type="submit" class="btn btn-outline-dark col-sm-7" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">Delete</button>
-                </form>
+            <!-- For PC -->
+            <div class="container">
+                <div class="row ForPC">
+                    <a href="oil_edit.php?id=<?= $id ?>" class="offset-sm-3 btn btn-outline-info col-sm-3">Edit</a>
+                    <form class="col-sm-5 row" action="oil_delete.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                        <input type="hidden" name="top" value="top"> 
+                        <button type="submit" class="btn btn-outline-dark offset-sm-1 col-sm-8" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">Delete</button>
+                    </form>
+                </div>
+                
+                <!-- For Mobile -->
+                <div class="row ForMobile">
+                    <a href="oil_edit.php?id=<?= $id ?>" class="col-sm-12 btn btn-outline-info">Edit</a>
+                </div>  
+                    <form class="row mt-2 ForMobile" action="oil_delete.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                        <input type="hidden" name="top" value="top"> 
+                        <button type="submit" class="btn btn-outline-dark col-sm-12" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">Delete</button>
+                    </form>
+                <?php endif; ?>
             </div>
-            
-            <!---For Mobile--->
-            <div class="row offset-md-2 ForMobile">
-                <a href="oil_edit.php?id=<?= $id ?>" class="btn btn-outline-info">Edit</a>
-                <form class="col-5" action="oil_delete.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <button type="submit" class="btn btn-outline-dark col-12" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">Delete</button>
-                </form>
-            </div>  
-            <?php endif; ?>
         </div>
         
         <div class="effects">
@@ -97,7 +106,7 @@
             
             <div class="form-group row">
                 <div class="col-8 mt-5">
-                    <a class="btn btn-outline-danger col-sm-4" href="relation_register.php" role="button">Create New Relation</a>
+                    <a class="btn btn-outline-danger col-sm-3" href="relation_register.php" role="button">Create New Relation</a>
                 </div>
             </div>
         </div>

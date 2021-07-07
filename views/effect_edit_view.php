@@ -61,10 +61,16 @@
                         <input type="hidden" name="id" value="<?= $id ?>">
                     </div>
                     
-                    <div class="form-group row">
+                    <!-- For PC -->
+                    <div class="form-group row ForPC">
                         <div class="offset-sm-5 col-sm-1">
                             <button type="submit" class="btn btn-info">Update</button>
                         </div>
+                    </div>
+                    
+                    <!-- For Mobile -->
+                    <div class="row ForMobile">
+                        <button type="submit" class="col-sm-12 btn btn-info">Update</button>
                     </div>
                 </form>
             </div>

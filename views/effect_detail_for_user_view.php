@@ -18,6 +18,11 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- Original JavaScript -->
         <script src="js/script.js"></script>
+        <style>
+            form.col-sm-5 {
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
@@ -50,23 +55,28 @@
             </div>
             
              <?php if($login_user->id === $effect->user_id): ?>
-             <!---For PC--->
-            <div class="row offset-md-5 ForPC">
-                <a href="effect_edit.php?id=<?= $id ?>" class="btn btn-outline-info col-sm-3">Edit</a>
-                <form class="col-sm-6" action="effect_delete.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <button type="submit" class="btn btn-outline-dark col-sm-7" onclick="return confirm('効能情報を削除します。よろしいですか？')">Delete</button>
-                </form>
-            </div>  
-            <!---For Mobile--->
-            <div class="row ForMobile ml-5">
-                <a href="effect_edit.php?id=<?= $id ?>" class="btn btn-outline-info col-4">Edit</a>
-                <form class="col-5" action="effect_delete.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <button type="submit" class="btn btn-outline-dark col-12" onclick="return confirm('効能情報を削除します。よろしいですか？')">Delete</button>
-                </form>
-            </div>  
-            <?php endif; ?>
+             <!-- For PC -->
+            <div class="container">
+                <div class="row ForPC">
+                    <a href="effect_edit.php?id=<?= $id ?>" class="offset-sm-3 btn btn-outline-info col-sm-3">Edit</a>
+                    <form class="col-sm-5 row" action="effect_delete.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                        <input type="hidden" name="top" value="top">
+                        <button type="submit" class="btn btn-outline-dark offset-sm-1 col-sm-8" onclick="return confirm('効能情報を削除します。よろしいですか？')">Delete</button>
+                    </form>
+                </div>
+                
+                <!-- For Mobile -->
+                <div class="row ForMobile">
+                    <a href="effect_edit.php?id=<?= $id ?>" class="col-sm-12 btn btn-outline-info">Edit</a>
+                </div>  
+                    <form class="row mt-2 ForMobile" action="effect_delete.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                        <input type="hidden" name="top" value="top"> 
+                        <button type="submit" class="btn btn-outline-dark col-sm-12" onclick="return confirm('効能情報を削除します。よろしいですか？')">Delete</button>
+                    </form>
+                <?php endif; ?>
+            </div>
         </div>
         
         <div class="essential_oils">
@@ -78,8 +88,8 @@
             </div>
             
             <div class="form-group row">
-                <div class="offset-2 col-10 mt-4">
-                    <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
+                <div class="col-8 mt-5 offset-2">
+                    <a class="btn btn-outline-danger col-sm-2" href="relation_register.php" role="button">Create New Relation</a>
                 </div>
             </div>
         </div>
