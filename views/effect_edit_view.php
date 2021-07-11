@@ -34,45 +34,47 @@
             </ul>
             <?php endif; ?>
             <div class="EffectDetail">
-                <form class="col-sm-12" action="effect_update.php" method="POST">
-                    <!--1行--->
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">効能</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="effect" value="<?= $effect->effect ?>">
+                <div class="container">
+                    <form class="col-sm-12" action="effect_update.php" method="POST">
+                        <!--1行--->
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">効能</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="effect" value="<?= $effect->effect ?>">
+                            </div>
                         </div>
-                    </div>
-                    <!--1行--->
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">詳細</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="content" value="<?= $effect->content ?>">
+                        <!--1行--->
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">詳細</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="content" value="<?= $effect->content ?>">
+                            </div>
                         </div>
-                    </div>
-                    <!--1行--->
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="caution" value="<?= $effect->caution ?>">
+                        <!--1行--->
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="caution" value="<?= $effect->caution ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="row">
-                        <input type="hidden" name="id" value="<?= $id ?>">
-                    </div>
-                    
-                    <!-- For PC -->
-                    <div class="form-group row ForPC">
-                        <div class="offset-sm-5 col-sm-1">
-                            <button type="submit" class="btn btn-info">Update</button>
+                        
+                        <div class="row">
+                            <input type="hidden" name="id" value="<?= $id ?>">
                         </div>
-                    </div>
-                    
-                    <!-- For Mobile -->
-                    <div class="row ForMobile">
-                        <button type="submit" class="col-sm-12 btn btn-info">Update</button>
-                    </div>
-                </form>
+                        
+                        <!-- For PC -->
+                        <div class="form-group row ForPC">
+                            <div class="offset-sm-5 col-sm-1">
+                                <button type="submit" class="btn btn-info">Update</button>
+                            </div>
+                        </div>
+                        
+                        <!-- For Mobile -->
+                        <div class="row ForMobile">
+                            <button type="submit" class="col-sm-12 btn btn-info">Update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
                 

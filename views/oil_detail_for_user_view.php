@@ -89,6 +89,7 @@
                         <input type="hidden" name="top" value="top"> 
                         <button type="submit" class="btn btn-outline-dark col-sm-12" onclick="return confirm('エッセンシャルオイル情報を削除します。よろしいですか？')">Delete</button>
                     </form>
+                </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -103,10 +104,11 @@
                 </div>
                 <?php endforeach; ?>
             </div>
-            
-            <div class="form-group row">
-                <div class="col-8 mt-5">
-                    <a class="btn btn-outline-danger col-sm-3" href="relation_register.php" role="button">Create New Relation</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 mt-5">
+                        <a class="btn btn-outline-danger col-sm-5" href="relation_register.php" role="button">Create New Relation</a>
+                    </div>
                 </div>
             </div>
         </div>

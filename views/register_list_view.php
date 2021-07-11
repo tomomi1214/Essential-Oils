@@ -23,23 +23,39 @@
         <div class="header" style="background-image:url(images/top1.jpg)">
             <h1><a href="mypage_top.php">Aroma Knowledge</h1></a>
         </div>
-    
+        
         <div class="MypageMain">
             <h2><?= $login_user->name; ?>'s Registered items</h2>
-            <a href="logout.php">Logout</a>
             <?php if($flash_message !== null): ?>
             <p><?= $flash_message ?></p>
             <?php endif; ?>
         </div>
         
-        <div class="essential_oils">
-            <h2 class="title">Essential Oils</h2>
-            <div class="form-group row">
-                <div class="offset-2 col-10">                    
-                    <a class="btn btn-outline-danger" href="oil_register.php" role="button">Add New Essential Oil</a>
+        <div class="container">
+            <!-- For PC -->
+            <div class="ForPC mt-4">
+                <div class="text-right">
+                    <a class="btn btn-sm btn-outline-secondary col-sm-1" href="logout.php" role="button">Logout</a>
                 </div>
             </div>
-
+            <!- For Mobile -->
+            <div class="ForMobile">
+                <div class="text-right">
+                    <a class="btn btn-sm btn-outline-secondary col-sm-1 w-auto" href="logout.php" role="button">Logout</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="essential_oils">
+            <h2 class="title">Essential Oils</h2>
+            <div class="container">
+                <div class="form-group row">
+                    <div class="offset-2 col-10">                    
+                        <a class="btn btn-outline-danger" href="oil_register.php" role="button">Add New Essential Oil</a>
+                    </div>
+                </div>
+            </div>
+            
             <div class="EoilContent2">
                 <?php $pre_letter = ''; ?>
                 <?php $count = 1; ?>
@@ -70,9 +86,11 @@
         <div class="wrapper">
             <div class="effects">
                 <h2 class="title">Effects</h2>
-                <div class="form-group row">
-                    <div class="offset-2 col-10 mt-4">
-                        <a class="btn btn-outline-danger" href="effect_register.php" role="button">Create New Effect info</a>
+                <div class="container">
+                    <div class="form-group row">
+                        <div class="offset-2 col-10 mt-4">
+                            <a class="btn btn-outline-danger" href="effect_register.php" role="button">Create New Effect info</a>
+                        </div>
                     </div>
                 </div>
                 <div class="EffectContent">
@@ -85,9 +103,11 @@
         
         <div class="relations">
             <h2 class="title">Relations</h1>
-            <div class="form-group row">
-                <div class="offset-2 col-10 mt-4">
-                    <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
+            <div class="container">
+                <div class="form-group row">
+                    <div class="offset-2 col-10 mt-4">
+                        <a class="btn btn-outline-danger" href="relation_register.php" role="button">Create New Relation</a>
+                    </div>
                 </div>
             </div>
             
@@ -115,15 +135,17 @@
                         </tbody>
                         <?php endforeach; ?>
                     </table>
-                    <div class="row offset-md-5">
-                        <button type="submit" class="btn btn-outline-dark col-3" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
+                    <div class="container">
+                        <div class="row offset-md-5">
+                            <button type="submit" class="btn btn-outline-dark col-3" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
+                        </div>
                     </div>
                 </form>
             </div> 
             <div class="RelationContent">
                 <!--ForMobile--->
                 <form action="relation_delete.php" method="POST" class="RelationTable ForMobile">
-                    <table class="table table-borderless table-hover offset-md-3" style="width: 100%">
+                    <table class="table table-borderless table-hover" style="width: 100%">
                         <thead>
                             <tr>
                                 <th style="width: 15%"></th>
@@ -143,15 +165,15 @@
                         </tbody>
                         <?php endforeach; ?>
                     </table>
-                    <div class="form-group row">
-                        <div class="offset-4 col-10 mt-4">
-                            <button type="submit" class="btn btn-outline-dark" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
+                    <div class="container">
+                        <div class="form-group row">
+                            <div class="offset-4 col-10 mt-4">
+                                <button type="submit" class="btn btn-outline-dark" onclick="return confirm('関連情報を削除します。よろしいですか？')">Delete</button>
+                            </div>
                         </div>
                     </div>
-                </form>    
-</div>
-                
-            
+                </form>
+            </div>
             <?php endif; ?>
         </div>
         

@@ -36,142 +36,146 @@
             <?php endif; ?>
             <!---ForPC--->
             <div class="OilDetail ForPC">
-                <form class="col-sm-12" action="oil_create.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name">
+                <div class="container">
+                    <form class="col-sm-12" action="oil_create.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="scientific_name">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="scientific_name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="plant_name">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="plant_name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">抽出方法</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="extraction">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">抽出方法</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="extraction">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="aroma">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="aroma">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="caution">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="caution">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="english_name" >
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="english_name" >
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">画像</label>
-                        <div class="col-3">
-                            <input type="file" name="image" accept='image/*' onchange="previewImage(this);">
+    
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">画像</label>
+                            <div class="col-3">
+                                <input type="file" name="image" accept='image/*' onchange="previewImage(this);">
+                            </div>
+                            <div class="col-7">
+                                <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width: 400px">
+                            </div>
                         </div>
-                        <div class="col-7">
-                            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width: 400px">
+                        <div class="row">
+                            <input type="hidden" name="page" value="<?= $page ?>">
                         </div>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="page" value="<?= $page ?>">
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="id" value="<?= $id ?>">
-                    </div>
-                    
-                    <div class="form-group row">
-                        <div class="offset-sm-5 col-sm-2">
-                            <button type="submit" class="btn btn-success">Create</button>
+                        <div class="row">
+                            <input type="hidden" name="id" value="<?= $id ?>">
                         </div>
-                    </div>
-                </form>   
+                        
+                        <div class="form-group row">
+                            <div class="offset-sm-5 col-sm-2">
+                                <button type="submit" class="btn btn-success">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             
             <!---ForMobile--->
             <div class="ForMobile">
-                <form class="col-sm-12" action="oil_create.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-2 col-form-label">名前</label>
-                        <div class="col-10">
-                          <input type="text" class="form-control" name="name">
+                <div class="container">
+                    <form class="col-sm-12" action="oil_create.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-2 col-form-label">学名</label>
-                        <div class="col-10">
-                          <input type="text" class="form-control" name="scientific_name">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="scientific_name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-2 col-form-label">科名</label>
-                        <div class="col-10">
-                          <input type="text" class="form-control" name="plant_name">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="plant_name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-3 col-form-label">抽出方法</label>
-                        <div class="col-9">
-                          <input type="text" class="form-control" name="extraction">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-3 col-form-label">抽出方法</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="extraction">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-2 col-form-label">香り</label>
-                        <div class="col-10">
-                          <input type="text" class="form-control" name="aroma">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="aroma">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-3 col-form-label">注意事項</label>
-                        <div class="col-9">
-                          <input type="text" class="form-control" name="caution">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-3 col-form-label">注意事項</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="caution">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-2 col-form-label">英名</label>
-                        <div class="col-10">
-                          <input type="text" class="form-control" name="english_name">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="english_name">
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">画像</label>
-                        <div class="col-3">
-                            <input type="file" name="image" accept='image/*' onchange="previewImage(this);">
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">画像</label>
+                            <div class="col-sm-3">
+                                <input type="file" name="image" accept='image/*' onchange="previewImage(this);">
+                            </div>
+                            <div class="col-sm-7">
+                                <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:20px;">
+                            </div>
                         </div>
-                        <div class="col-7">
-                            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:20px;">
+                        <div class="row">
+                            <input type="hidden" name="page" value="<?= $page ?>">
                         </div>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="page" value="<?= $page ?>">
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="id" value="<?= $id ?>">
-                    </div>
-                    
-                    <div class="form-group row">
-                        <div class="offset-sm-5 col-sm-2">
-                            <button type="submit" class="btn btn-success">Create</button>
+                        <div class="row">
+                            <input type="hidden" name="id" value="<?= $id ?>">
                         </div>
-                    </div>
-                </form>   
+                        
+                        <div class="form-group row">
+                            <div class="offset-sm-5 col-sm-2">
+                                <button type="submit" class="btn btn-success">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         

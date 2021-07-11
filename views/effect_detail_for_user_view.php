@@ -55,8 +55,9 @@
             </div>
             
              <?php if($login_user->id === $effect->user_id): ?>
-             <!-- For PC -->
+            
             <div class="container">
+                <!-- For PC -->
                 <div class="row ForPC">
                     <a href="effect_edit.php?id=<?= $id ?>" class="offset-sm-3 btn btn-outline-info col-sm-3">Edit</a>
                     <form class="col-sm-5 row" action="effect_delete.php" method="POST">
@@ -86,10 +87,11 @@
                     <a href="oil_detail_for_user.php?id=<?= $oil->id ?>" class="OilBtn"><?= $oil->name ?></a>
                 <?php endforeach; ?>
             </div>
-            
-            <div class="form-group row">
-                <div class="col-8 mt-5 offset-2">
-                    <a class="btn btn-outline-danger col-sm-2" href="relation_register.php" role="button">Create New Relation</a>
+            <div class="container">
+                <div class="form-group row">
+                    <div class="col-8 mt-5">
+                        <a class="btn btn-outline-danger col-sm-3" href="relation_register.php" role="button">Create New Relation</a>
+                    </div>
                 </div>
             </div>
         </div>

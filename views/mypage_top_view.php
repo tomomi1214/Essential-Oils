@@ -21,14 +21,27 @@
     </head>    
     <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
-            <h1><a href="mypage_top.php">Aroma Knowledge</h1></a>
+            <h1><a href="mypage_top.php">Aroma Knowledge</a></h1>
         </div>
         <div class="MypageMain">
             <h2><?= $login_user->name; ?>, Thank you for comming.</h2>
-            <a href="logout.php">Logout</a>
             <?php if($flash_message !== null): ?>
             <p><?= $flash_message ?></p>
             <?php endif; ?>
+        </div>
+        <div class="container">
+            <!-- For PC -->
+            <div class="ForPC mt-4">
+                <div class="text-right">
+                    <a class="btn btn-sm btn-outline-secondary col-sm-1" href="logout.php" role="button">Logout</a>
+                </div>
+            </div>
+            <!- For Mobile -->
+            <div class="ForMobile">
+                <div class="text-right">
+                    <a class="btn btn-sm btn-outline-secondary col-sm-1 w-auto" href="logout.php" role="button">Logout</a>
+                </div>
+            </div>
         </div>
             
         <div class="toptext ForPC">
@@ -55,10 +68,11 @@
                 <p2><?= $flash_message_ForOil ?></p2>
                 <?php endif; ?>
             </form>
-            
-            <div class="form-group row">
-                <div class="offset-2 col-10">                    
-                    <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
+            <div class="container">
+                <div class="form-group row">
+                    <div class="offset-2 col-10">                    
+                        <a class="btn btn-outline-danger" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
+                    </div>
                 </div>
             </div>
             
@@ -89,9 +103,11 @@
                 </div>
             </div>
             </div>
-            <div class="form-group row ForPC">
-                <div class="offset-8 col-10">
-                    <a class="btn btn-outline-danger mt-5" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
+            <div class="container">
+                <div class="form-group row ForPC">
+                    <div class="offset-8 col-10">
+                        <a class="btn btn-outline-danger mt-5" href="oil_register.php?page=top" role="button">Add New Essential Oil</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,9 +115,11 @@
         <div class="wrapper">
             <div class="effects">
                 <h2 class="title">Effects</h2>
-                <div class="form-group row">
-                    <div class="offset-2 col-10 mt-1">
-                        <a class="btn btn-outline-danger" href="effect_register.php?page=top" role="button">Create New Effect info</a>
+                <div class="container">
+                    <div class="form-group row">
+                        <div class="offset-2 col-10 mt-1">
+                            <a class="btn btn-outline-danger" href="effect_register.php?page=top" role="button">Create New Effect info</a>
+                        </div>
                     </div>
                 </div>
                 <div class="EffectContent">
@@ -114,33 +132,38 @@
         
         <div class="other">
             <h2 class="title">Other</h2>
-            <!---関連登録ボタン For PC--->
-            <div class="form-group row ForPC">
-                <div class="offset-2 col-10 mt-4">
-                    <a class="btn btn-outline-success" href="relation_register.php" role="button">Create New Relation</a>
-                    <label class="col-8 col-form-label">エッセンシャルオイルに効果を登録することができます。</label>
-                 </div>
-            </div>
-            <!---登録一覧ページへ for PC--->
-            <div class="form-group row ForPC">
-                <div class="offset-2 col-10 mt-4">
-                    <a class="btn btn btn-outline-warning" href="register_list.php" role="button">See Registered items</a>
-                    <label class="col-8 col-form-label">登録した情報一覧が確認できます。ここから編集/削除もできます。</label>
+            
+            <div class="container">
+                <!---関連登録ボタン For PC--->
+                <div class="form-group row ForPC">
+                    <div class="offset-2 col-10 mt-4">
+                        <a class="btn btn-outline-success" href="relation_register.php" role="button">Create New Relation</a>
+                        <label class="col-8 col-form-label">エッセンシャルオイルに効果を登録することができます。</label>
+                     </div>
+                </div>
+                <!---登録一覧ページへ for PC--->
+                <div class="form-group row ForPC">
+                    <div class="offset-2 col-10 mt-4">
+                        <a class="btn btn btn-outline-warning" href="register_list.php" role="button">See Registered items</a>
+                        <label class="col-8 col-form-label">登録した情報一覧が確認できます。ここから編集/削除もできます。</label>
+                    </div>
                 </div>
             </div>
             
-            <!---関連登録ボタン For Mobile--->
-            <div class="form-group row ForMobile">
-                <div class="offset-1 col-10 mt-2">
-                    <a class="btn btn-outline-success" href="relation_register.php" role="button">Create New Relation</a><br>
-                    <label class="col-12 col-form-label">エッセンシャルオイルに効果を登録することができます。</label>
-                 </div>
-            </div>
-            <!---登録一覧ページへ for Mobile--->
-            <div class="form-group row ForMobile">
-                <div class="offset-1 col-10 mt-2">
-                    <a class="btn btn btn-outline-warning" href="register_list.php" role="button">See Registered items</a><br>
-                    <label class="col-12 col-form-label">登録した情報一覧が確認できます。ここから編集/削除もできます。</label>
+            <div class="container">
+                <!---関連登録ボタン For Mobile--->
+                <div class="form-group row ForMobile">
+                    <div class="offset-1 col-10 mt-2">
+                        <a class="btn btn-outline-success" href="relation_register.php" role="button">Create New Relation</a><br>
+                        <label class="col-12 col-form-label">エッセンシャルオイルに効果を登録することができます。</label>
+                     </div>
+                </div>
+                <!---登録一覧ページへ for Mobile--->
+                <div class="form-group row ForMobile">
+                    <div class="offset-1 col-10 mt-2">
+                        <a class="btn btn btn-outline-warning" href="register_list.php" role="button">See Registered items</a><br>
+                        <label class="col-12 col-form-label">登録した情報一覧が確認できます。ここから編集/削除もできます。</label>
+                    </div>
                 </div>
             </div>
         </div>

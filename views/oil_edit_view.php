@@ -36,156 +36,159 @@
             
             <!---For PC--->
             <div class="OilDetail ForPC">
-                <form class="col-sm-12" action="oil_update.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="name" value="<?= $oil->name ?>">
+                <div class="container">
+                    <form class="col-sm-12" action="oil_update.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="name" value="<?= $oil->name ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="scientific_name" value="<?= $oil->scientific_name ?>">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="scientific_name" value="<?= $oil->scientific_name ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="plant_name" value="<?= $oil->plant_name ?>">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="plant_name" value="<?= $oil->plant_name ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">抽出方法</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="extraction" value="<?= $oil->extraction ?>">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">抽出方法</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="extraction" value="<?= $oil->extraction ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="aroma" value="<?= $oil->aroma ?>">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="aroma" value="<?= $oil->aroma ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="caution" value="<?= $oil->caution ?>">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="caution" value="<?= $oil->caution ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="english_name" value="<?= $oil->english_name ?>">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="english_name" value="<?= $oil->english_name ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">現在の画像</label>
-                        <div class="col-10">
-                            <img src="<?= 'upload/' . $oil->image ?>" alt="表示する画像がありません。" style="max-width:300px">
+                        
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">現在の画像</label>
+                            <div class="col-10">
+                                <img src="<?= 'upload/' . $oil->image ?>" alt="表示する画像がありません。" style="max-width:300px">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label">画像アップロード</label>
-                        <div class="col-3">
-                            <input type="file" name="image" accept='images/*' onchange="previewImage(this);">
+                        
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">画像アップロード</label>
+                            <div class="col-3">
+                                <input type="file" name="image" accept='images/*' onchange="previewImage(this);">
+                            </div>
+                            <div class="col-3">
+                                <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:300px;">
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:300px;">
+                        <div class="row">
+                            <input type="hidden" name="id" value="<?= $id ?>">
                         </div>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="id" value="<?= $id ?>">
-                    </div>
-                    
-                    <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-6">
-                            <button type="submit" class="btn btn-info">Update</button>
+                        
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-6">
+                                <button type="submit" class="btn btn-info">Update</button>
+                            </div>
                         </div>
-                    </div>
-                    
-                </form>
+                    </form>
+                </div>
             </div>
             
             <!--- For Mobile--->  
-             <div class="OilDetail ForMobile">
-                <form class="col-sm-12" action="oil_update.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="name" value="<?= $oil->name ?>">
+             <div class="ForMobile">
+                <div class="container">
+                    <form class="col-sm-12" action="oil_update.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">名前</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="name" value="<?= $oil->name ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="scientific_name" value="<?= $oil->scientific_name ?>">
+                        
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">学名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="scientific_name" value="<?= $oil->scientific_name ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="plant_name" value="<?= $oil->plant_name ?>">
+                        
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">科名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="plant_name" value="<?= $oil->plant_name ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">抽出方法</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="extraction" value="<?= $oil->extraction ?>">
+                        
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">抽出方法</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="extraction" value="<?= $oil->extraction ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="aroma" value="<?= $oil->aroma ?>">
+                        
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">香り</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="aroma" value="<?= $oil->aroma ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="caution" value="<?= $oil->caution ?>">
+                        
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">注意事項</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="caution" value="<?= $oil->caution ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="english_name" value="<?= $oil->english_name ?>">
+                        
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">英名</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="english_name" value="<?= $oil->english_name ?>">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-4 col-form-label">現在の画像</label>
-                        <div class="col-10">
-                            <img src="<?= 'upload/' . $oil->image ?>" alt="表示する画像がありません。" style="max-width:200px">
+                        
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">現在の画像</label>
+                            <div class="col-10">
+                                <img src="<?= 'upload/' . $oil->image ?>" alt="表示する画像がありません。" style="max-width:200px">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-5 col-form-label">画像アップロード</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="image" accept='images/*' onchange="previewImage(this);">
+                        
+                        <div class="form-group row">
+                            <label class="col-5 col-form-label">画像アップロード</label>
+                            <div class="col-sm-10">
+                                <input type="file" name="image" accept='images/*' onchange="previewImage(this);">
+                            </div>
+                            <div class="col-3">
+                                <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
+                        
+                        <div class="row">
+                            <input type="hidden" name="id" value="<?= $id ?>">
                         </div>
-                    </div>
-                    
-                    <div class="row">
-                        <input type="hidden" name="id" value="<?= $id ?>">
-                    </div>
-                    
-                    <div class="row ForMobile">
-                        <button type="submit" class="col-sm-12 btn btn-info">Update</button>
-                    </div>
-                </form>   
+                        
+                        <div class="row ForMobile">
+                            <button type="submit" class="col-sm-12 btn btn-info">Update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         

@@ -142,7 +142,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Tomomi','tomomi@gmail.com','tomomi','2021-06-29 06:56:43'),(2,'TAKAOKA','takaoka@gmail.com','takaoka','2021-06-29 06:57:12'),(3,'Test','test@gmail.com','test','2021-07-01 13:38:21'),(4,'test2','test2@gmail.com','test','2021-07-06 12:04:25');
+INSERT INTO `users` VALUES (1,'Tomomi','tomomi@gmail.com','tomomi','2021-06-29 06:56:43'),(2,'TAKAOKA','takaoka@gmail.com','takaoka','2021-06-29 06:57:12'),(3,'Test','test@gmail.com','test','2021-07-01 13:38:21');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

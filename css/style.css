@@ -67,7 +67,7 @@ form {
 
 
 /*---For PC---*/
-@media screen and (min-width :769px) {
+@media screen and (min-width :768px) {
 /*---index.php---*/
 /*-----Header----*/
     .header {
@@ -245,11 +245,11 @@ form {
     }
     
     /*---Login Page/ Create Account---*/
-    .Login, .CreateAccount{
+    .Login{
         height: 100vH;
     }
     .LoginMain, .CreateMain{
-        margin: 50px 50px;
+        margin: 40px 50px;
         margin-right: 250px;
     }
     .LoginMain p{
@@ -278,11 +278,12 @@ form {
     }
     /*---Footer2 for Login page and Create Account page---*/
     .footer2 {
-        position: absolute;
         background: url(images/footer.jpg);
         background-size: cover;
         width: 100%;
         bottom: 0;
+        height: 80px;
+        position: absolute;
     }
     .copylight2{
         display: inline-block;
@@ -290,7 +291,7 @@ form {
         float: right;
         bottom: 0;
         margin-right: 10px;
-        margin-top: 100px;
+        margin-top: 60px;
         color: white;
         
     }
@@ -298,11 +299,13 @@ form {
     .MypageMain{
         margin: 30px 50px;
     }
+    .MypageMain h2{
+        margin-left: 5%;
+    }
     .MypageMain a{
         float: right;
         font-size: 18px;
     }
-    
     .other p{
         margin-left: 300px;
         margin-top: 10px;

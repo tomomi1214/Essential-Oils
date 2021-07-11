@@ -34,37 +34,40 @@
                 <?php endforeach; ?>
                 <?php endif; ?>
                 </ul>
-                <div class="row mt-3">
-                    <form class="col-sm-10" action="user_create.php" method="POST">
-                    <!-- 1行 -->
-                    <div class="form-group row offset-md-4">
-                        <label class="col-4 col-form-label">Name</label>
-                        <div class="col-7">
-                            <input type="text" class="form-control" name="name" placeholder="Name">
+                <div class="container">
+                    <div class="row mt-1">
+                        <form class="col-sm-10" action="user_create.php" method="POST">
+                        <!-- 1行 -->
+                        <div class="form-group row offset-md-4">
+                            <label class="col-sm-4 col-form-label">Name</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="name" placeholder="Name">
+                            </div>
                         </div>
-                    </div>
-                    <!-- 1行 -->
-                    <div class="form-group row offset-md-4">
-                        <label class="col-4 col-form-label">Email Address</label>
-                        <div class="col-7">
-                            <input type="text" class="form-control" name="email" placeholder="Email Address">
+                        <!-- 1行 -->
+                        <div class="form-group row offset-md-4">
+                            <label class="col-sm-4 col-form-label">Email Address</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="email" placeholder="Email Address">
+                            </div>
                         </div>
-                    </div>
-                    <!-- 1行 -->
-                    <div class="form-group row offset-md-4">
-                        <label class="col-4 col-form-label">Password</label>
-                        <div class="col-7">
-                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        <!-- 1行 -->
+                        <div class="form-group row offset-md-4">
+                            <label class="col-sm-4 col-form-label">Password</label>
+                            <div class="col-sm-7">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
                         </div>
-                    </div>
-                    <!-- 1行 -->
-                    <div class="form-group row">
-                        <div class="offset-7 col-10">
-                            <button type="submit" class="btn btn-primary">Create</button>                        
+                        <!-- 1行 -->
+                        <div class="form-group row">
+                            <div class="offset-7 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Create</button>                        
+                            </div>
                         </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
+                
                 <div class="nav">
                     <a href="index.php">Back to TOP</a>
                 </div>

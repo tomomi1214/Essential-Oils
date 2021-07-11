@@ -30,35 +30,61 @@
                 <?php if(flash_message !== null): ?>
                 <p><?= $flash_message ?></p>
                 <?php endif; ?>
-            </div>
-            
-            <div class="container">
-                <div class="row">
+                <div class="ForPC">
+                    <!-- For PC -->
+                    <div class="container my-4">
+                        <form class="col-sm-12" action="login_check.php" method="POST">
+                        <!-- 1行 -->
+                        <div class="form-group row offset-md-1">
+                            <label class="col-sm-3 col-form-label">Email Address</label>
+                            <div class="col-7">
+                                <input type="text" class="form-control" name="email" placeholder="Email Address">
+                            </div>
+                        </div>
+                        <!-- 1行 -->
+                        <div class="form-group row offset-md-1">
+                            <label class="col-3 col-form-label">Password</label>
+                            <div class="col-7">     
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <!-- 1行 -->
+                        <div class="form-group row offset-md-5">
+                            <div class="col-10">
+                                <button type="submit" class="btn btn-primary">Login</button>                        
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- For Mobile -->
+                <div class="ForMobile">
+                    <div class="container">
                     <form class="col-sm-12" action="login_check.php" method="POST">
-                    <!-- 1行 -->
-                    <div class="form-group row offset-md-1">
-                        <label class="col-3 col-form-label">Email Address</label>
-                        <div class="col-7">
-                            <input type="text" class="form-control" name="email" placeholder="Email Address">
+                        <!-- 1行 -->
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Email Address</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="email" placeholder="Email Address">
+                            </div>
                         </div>
-                    </div>
-                    <!-- 1行 -->
-                    <div class="form-group row offset-md-1">
-                        <label class="col-3 col-form-label">Password</label>
-                        <div class="col-7">     
-                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        <!-- 1行 -->
+                        <div class="form-group row offset-md-1">
+                            <label class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-7">     
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
                         </div>
-                    </div>
-                    <!-- 1行 -->
-                    <div class="form-group row offset-md-5">
-                        <div class="col-10">
-                            <button type="submit" class="btn btn-primary">Login</button>                        
+                        <!-- 1行 -->
+                        <div class="form-group row offset-md-5">
+                            <div class="col-10">
+                                <button type="submit" class="btn btn-primary">Login</button>                        
+                            </div>
                         </div>
-                    </div>
                     </form>
+                    </div>
                 </div>
             </div>
-            
             <div class="nav">
                 <a href="index.php">Back to TOP</a>
             </div>

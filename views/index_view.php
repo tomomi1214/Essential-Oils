@@ -22,13 +22,24 @@
     <body>
         <div class="header" style="background-image:url(images/top1.jpg)">
             <h1><a href="index.php">Aroma Knowledge</h1></a>
-        </div>        
-        <div class="main">
-            <span><a href="user_register.php">会員登録</a></span>
-            <span> / </span>
-            <span><a href="login.php">Login</a></span>
         </div>
-        
+        <div class="container">
+            <!-- For PC -->
+            <div class="ForPC mt-4">
+                <div class="text-right ml-1">
+                    <a class="btn btn-sm btn-outline-success col-sm-1" href="user_register.php" role="button">会員登録</a>
+                    <a class="btn btn-sm btn-outline-primary col-sm-1" href="login.php" role="button">Login</a>
+                </div>
+            </div>
+            <!-- For Mobile -->
+            <div class="ForMobile mt-4">
+                <div class="text-right">
+                    <a class="btn btn-sm btn-outline-success px-1" href="user_register.php" role="button">会員登録</a>
+                    <a class="btn btn-sm btn-outline-primary px-1" href="login.php" role="button">Login</a>
+                </div>
+            </div>
+        </div>
+            
         <div class="FlashMessage">
             <?php if($flash_message !== null): ?>
             <p><?= $flash_message ?></p>

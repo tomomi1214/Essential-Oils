@@ -71,8 +71,6 @@
                 <?php endforeach; ?>
             </div>
         </div>
-
-
         
         <div class="nav">
             <a href="index.php">Back to TOP</a>
