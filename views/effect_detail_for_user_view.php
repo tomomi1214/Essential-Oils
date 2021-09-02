@@ -19,7 +19,7 @@
         <!-- Original JavaScript -->
         <script src="js/script.js"></script>
         <style>
-            form.col-sm-5 {
+            form .col-sm-5 {
                 margin: 0;
             }
         </style>
